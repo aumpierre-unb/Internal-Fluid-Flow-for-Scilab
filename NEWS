@@ -1,0 +1,15 @@
+TODO:
+
+inflowlib v0.0.5 (2022-07-22)
+=============================
+* Spell of "Weisbach" is now correct
+* espfD2Re now computes Reynolds number for laminar flow and/or turbulent flow
+when possible
+* The second input of epsfD2Re and epsRe2fD now is optional with default value
+eps=2e-3
+* Plots now include a complete turbulence line for reference
+ 
+inflowlib v0.0.3 (2022-07-09)
+=============================
+* First release
+* Module under construction   
