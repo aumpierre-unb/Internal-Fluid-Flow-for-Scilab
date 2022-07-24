@@ -56,22 +56,23 @@ function [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk,varargin)
     // // density rho=0.98 (g/cu.cm), 
     // // the flow speed v=110 (cm/s) and 
     // // the pipe's length L=2500 (cm) and 
-    // // roughness thk=0.025:
+    // // roughness thk=0.025 (cm):
     //
     // [Re,fD]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%f)
-    // // This call computes Re e fD. Alternatively:
-    // h=40,..
-    // g=981,..
-    // mu=0.0089,..
-    // rho=0.98,..
-    // v=110,..
-    // L=2500,..
-    // thk=0.025,..
+    // // This call computes Re e fD
+    // // Alternatively:
+    // h=40,.. //head loss
+    // g=981,.. //gravitational acceleration (cm/s/s)
+    // mu=0.0089,.. //fluid's dynamic viscosity (g/cm/s)
+    // rho=0.98,.. //fluid's density (g/cu.cm)
+    // v=110,.. //speed flow
+    // L=2500,.. //pipe's length
+    // thk=0.025,.. //pipe's roughness
     // [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk)
     //
     // [Re,fD]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%t)
-    // // This call computes Re e fD and 
-    // // plots a representation of the solution 
+    // // This call computes Re e fD 
+    // // and plots a representation of the solution 
     // // on a schematic Moody diagram.
     //
     // See also

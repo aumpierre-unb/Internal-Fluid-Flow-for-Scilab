@@ -23,7 +23,7 @@ function [fD]=epsRe2fD(Re,varargin)
     // Computes the Darcy friction factor given the Reynolds number and the relative roughness
     //
     // Syntax
-    // fD=epsRe2fD(Re[,eps[,s]])
+    // [fD]=epsRe2fD(Re[,eps[,s]])
     //
     // Parameters
     // Re: Reynolds number
@@ -45,29 +45,29 @@ function [fD]=epsRe2fD(Re,varargin)
     //
     // Examples
     // // Compute the Darcy friction factor fD given 
-    // // the relative roughness eps=0.0044 and 
-    // // the Reynolds number Re=2.5e4:
+    // // the Reynolds number Re=2.5e4 and 
+    // // the relative roughness eps=0.0044:
     //
     // fD=epsRe2fD(2.5e4,0.0044,%f)
-    // // This call computes fD only. Alternatively:
+    // // This call computes fD 
+    // // for Re=2.5e4 and eps=0.0044.
+    // // Alternatively:
     // Re=2.5e4,..
     // eps=0.0044,..
     // fD=epsRe2fD(Re,eps)
     //
     // fD=epsRe2fD(2.5e4,0.0044,%t)
     // // This call computes fD 
-    // // for eps=0.0044 and Re=2.5e4 and 
-    // // plots a representation of the solution 
+    // // for Re=2.5e4 and eps=0.0044 
+    // // and plots a representation of the solution 
     // // on a schematic Moody diagram.
     //
     // // Compute the Darcy friction factor fD given 
-    // // the Reynolds number Re=2.5e4 only:
+    // // the Reynolds number Re=2.5e4:
     //
     // fD=epsRe2fD(2.5e4)
     // // This call computes fD 
-    // // for the default eps=2e-3 and 
-    // // plots a representation of the solution 
-    // // on a schematic Moody diagram.
+    // // for the default eps=2e-3.
     //
     // See also
     //  epsfD2Re

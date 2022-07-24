@@ -58,19 +58,20 @@ function [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps,varargin)
     // // relative roughness eps=0.0025:
     //
     // [Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%f)
-    // // This call computes Re e fD. Alternatively:
-    // h=40,..
-    // g=981,..
-    // mu=0.0089,..
-    // rho=0.98,..
-    // D=10,..
-    // L=2500,..
-    // eps=0.0025,..
+    // // This call computes Re e fD
+    // // Alternatively:
+    // h=40,.. //head loss (cm)
+    // g=981,.. //gravitational acceleration (cm/s/s)
+    // mu=0.0089,.. //fluid's dynamic viscosity (g/cm/s)
+    // rho=0.98,.. //fluid's density (g/cu.cm)
+    // D=10,.. //pipe's hydraulic diameter (cm)
+    // L=2500,.. //pipe's length (cm)
+    // eps=0.0025,.. //pipe's relative roughness
     // [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps)
     //
     // [Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%t)
-    // // This call computes Re e fD and 
-    // // plots a representation of the solution 
+    // // This call computes Re e fD 
+    // // and plots a representation of the solution 
     // // on a schematic Moody diagram.
     //
     // See also
