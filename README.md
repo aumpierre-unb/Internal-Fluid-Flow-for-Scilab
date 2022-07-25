@@ -43,7 +43,7 @@ where
 The flow of viscous fluids is accompanied of energy dispersion, which can be measured as a pressure drop or, equivalently, as a head loss *h*, by the Darcy-Weisbach equation,
 
 $$
-h=f{v^2 \over 2g} {L \over D}
+h=f_D{v^2 \over 2g} {L \over D}
 $$
 
 where $f_D$ is the Darcy friction factor, *D* is the pipe's hydraulic diameter and *L* is the pipe's length. $f_D$ is described as a function of the Reynolds number,
@@ -68,13 +68,13 @@ The simplest problems on internal fluid flow consist on computing one of them gi
 For laminar flow, the Darcy friction factor is given by the Poiseuille condition,
 
 $$
-f={64 \over Re}
+f_D={64 \over Re}
 $$
 
 For turbulent flow, the Darcy friction factor is given implicitly by the Colebrooke-White equation,
 
 $$
-{1 \over \sqrt f }=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt f}}}
+{1 \over \sqrt f_D }=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt f_D}}}
 $$
 
 ## The Internal Fluid Flow Toolbox
