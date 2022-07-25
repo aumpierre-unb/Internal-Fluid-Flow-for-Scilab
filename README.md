@@ -74,7 +74,7 @@ $$
 For turbulent flow, the Darcy friction factor is given implicitly by the Colebrooke-White equation,
 
 $$
-{1 \over \sqrt f_D }=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt f_D}}}
+{1 \over \sqrt f_D }=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt f_D\}}}
 $$
 
 ## The Internal Fluid Flow Toolbox
