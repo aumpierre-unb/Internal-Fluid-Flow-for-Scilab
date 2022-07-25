@@ -101,7 +101,9 @@ epsRe2fD computes the Darcy friction factor $f_D$ given the relative roughness $
 
 *e.g.* Compute the Darcy friction factor $f_D$ given the Reynolds number $Re$=2.5e4 and the relative roughness $\varepsilon$=0.0044:
 
-``--> fD=epsRe2fD(2.5e4,0.0044,%f) // or``
+``--> fD=epsRe2fD(2.5e4,0.0044,%f)``
+
+or
 
 ``--> Re=2.5e4,eps=0.0044,fD=epsRe2fD(Re,eps)``
 
@@ -127,7 +129,9 @@ $$
 
 *e.g.* Compute the Reynolds $Re$ number given the Darcy friction factor $f_D$=0.033 and the relative roughness $\varepsilon$=0.0044:
 
-``--> Re=epsfD2Re(0.033,0.0044,%f) // or``
+``--> Re=epsfD2Re(0.033,0.0044,%f)``
+
+or
 
 ``--> fD=0.033,eps=0.0044,Re=epsfD2Re(fD,eps)``
 
