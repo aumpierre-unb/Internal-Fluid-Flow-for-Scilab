@@ -44,30 +44,28 @@ function [fD]=epsRe2fD(Re,varargin)
     // Inputs are to be given in a consistent system of units.
     //
     // Examples
-    // // Compute the Darcy friction factor fD given 
-    // // the Reynolds number Re=2.5e4 and 
-    // // the relative roughness eps=0.0044:
-    //
+    // ..// e.g. Compute the Darcy friction factor fD given
+    // ..// the Reynolds number Re=2.5e4 and
+    // ..// the relative roughness eps=0.0044:
+    // ..//
+    // ..// This call computes fD
+    // ..// for Re=2.5e4 and eps=0.0044:
     // fD=epsRe2fD(2.5e4,0.0044,%f)
-    // // This call computes fD 
-    // // for Re=2.5e4 and eps=0.0044.
-    // // Alternatively:
-    // Re=2.5e4,..
-    // eps=0.0044,..
+    // ..// Alternatively:
+    // Re=2.5e4;..
+    // eps=0.0044;..
     // fD=epsRe2fD(Re,eps)
-    //
+    // ..// This call computes fD
+    // ..// for Re=2.5e4 and eps=0.0044
+    // ..// and plots a representation of the solution
+    // ..// on a schematic Moody diagram:
     // fD=epsRe2fD(2.5e4,0.0044,%t)
-    // // This call computes fD 
-    // // for Re=2.5e4 and eps=0.0044 
-    // // and plots a representation of the solution 
-    // // on a schematic Moody diagram.
-    //
-    // // Compute the Darcy friction factor fD given 
-    // // the Reynolds number Re=2.5e4:
-    //
+    // ..// e.g. Compute the Darcy friction factor fD given
+    // ..// the Reynolds number Re=2.5e4:
+    // ..//
+    // ..// This call computes fD
+    // ..// for the default eps=2e-3:
     // fD=epsRe2fD(2.5e4)
-    // // This call computes fD 
-    // // for the default eps=2e-3.
     //
     // See also
     //  epsfD2Re
@@ -145,7 +143,7 @@ function rough()
     for i=1:N
         w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N
         eps=[eps;10^w]
-        f=[f;1.02*(2*log10(3.7/eps($)))^-2]
+        f=[f;1.01*(2*log10(3.7/eps($)))^-2]
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end

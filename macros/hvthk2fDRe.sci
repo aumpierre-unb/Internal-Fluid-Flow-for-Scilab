@@ -48,32 +48,31 @@ function [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk,varargin)
     // Inputs are to be given in a consistent system of units.
     //
     // Examples
-    // // Compute the Reynolds number Re and 
-    // // the Darcy friction factor fD given 
-    // // the head loss h=40 (cm), 
-    // // the gravitational acceleration g=981 (cm/s/s), 
-    // // the fluid's the dynamic viscosity mu=0.0089 (g/cm/s) and 
-    // // density rho=0.98 (g/cu.cm), 
-    // // the flow speed v=110 (cm/s) and 
-    // // the pipe's length L=2500 (cm) and 
-    // // roughness thk=0.025 (cm):
-    //
+    // ..// e.g. Compute the Reynolds number Re and
+    // ..// the Darcy friction factor fD given
+    // ..// the head loss h=40 (cm),
+    // ..// the gravitational acceleration g=981 (cm/s/s),
+    // ..// the fluid's the dynamic viscosity mu=0.0089 (g/cm/s) and
+    // ..// density rho=0.98 (g/cu.cm),
+    // ..// the flow speed v=110 (cm/s) and
+    // ..// the pipe's length L=2500 (cm) and
+    // ..// roughness thk=0.025 (cm):
+    // ..//
+    // ..// This call computes Re e fD:
     // [Re,fD]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%f)
-    // // This call computes Re e fD
-    // // Alternatively:
-    // h=40,.. //head loss
-    // g=981,.. //gravitational acceleration (cm/s/s)
-    // mu=0.0089,.. //fluid's dynamic viscosity (g/cm/s)
-    // rho=0.98,.. //fluid's density (g/cu.cm)
-    // v=110,.. //speed flow
-    // L=2500,.. //pipe's length
-    // thk=0.025,.. //pipe's roughness
+    // ..// Alternatively:
+    // h=40;.. //head loss
+    // g=981;.. //gravitational acceleration (cm/s/s)
+    // mu=0.0089;.. //fluid's dynamic viscosity (g/cm/s)
+    // rho=0.98;.. //fluid's density (g/cu.cm)
+    // v=110;.. //speed flow (cm/s)
+    // L=2500;.. //pipe's length (cm)
+    // thk=0.025;.. //pipe's roughness (cm)
     // [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk)
-    //
+    // ..// This call computes Re e fD
+    // ..// and plots a representation of the solution
+    // ..// on a schematic Moody diagram:
     // [Re,fD]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%t)
-    // // This call computes Re e fD 
-    // // and plots a representation of the solution 
-    // // on a schematic Moody diagram.
     //
     // See also
     //  epsfD2Re
@@ -156,7 +155,7 @@ function rough()
     for i=1:N
         w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N
         eps=[eps;10^w]
-        f=[f;1.02*(2*log10(3.7/eps($)))^-2]
+        f=[f;1.01*(2*log10(3.7/eps($)))^-2]
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end

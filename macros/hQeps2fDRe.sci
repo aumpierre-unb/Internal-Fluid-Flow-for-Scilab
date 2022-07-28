@@ -48,32 +48,31 @@ function [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps,varargin)
     // Inputs are to be given in a consistent system of units.
     //
     // Examples
-    // // Compute the Reynolds number Re and 
-    // // the Darcy friction factor fD given 
-    // // the head loss h=40 (cm), 
-    // // the gravitational acceleration g=981 (cm/s/s), 
-    // // the fluid's the dynamic viscosity mu=0.0089 (g/cm/s) and 
-    // // density rho=0.98 (g/cu.cm), 
-    // // volumetric flow rate Q=8666 (cu.cm/s) and 
-    // // the pipe's length L=2500 (cm) and 
-    // // relative roughness eps=0.0025:
-    //
+    // ..// e.g. Compute the Reynolds number Re and
+    // ..// the Darcy friction factor fD given
+    // ..// the head loss h=40 (cm),
+    // ..// the gravitational acceleration g=981 (cm/s/s),
+    // ..// the fluid's the dynamic viscosity mu=0.0089 (g/cm/s) and
+    // ..// density rho=0.98 (g/cu.cm),
+    // ..// volumetric flow rate Q=8666 (cu.cm/s) and
+    // ..// the pipe's length L=2500 (cm) and
+    // ..// relative roughness eps=0.0025:
+    // ..//
+    // ..// This call computes Re e fD:
     // [Re,fD]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%f)
-    // // This call computes Re e fD
-    // // Alternatively:
-    // h=40,.. //head loss
-    // g=981,.. //gravitational acceleration (cm/s/s)
-    // mu=0.0089,.. //fluid's dynamic viscosity (g/cm/s)
-    // rho=0.98,.. //fluid's density (g/cu.cm)
-    // Q=8666,.. //volumetric flow rate (cu. cm/s)
-    // L=2500,.. //pipe's length
-    // eps=0.0025,.. //pipe's relative roughness
+    // ..// Alternatively:
+    // h=40;.. //head loss (cm)
+    // g=981;.. //gravitational acceleration (cm/s/s)
+    // mu=0.0089;.. //fluid's dynamic viscosity (g/cm/s)
+    // rho=0.98;.. //fluid's density (g/cu.cm)
+    // Q=8666;.. //volumetric flow rate (cu. cm/s)
+    // L=2500;.. //pipe's length (cm)
+    // eps=0.0025;.. //pipe's relative roughness
     // [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps)
-    //
+    // ..// This call computes Re e fD
+    // ..// and plots a representation of the solution
+    // ..// on a schematic Moody diagram:
     // [Re,fD]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%t)
-    // // This call computes Re e fD 
-    // // and plots a representation of the solution 
-    // // on a schematic Moody diagram.
     //
     // See also
     //  epsfD2Re
@@ -150,7 +149,7 @@ function rough()
     for i=1:N
         w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N
         eps=[eps;10^w]
-        f=[f;1.02*(2*log10(3.7/eps($)))^-2]
+        f=[f;1.01*(2*log10(3.7/eps($)))^-2]
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end
