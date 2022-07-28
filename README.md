@@ -46,7 +46,13 @@ $$
 h=f_D{v^2 \over 2g} {L \over D}
 $$
 
-where $f_D$ is the Darcy friction factor, *D* is the pipe's hydraulic diameter and *L* is the pipe's length. $f_D$ is described as a function of the Reynolds number,
+where $f_D$ is the Darcy friction factor, *L* is the pipe's length and *D* is the pipe's hydraulic diameter,
+
+$$
+D={4A \over P}
+$$
+
+where *A* is the cross-sectional area of the flow and *P* is the wet perimeter of the cross-sectional. $f_D$ is described as a function of the Reynolds number,
 
 $$
 Re={\rho vg \over \mu}
