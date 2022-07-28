@@ -109,19 +109,19 @@ epsRe2fD computes the Darcy friction factor *f* given the relative roughness *&e
 
 *e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4 and the relative roughness *&epsilon;*=0.0044:
 
-``--> fD=epsRe2fD(2.5e4,0.0044,%f)``
+``--> f=epsRe2fD(2.5e4,0.0044,%f)``
 
 or
 
-``--> Re=2.5e4,eps=0.0044,fD=epsRe2fD(Re,eps)``
+``--> Re=2.5e4,eps=0.0044,f=epsRe2fD(Re,eps)``
 
 *e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4 and the relative roughness *&epsilon;*=0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
-``--> fD=epsRe2fD(2.5e4,0.0044,%t)``
+``--> f=epsRe2fD(2.5e4,0.0044,%t)``
 
 *e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4:
 
-``--> fD=epsRe2fD(2.5e4)``
+``--> f=epsRe2fD(2.5e4)``
 
 ### epsfD2Re
 
@@ -135,7 +135,7 @@ $$
 
 **Syntax:**
 
-``[Re]=epsfD2Re(fD[,eps[,s]])``
+``[Re]=epsfD2Re(f[,eps[,s]])``
 
 *e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=0.033 and the relative roughness *&epsilon;*=0.0044:
 
@@ -143,7 +143,7 @@ $$
 
 or
 
-``--> fD=0.033,eps=0.0044,Re=epsfD2Re(fD,eps)``
+``--> f=0.033,eps=0.0044,Re=epsfD2Re(f,eps)``
 
 *e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=0.033 and the relative roughness *&epsilon;*=0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
@@ -165,7 +165,7 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 **Syntax:**
 
-``--> [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,s])``
+``--> [Re,f]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,s])``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -181,7 +181,7 @@ the pipe's hydraulic diameter *D*=10 (cm), length *L*=2500 (cm) and relative rou
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%t)``
+``--> [Re,f]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%t)``
 
 ### hveps2fDRe
 
@@ -195,7 +195,7 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 **Syntax:**
 
-``--> [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps[,s])``
+``--> [Re,f]=hveps2fDRe(h,g,mu,rho,v,L,eps[,s])``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -209,11 +209,11 @@ the speed flow *v*=110 (cm/s), and
 
 the pipe's length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
-``--> [Re,fD]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%f)``
+``--> [Re,f]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%f)``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,fD]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%t)``
+``--> [Re,f]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%t)``
 
 ### hQeps2fDRe
 
@@ -227,7 +227,7 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 **Syntax:**
 
-``--> [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,s])``
+``--> [Re,f]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,s])``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -241,11 +241,11 @@ the volumetric flow rate *Q*=8666 (cu. cm/s), and
 
 the pipe's length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
-``--> [Re,fD]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%f)``
+``--> [Re,f]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%f)``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,fD]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%t)``
+``--> [Re,f]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%t)``
 
 ### hvthk2fDRe
 
@@ -259,7 +259,7 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 **Syntax:**
 
-``--> [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,s])``
+``--> [Re,f]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,s])``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -273,11 +273,11 @@ the speed flow *v*=110 (cm/s), and
 
 the pipe's length *L*=2500 (cm) and roughness *k*=0.025 (cm):
 
-``--> [Re,fD]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%f)``
+``--> [Re,f]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%f)``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,fD]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%t)``
+``--> [Re,f]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%t)``
 
 ### hQthk2fDRe
 
@@ -291,7 +291,7 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 **Syntax:**
 
-``--> [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])``
+``--> [Re,f]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -305,11 +305,11 @@ the volumetric flow rate *Q*=8666 (cu. cm/s), and
 
 the pipe's length *L*=2500 (cm) and roughness *k*=0.025:
 
-``--> [Re,fD]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%f)``
+``--> [Re,f]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%f)``
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,fD]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%t)``
+``--> [Re,f]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%t)``
 
 Copyright &copy; 2022 Alexandre Umpierre
 
