@@ -1,7 +1,13 @@
 TODO
 ====
-* Minor corrections on help comments (DONE)
 
+inflowlib v0.0.6 (2022-07-28)
+=============================
+* Minor corrections on functions' help comments
+* Minor adjustments on functions' help comments for best shape when paste
+  from Scilab Help to Scilab console
+* Fully turbulent line reset from 1.02 to 1.01 of fully turbulent limit
+ 
 inflowlib v0.0.5 (2022-07-22)
 =============================
 * Spell of "Weisbach" is now correct
@@ -14,4 +20,4 @@ eps=2e-3
 inflowlib v0.0.3 (2022-07-09)
 =============================
 * First release
-* Module under construction   
+* Module under construction  
