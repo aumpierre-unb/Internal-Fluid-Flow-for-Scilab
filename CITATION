@@ -1,7 +1,7 @@
 To cite Internal-Fluid-Flow-for-Scilab in publications use:
 
   Umpierre, Alexandre Perez. (2022). iboot: A toolbox for internal fluid flow for Scilab. Zenodo.
-  https://doi.org/xx.xxxx/zenodo.xxxxxxx
+  https://doi.org/10.5281/zenodo.6927995
 
 A BibTeX entry for LaTeX users is:
 
@@ -9,5 +9,5 @@ A BibTeX entry for LaTeX users is:
     title     = {{iboot}: A toolbox for internal fluid flow for Scilab},
     author    = {Alexandre Perez Umpierre},
     year      = {2022},
-    doi       = {xx.xxxx/zenodo.xxxxxxx}
+    doi       = {10.5281/zenodo.6927995}
   }
