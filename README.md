@@ -52,7 +52,7 @@ $$
 D={4A \over P}
 $$
 
-where *A* is the cross-sectional area of the flow and *P* is the wet perimeter of the cross-sectional. *f* is described as a function of the Reynolds number,
+where *A* is the cross-sectional area of the flow and *P* is the wet perimeter of the cross-section. *f* is described as a function of the Reynolds number,
 
 $$
 Re={\rho vg \over \mu}
