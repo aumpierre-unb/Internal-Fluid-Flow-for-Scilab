@@ -32,7 +32,7 @@ $$
 
 where
 
-- $\rho$ is the fluid's density,
+- *&rho;* is the fluid's density,
 - *v* is the speed flow,
 - *g* is the gravitational acceleration,
 - *z* is the elevation, and
@@ -43,16 +43,16 @@ where
 The flow of viscous fluids is accompanied of energy dispersion, which can be measured as a pressure drop or, equivalently, as a head loss *h*, by the Darcy-Weisbach equation,
 
 $$
-h=f_D{v^2 \over 2g} {L \over D}
+h=f{v^2 \over 2g} {L \over D}
 $$
 
-where $f_D$ is the Darcy friction factor, *L* is the pipe's length and *D* is the pipe's hydraulic diameter,
+where *f* is the Darcy friction factor, *L* is the pipe's length and *D* is the pipe's hydraulic diameter,
 
 $$
 D={4A \over P}
 $$
 
-where *A* is the cross-sectional area of the flow and *P* is the wet perimeter of the cross-sectional. $f_D$ is described as a function of the Reynolds number,
+where *A* is the cross-sectional area of the flow and *P* is the wet perimeter of the cross-sectional. *f* is described as a function of the Reynolds number,
 
 $$
 Re={\rho vg \over \mu}
@@ -64,8 +64,8 @@ $$
 \varepsilon={k \over D}
 $$
 
-$\mu$ is the fluid's dynamic viscosity and *k* is the pipe's[ internal surface] roughness.
-The Reynolds number $Re$, the Darcy friction factor $f_D$, and the relative roughness $\varepsilon$ completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, $f_D$ is given as a function of $Re$ and $\varepsilon$.
+*&mu;* is the fluid's dynamic viscosity and *k* is the pipe's[ internal surface] roughness.
+The Reynolds number *Re*, the Darcy friction factor *f*, and the relative roughness *&epsilon;* completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, *f* is given as a function of *Re* and *&epsilon;*.
 
 The simplest problems on internal fluid flow consist on computing one of them given the two other. More complex situations arise when only one or none of those variables is known. Instead, dimensional variables involved are given. However not always, in most cases iterative computation is required.
 
@@ -99,13 +99,13 @@ Internal Fluid Flow Toolbox provides the following functions:
 
 ### epsRe2fD
 
-epsRe2fD computes the Darcy friction factor $f_D$ given the relative roughness $\varepsilon$ and the Reynolds number $Re$. If given $Re$ < 3000, then flow is assumed to be laminar and $f_D$ is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and $f_D$ is computed using the Colebrooke-White equation.
+epsRe2fD computes the Darcy friction factor *f* given the relative roughness *&epsilon;* and the Reynolds number *Re*. If given *Re* < 3000, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrooke-White equation.
 
 **Syntax:**
 
 ``[f]=epsRe2fD(Re,[eps[,s]])``
 
-*e.g.* Compute the Darcy friction factor $f_D$ given the Reynolds number $Re$=2.5e4 and the relative roughness $\varepsilon$=0.0044:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4 and the relative roughness *&epsilon;*=0.0044:
 
 ``--> fD=epsRe2fD(2.5e4,0.0044,%f)``
 
@@ -113,29 +113,29 @@ or
 
 ``--> Re=2.5e4,eps=0.0044,fD=epsRe2fD(Re,eps)``
 
-*e.g.* Compute the Darcy friction factor $f_D$ given the Reynolds number $Re$=2.5e4 and the relative roughness $\varepsilon$=0.0044 and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4 and the relative roughness *&epsilon;*=0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
 ``--> fD=epsRe2fD(2.5e4,0.0044,%t)``
 
-*e.g.* Compute the Darcy friction factor $f_D$ given the Reynolds number $Re$=2.5e4:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4:
 
 ``--> fD=epsRe2fD(2.5e4)``
 
 ### epsfD2Re
 
-espfD2Re computes the Reynolds number $Re$ given the relative roughness $\varepsilon$ and the Darcy friction factor $f_D$. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces Re < 3000, laminar solution is accepted. If given $f_D$ is possible for turbulent flow,
+espfD2Re computes the Reynolds number *Re* given the relative roughness *&epsilon;* and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces Re < 3000, laminar solution is accepted. If given *f* is possible for turbulent flow,
 
 $$
 {1 \over \sqrt{f_D}}=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon}}
 $$
 
-(which is Colebrooke-White equation for for elevated $Re$) the turbulent solution is accepted. If both solutions are accepted, espfD2Re returns both answers. If neither laminar or turbulent solutions are accepted, espfD2Re returns an empty matrix. If given $\varepsilon$ > 0.05, execution is aborted.
+(which is Colebrooke-White equation for for elevated *Re*) the turbulent solution is accepted. If both solutions are accepted, espfD2Re returns both answers. If neither laminar or turbulent solutions are accepted, espfD2Re returns an empty matrix. If given *&epsilon;* > 0.05, execution is aborted.
 
 **Syntax:**
 
 ``[Re]=epsfD2Re(fD[,eps[,s]])``
 
-*e.g.* Compute the Reynolds $Re$ number given the Darcy friction factor $f_D$=0.033 and the relative roughness $\varepsilon$=0.0044:
+*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=0.033 and the relative roughness *&epsilon;*=0.0044:
 
 ``--> Re=epsfD2Re(0.033,0.0044,%f)``
 
@@ -143,17 +143,17 @@ or
 
 ``--> fD=0.033,eps=0.0044,Re=epsfD2Re(fD,eps)``
 
-*e.g.* Compute the Reynolds $Re$ number given the Darcy friction factor $f_D$=0.033 and the relative roughness $\varepsilon$=0.0044 and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=0.033 and the relative roughness *&epsilon;*=0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
 ``--> Re=epsfD2Re(0.033,0.0044,%t)``
 
-*e.g.* Compute the Reynolds number factor $f_D$ given the Darcy friction $f_D$=0.033:
+*e.g.* Compute the Reynolds number factor *f* given the Darcy friction *f*=0.033:
 
 ``--> Re=epsfD2Re(0.033)``
 
 ### hDeps2fDRe
 
-hDeps2fDRe computes both the Darcy friction factor $f_D$ and the Reynolds number $Re$ given the head loss *h*, the pipe's length *L*, relative roughness $\varepsilon$ and hydraulic diameter *D*, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing speed flow *v* in the Darcy-Weisbach equation by the Reynolds number $Re$,
+hDeps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L*, relative roughness *&epsilon;* and hydraulic diameter *D*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing speed flow *v* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 Re^2 f={2gh\rho^2D^3 \over {\mu^2 L}}
@@ -165,25 +165,25 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 ``--> [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,s])``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-the head loss $h$=40 (cm),
+the head loss *h*=40 (cm),
 
-the gravitational acceleration $g$=981 (cm/s/s),
+the gravitational acceleration *h*=981 (cm/s/s),
 
-the fluid's the dynamic viscosity $\mu$=0.0089 (g/cm/s) and density $\rho$=0.98 (g/cu.cm), and
+the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.98 (g/cu.cm), and
 
-the pipe's hydraulic diameter $D$=10 (cm), length $L$=2500 (cm) and relative roughness $\varepsilon$=0.0025:
+the pipe's hydraulic diameter *D*=10 (cm), length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
 ``--> [Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%f)``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
 ``--> [Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%t)``
 
 ### hveps2fDRe
 
-hveps2fDRe computes both the Darcy friction factor $f_D$ and the Reynolds number $Re$ given the head loss *h*, the pipe's length *L* and relative roughness $\varepsilon$, the speed flow *v*, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number $Re$,
+hveps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the speed flow *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {f \over Re}={2gh\mu \over {v^3\rho L}}
@@ -195,27 +195,27 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 ``--> [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps[,s])``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-the head loss $h$=40 (cm),
+the head loss *h*=40 (cm),
 
-the gravitational acceleration $g$=981 (cm/s/s),
+the gravitational acceleration *g*=981 (cm/s/s),
 
-the fluid's the dynamic viscosity $\mu$=0.0089 (g/cm/s) and density $\rho$=0.98 (g/cu.cm),
+the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.98 (g/cu.cm),
 
-the speed flow $v$=110 (cm/s), and
+the speed flow *v*=110 (cm/s), and
 
-the pipe's length $L$=2500 (cm) and relative roughness $\varepsilon$=0.0025:
+the pipe's length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
 ``--> [Re,fD]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%f)``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
 ``--> [Re,fD]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%t)``
 
 ### hQeps2fDRe
 
-hQeps2fDRe computes both the Darcy friction factor $f_D$ and the Reynolds number $Re$ given the head loss *h*, the pipe's length *L* and relative roughness $\varepsilon$, the volumetric flow rate Q, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number $Re$,
+hQeps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the volumetric flow rate Q, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {Re^5 f}={2ghQ^3 \over\displaystyle {{\left[ {\pi \over 4} \right]}^3 {\left[ {\mu \over \rho} \right]}^5 L}}
@@ -227,27 +227,27 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 ``--> [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,s])``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-the head loss $h$=40 (cm),
+the head loss *h*=40 (cm),
 
-the gravitational acceleration $g$=981 (cm/s/s),
+the gravitational acceleration *g*=981 (cm/s/s),
 
-the fluid's the dynamic viscosity $\mu$=0.0089 (g/cm/s) and density $\rho$=0.98 (g/cu.cm),
+the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.98 (g/cu.cm),
 
-the volumetric flow rate $Q$=8666 (cu. cm/s), and
+the volumetric flow rate *Q*=8666 (cu. cm/s), and
 
-the pipe's length $L$=2500 (cm) and relative roughness $\varepsilon$=0.0025:
+the pipe's length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
 ``--> [Re,fD]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%f)``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
 ``--> [Re,fD]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%t)``
 
 ### hvthk2fDRe
 
-hvthk2fDRe computes both the Darcy friction factor $f_D$ and the Reynolds number $Re$ given the head loss *h*, the pipe's length *L* and roughness *k*, the speed flow *v*, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number $Re$,
+hvthk2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the speed flow *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {f \over Re}={2gh\mu \over {v^3\rho L}}
@@ -259,27 +259,27 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 ``--> [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,s])``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-the head loss $h$=40 (cm),
+the head loss *h*=40 (cm),
 
-the gravitational acceleration $g$=981 (cm/s/s),
+the gravitational acceleration *g*=981 (cm/s/s),
 
-the fluid's the dynamic viscosity $\mu$=0.0089 (g/cm/s) and density $\rho$=0.98 (g/cu.cm),
+the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.98 (g/cu.cm),
 
-the speed flow $v$=110 (cm/s), and
+the speed flow *v*=110 (cm/s), and
 
-the pipe's length $L$=2500 (cm) and roughness $k$=0.025 (cm):
+the pipe's length *L*=2500 (cm) and roughness *k*=0.025 (cm):
 
 ``--> [Re,fD]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%f)``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
 ``--> [Re,fD]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%t)``
 
 ### hQthk2fDRe
 
-hQthk2fDRe computes both the Darcy friction factor $f_D$ and the Reynolds number $Re$ given the head loss *h*, the pipe's length *L* and roughness *k*, the volumetric flow rate Q, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number $Re$,
+hQthk2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the volumetric flow rate Q, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {Re^5 f}={2ghQ^3 \over\displaystyle {{\left[ {\pi \over 4} \right]}^3 {\left[ {\mu \over \rho} \right]}^5 L}}
@@ -291,21 +291,21 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 ``--> [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-the head loss $h$=40 (cm),
+the head loss *h*=40 (cm),
 
-the gravitational acceleration $g$=981 (cm/s/s),
+the gravitational acceleration *g*=981 (cm/s/s),
 
-the fluid's the dynamic viscosity $\mu$=0.0089 (g/cm/s) and density $\rho$=0.98 (g/cu.cm),
+the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.98 (g/cu.cm),
 
-the volumetric flow rate $Q$=8666 (cu. cm/s), and
+the volumetric flow rate *Q*=8666 (cu. cm/s), and
 
-the pipe's length $L$=2500 (cm) and roughness $k$=0.025:
+the pipe's length *L*=2500 (cm) and roughness *k*=0.025:
 
 ``--> [Re,fD]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%f)``
 
-*e.g.* Compute the Reynolds number $Re$ and the Darcy friction factor $f_D$ given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
 ``--> [Re,fD]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%t)``
 
