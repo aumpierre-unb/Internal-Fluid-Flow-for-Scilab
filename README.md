@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/509430202.svg)](https://zenodo.org/badge/latestdoi/509430202)
+
 # Internal Fluid Flow
 
 This is a very short introduction to an incompressible and inviscid fluid steady internal flow and to the Internal FluidFlow Toolbox for Scilab.
