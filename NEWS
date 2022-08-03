@@ -1,5 +1,11 @@
 TODO
 ====
+* Spell of "Colebrooke" fixed to "Colebrook" (DONE)
+* Help comments of epsfD2Re improved (DONE)
+* Laminar/turbulent transition reset from 3e3 to 2.5e3 (DONE)
+* Smooth line included to plots (DONE)
+* Adoption of semantic versioning (https://semver.org) (DONE)
+
 
 inflowlib v0.0.6 (2022-07-28)
 =============================
