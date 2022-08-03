@@ -87,7 +87,7 @@ function [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps,varargin)
     K=2*g*h*rho^2*D^3/mu^2/L
     Re=K/64
     fD=64/Re
-    if Re>25e2
+    if Re>2.5e3
         Re=1e4
         fD=epsRe2fD(Re,eps)
         while abs(fD-K/Re^2)/fD>5e-3
@@ -107,13 +107,15 @@ function [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps,varargin)
         turb(eps/10)
         rough()
         xgrid(33,1,7)
-        plot(Re,fD,"rd")
-        plot([Re/10 Re*10],[K/(Re/10)^2 K/(Re*10)^2],"--r")
-        xlabel("$Re=\frac{\rho vD}{\mu }$",..
+        loglog(Re,fD,"rd")
+        loglog([Re/10 Re*10],[K/(Re/10)^2 K/(Re*10)^2],"--r")
+        xlabel("$Re={ {\rho v D} \over\displaystyle \mu }$",..
                "fontsize",4)
-        ylabel("$f=\frac{h}{\frac{v^{2}}{2g}\frac{L}{D}}$",..
+        ylabel("$f={{2 g h \rho^2 D^3} \over\displaystyle {\mu^2 L}} Re^{-2}$",..
                "fontsize",4)
-        gca().data_bounds=[1d3 1d8 1d-2 1d-1]
+//        ylabel("$f={h \over\displaystyle {v^2 \over\displaystyle 2g}{L \over\displaystyle D}}$",..
+//               "fontsize",4)
+        gca().data_bounds=[1d2 1d8 1d-2 1d-1]
         gca().grid=[1,1]
         gca().grid_style=[9,9]
         gcf().figure_size=[600,600]
@@ -123,7 +125,7 @@ endfunction
 function laminar()
     Re=[5e2 4e3]
     f=64 ./ Re
-    plot2d("ll",Re,f)
+    loglog(Re,f,"k")
 endfunction
 
 function turb(eps)
@@ -137,7 +139,7 @@ function turb(eps)
         endfunction
         f(i)=root(foo,6e-3,1e-1,1e-4)
     end
-    plot2d("ll",Re,f)
+    loglog(Re,f,"k")
 endfunction
 
 function rough()
@@ -152,7 +154,7 @@ function rough()
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end
-    plot2d("ll",Re,f,2,rect=[1d3 1d-2 1d8 1d-1])
+    loglog(Re,f,"--b")
 end
 
 function x2=root(f,x1,x2,tol)
