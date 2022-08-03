@@ -5,6 +5,7 @@ TODO
 inflowlib v0.0.7 (2022-08-03)
 =============================
 * Spell of "Colebrooke" fixed to "Colebrook"
+* Axes' titles adapted to fit to functions' inputs
 * Help comments of epsfD2Re improved
 * Laminar/turbulent transition reset from 3e3 to 2.5e3
 * Smooth line included to plots
