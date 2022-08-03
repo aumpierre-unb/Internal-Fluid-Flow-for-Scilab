@@ -84,7 +84,7 @@ function [fD]=epsRe2fD(Re,varargin)
         eps=varargin(1)
         if eps>5e-2 abort end
     end
-    if Re<3e3
+    if Re<2.5e3
         fD=64/Re
     else
         function y=foo(fD)
@@ -103,12 +103,16 @@ function [fD]=epsRe2fD(Re,varargin)
         turb(eps/5)
         turb(eps/10)
         xgrid(33,1,7)
-        plot(Re,fD,"rd")
-        xlabel("$Re=\frac{\rho vD}{\mu }$",..
-               "fontsize",4)
-        ylabel("$f=\frac{h}{\frac{v^{2}}{2g}\frac{L}{D}}$",..
-               "fontsize",4)
-        gca().data_bounds=[1d3 1d8 1d-2 1d-1]
+        rough()
+        smooth()
+        loglog(Re,fD,"rd")
+//        xlabel("$Re={ {\rho v D} \over\displaystyle \mu }$",..
+//               "fontsize",4)
+        xlabel("$Re$","fontsize",4)
+//        ylabel("$f={h \over\displaystyle {v^2 \over\displaystyle 2g}{L \over\displaystyle D}}$",..
+//               "fontsize",4)
+        ylabel("$f$","fontsize",4)
+        gca().data_bounds=[1d2 1d8 1d-2 1d-1]
         gca().grid=[1,1]
         gca().grid_style=[9,9]
         gcf().figure_size=[600,600]
@@ -118,7 +122,7 @@ endfunction
 function laminar()
     Re=[5e2 4e3]
     f=64 ./ Re
-    plot2d("ll",Re,f)
+    loglog(Re,f,"k")
 endfunction
 
 function turb(eps)
@@ -132,8 +136,21 @@ function turb(eps)
         endfunction
         f(i)=root(foo,6e-3,1e-1,1e-4)
     end
-    plot2d("ll",Re,f)
+    loglog(Re,f,"k")
 endfunction
+
+function smooth()
+    N=50
+    for i=1:N
+        w=log10(2d3)+i*(log10(1d7)-log10(2d3))/N
+        Re(i)=10^w
+        function y=foo(fD)
+            y=1/sqrt(fD)+2*log10(2.51/Re(i)/sqrt(fD))
+        endfunction
+        f(i)=root(foo,6e-3,1e-1,1e-4)
+    end
+    loglog(Re,f,"--b")
+end
 
 function rough()
     eps=[]
@@ -147,7 +164,7 @@ function rough()
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end
-    plot2d("ll",Re,f,2)
+    loglog(Re,f,"--b")
 end
 
 function x2=root(f,x1,x2,tol)
