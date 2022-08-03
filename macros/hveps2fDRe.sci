@@ -88,7 +88,7 @@ function [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,varargin)
     M=2*g*mu*h/v^3/rho/L
     Re=sqrt(64/M)
     fD=64/Re
-    if Re>25e2
+    if Re>2.5e3
         Re=1e4
         fD=epsRe2fD(Re,eps)
         while abs(fD-Re*M)/fD>5e-3
@@ -107,14 +107,17 @@ function [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,varargin)
         turb(eps/5)
         turb(eps/10)
         rough()
+        smooth()
         xgrid(33,1,7)
-        plot(Re,fD,"rd")
-        plot([Re/10 Re*10],[(Re/10)*M (Re*10)*M],"--r")
-        xlabel("$Re=\frac{\rho vD}{\mu }$",..
+        loglog(Re,fD,"rd")
+        loglog([Re/10 Re*10],[(Re/10)*M (Re*10)*M],"--r")
+        xlabel("$Re={ {\rho v D} \over\displaystyle \mu }$",..
                "fontsize",4)
-        ylabel("$f=\frac{h}{\frac{v^{2}}{2g}\frac{L}{D}}$",..
+        ylabel("$f={{2 g h \mu} \over\displaystyle {\rho v^3 L}} Re$",..
                "fontsize",4)
-        gca().data_bounds=[1d3 1d8 1d-2 1d-1]
+//        ylabel("$f={h \over\displaystyle {v^2 \over\displaystyle 2g}{L \over\displaystyle D}}$",..
+//               "fontsize",4)
+        gca().data_bounds=[1d2 1d8 1d-2 1d-1]
         gca().grid=[1,1]
         gca().grid_style=[9,9]
         gcf().figure_size=[600,600]
@@ -124,7 +127,7 @@ endfunction
 function laminar()
     Re=[5e2 4e3]
     f=64 ./ Re
-    plot2d("ll",Re,f)
+    loglog(Re,f,"k")
 endfunction
 
 function turb(eps)
@@ -138,8 +141,21 @@ function turb(eps)
         endfunction
         f(i)=root(foo,6e-3,1e-1,1e-4)
     end
-    plot2d("ll",Re,f)
+    loglog(Re,f,"k")
 endfunction
+
+function smooth()
+    N=50
+    for i=1:N
+        w=log10(2d3)+i*(log10(1d7)-log10(2d3))/N
+        Re(i)=10^w
+        function y=foo(fD)
+            y=1/sqrt(fD)+2*log10(2.51/Re(i)/sqrt(fD))
+        endfunction
+        f(i)=root(foo,6e-3,1e-1,1e-4)
+    end
+    loglog(Re,f,"--b")
+end
 
 function rough()
     eps=[]
@@ -153,7 +169,7 @@ function rough()
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end
-    plot2d("ll",Re,f,2)
+    loglog(Re,f,"--b")
 end
 
 function x2=root(f,x1,x2,tol)
