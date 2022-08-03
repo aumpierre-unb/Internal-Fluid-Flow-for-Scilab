@@ -8,7 +8,7 @@ inflowlib v0.0.7 (2022-08-03)
 * Help comments of epsfD2Re improved
 * Laminar/turbulent transition reset from 3e3 to 2.5e3
 * Smooth line included to plots
-
+ 
 inflowlib v0.0.6 (2022-07-28)
 =============================
 * Minor corrections on functions' help comments
