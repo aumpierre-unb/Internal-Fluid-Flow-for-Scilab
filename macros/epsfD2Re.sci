@@ -46,7 +46,45 @@ function [Re]=epsfD2Re(fD,varargin)
     // Examples
     // ..// e.g. Compute the Reynolds number Re given
     // ..// the Darcy friction factor fD=0.033 and
-    // ..// the relative roughness eps=0.0044:
+    // ..// the relative roughness eps=0.00044.
+    // ..// In this case,
+    // ..// both laminar and turbulent solutions are acceptable:
+    // ..//
+    // ..// This call computes Re
+    // ..// for fD=0.033 and eps=0.0044:
+    // Re=epsfD2Re(0.033,0.00044,%f)
+    // ..// e.g. Compute the Reynolds number Re given
+    // ..// the Darcy friction factor fD=0.055 and
+    // ..// the relative roughness eps=0.00044.
+    // ..// In this case, due to higher friction,
+    // ..// only the laminar solution is acceptable:
+    // ..//
+    // ..// This call computes Re
+    // ..// for fD=0.055 and eps=0.00044:
+    // Re=epsfD2Re(0.055,0.00044,%f)
+    // ..// e.g. Compute the Reynolds number Re given
+    // ..// the Darcy friction factor fD=0.00044 and
+    // ..// the relative roughness eps=0.0022.
+    // ..// In this case, due to lower friction,
+    // ..// only the turbulent solution is acceptable:
+    // ..//
+    // ..// This call computes Re
+    // ..// for fD=0.022 and eps=0.00044:
+    // Re=epsfD2Re(0.022,0.00044,%f)
+    // ..// e.g. Compute the Reynolds number Re given
+    // ..// the Darcy friction factor fD=0.033 and
+    // ..// the relative roughness eps=0.044.
+    // ..// In this case, due to higher roughness,
+    // ..// only the laminar solution is acceptable:
+    // ..//
+    // ..// This call computes Re
+    // ..// for fD=0.033 and eps=0.044:
+    // Re=epsfD2Re(0.033,0.044,%f)
+    // ..// e.g. Compute the Reynolds number Re given
+    // ..// the Darcy friction factor fD=0.033 and
+    // ..// the relative roughness eps=0.0044.
+    // ..// In this case,
+    // ..// both laminar and turbulent solutions are acceptable:
     // ..//
     // ..// This call computes Re
     // ..// for fD=0.033 and eps=0.0044:
@@ -61,10 +99,14 @@ function [Re]=epsfD2Re(fD,varargin)
     // ..// on a schematic Moody diagram:
     // Re=epsfD2Re(0.033,0.0044,%t)
     // ..// e.g. Compute the Reynolds number Re given
-    // ..// the Darcy friction factor fD=0.033:
+    // ..// the Darcy friction factor fD=0.033.
+    // ..// When not assigned, relative roughness is
+    // ..// the default eps=2e-3.
+    // ..// In this case, 
+    // ..// both laminar and turbulent solutions are acceptable:
     // ..//
     // ..// This call computes Re
-    // ..// for the default eps=2e-3:
+    // ..// for fD=0.033 and the default eps=2e-3:
     // Re=epsfD2Re(0.033)
     //
     // See also
@@ -86,7 +128,7 @@ function [Re]=epsfD2Re(fD,varargin)
     end
     Re=[]
     f=[]
-    if 64/fD<3e3
+    if 64/fD<2.5e3
         Re=[Re;64/fD]
         f=[f;fD]
     end
@@ -95,10 +137,13 @@ function [Re]=epsfD2Re(fD,varargin)
             y=1/sqrt(fD)+2*log10(eps/3.7..
              +2.51/Re/sqrt(fD))
         endfunction
-        Re=[Re;root(foo,1e3,1e8,1e-4)]
-        f=[f;fD]
+        re=root(foo,1e3,1e8,1e-4)
+        if re>2.5e3
+            Re=[Re;re]
+            f=[f;fD]
+        end
     end
-    if argn(2)==3 && varargin(2)
+    if ~isempty(f) && argn(2)==3 && varargin(2)
         if winsid()==[] scf(0)
         elseif scf(max(winsid())+1) end
         laminar()
@@ -108,13 +153,16 @@ function [Re]=epsfD2Re(fD,varargin)
         turb(eps/3)
         turb(eps/10)
         rough()
+        smooth()
         xgrid(33,1,7)
-        plot(Re,f,"rd")
-        xlabel("$Re=\frac{\rho vD}{\mu }$",..
-               "fontsize",4)
-        ylabel("$f=\frac{h}{\frac{v^{2}}{2g}\frac{L}{D}}$",..
-               "fontsize",4)
-        gca().data_bounds=[1d3 1d8 1d-2 1d-1]
+        loglog(Re,f,"rd")
+//        xlabel("$Re={ {\rho v D} \over\displaystyle \mu }$",..
+//               "fontsize",4)
+        xlabel("$Re$","fontsize",4)
+//        ylabel("$f={h \over\displaystyle {v^2 \over\displaystyle 2g}{L \over\displaystyle D}}$",..
+//               "fontsize",4)
+        ylabel("$f$","fontsize",4)
+        gca().data_bounds=[1d2 1d8 1d-2 1d-1]
         gca().grid=[1,1]
         gca().grid_style=[9,9]
         gcf().figure_size=[600,600]
@@ -124,7 +172,7 @@ endfunction
 function laminar()
     Re=[5e2 4e3]
     f=64 ./ Re
-    plot2d("ll",Re,f)
+    loglog(Re,f,"k")
 endfunction
 
 function turb(eps)
@@ -132,14 +180,31 @@ function turb(eps)
     for i=1:N
         w=log10(2d3)+i*(log10(1d8)-log10(2d3))/N
         Re(i)=10^w
-        function y=foo(fD)
-            y=1/sqrt(fD)+2*log10(eps/3.7..
+        function y=foo(fD)//Colebrooke-White equation
+            y=1/sqrt(fD)+2*log10(eps/3.7+..
              +2.51/Re(i)/sqrt(fD))
+        endfunction
+        function y=foobar(fD)//Tkachenko-Mileikovskyi equation
+            y=fD+..
+             -1/(0.8284*log10(eps/4.913+10.31/Re(i)))^2
         endfunction
         f(i)=root(foo,6e-3,1e-1,1e-4)
     end
-    plot2d("ll",Re,f)
+    loglog(Re,f,"k")
 endfunction
+
+function smooth()
+    N=50
+    for i=1:N
+        w=log10(2d3)+i*(log10(1d7)-log10(2d3))/N
+        Re(i)=10^w
+        function y=foo(fD)
+            y=1/sqrt(fD)+2*log10(2.51/Re(i)/sqrt(fD))
+        endfunction
+        f(i)=root(foo,6e-3,1e-1,1e-4)
+    end
+    loglog(Re,f,"--b")
+end
 
 function rough()
     eps=[]
@@ -153,7 +218,7 @@ function rough()
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end
-    plot2d("ll",Re,f,2)
+    loglog(Re,f,"--b")
 end
 
 function x2=root(f,x1,x2,tol)
