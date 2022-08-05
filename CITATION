@@ -9,5 +9,5 @@ A BibTeX entry for LaTeX users is:
     title     = {{iboot}: A toolbox for internal fluid flow for Scilab},
     author    = {Alexandre Umpierre},
     year      = {2022},
-    doi       = {10.5281/zenodo.6927995}
+    doi       = {10.5281/zenodo.6927994}
   }
