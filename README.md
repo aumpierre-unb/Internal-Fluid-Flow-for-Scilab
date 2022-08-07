@@ -308,7 +308,7 @@ the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.9
 
 the volumetric flow rate *Q*=8666 (cu. cm/s), and
 
-the pipe's length *L*=2500 (cm) and roughness *k*=0.025:
+the pipe's length *L*=2500 (cm) and roughness *k*=0.025 (cm):
 
 ``--> [Re,f]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%f)``
 
