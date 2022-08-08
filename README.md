@@ -124,7 +124,7 @@ or
 
 ``--> f=epsRe2fD(2.5e4,0.0044,%t)``
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5x10<sup>4</sup>:
 
 ``--> f=epsRe2fD(2.5e4)``
 
