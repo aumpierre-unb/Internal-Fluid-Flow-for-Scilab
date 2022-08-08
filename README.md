@@ -78,13 +78,13 @@ The simplest problems on internal fluid flow consist on computing one of them gi
 
 ### Laminar Flow and Turbulent Flow
 
-For laminar flow, the Darcy friction factor is given by the Poiseuille condition,
+For laminar flow, *Re* < 2500 (typically), the Darcy friction factor is given by the Poiseuille condition,
 
 $$
 f={64 \over Re}
 $$
 
-For turbulent flow, the Darcy friction factor is given implicitly by the Colebrook-White equation,
+For turbulent flow, *Re* > 2500 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
 
 $$
 {1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt{f}}}}
@@ -112,7 +112,7 @@ epsRe2fD computes the Darcy friction factor *f* given the relative roughness *&e
 
 ``[f]=epsRe2fD(Re,[eps[,s]])``
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4 and the relative roughness *&epsilon;*=0.0044:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5x10^4 and the relative roughness *&epsilon;*=0.0044:
 
 ``--> f=epsRe2fD(2.5e4,0.0044,%f)``
 
@@ -120,7 +120,7 @@ or
 
 ``--> Re=2.5e4,eps=0.0044,f=epsRe2fD(Re,eps)``
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5e4 and the relative roughness *&epsilon;*=0.0044 and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5x10^4 and the relative roughness *&epsilon;*=0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
 ``--> f=epsRe2fD(2.5e4,0.0044,%t)``
 
