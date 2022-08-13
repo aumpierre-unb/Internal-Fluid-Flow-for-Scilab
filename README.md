@@ -36,7 +36,7 @@ $$
 where
 
 - *&rho;* is the fluid's density,
-- *v* is the speed flow,
+- *v* is the flow speed,
 - *g* is the gravitational acceleration,
 - *z* is the elevation, and
 - *p* is the static pressure.
@@ -92,7 +92,7 @@ $$
 
 ## The Internal Fluid Flow for Scilab Toolbox
 
-This package provides a set of functions designed to solve problems of internal fluid flow. All functions are based on the Poiseuille condition for laminar flow, the Colebrook-White equation for turbulent flow, and the Darcy-Weisbach equation for head loss. The simplest problems on internal flow consist in computing either the Reynolds number or the Darcy friction factor given the other and the relative roughness. For those cases, this package provides functions epsRe2fD and epsfD2Re, respectively. More elaborated problems consist in computing both the Reynolds number and the Darcy friction factor given the head loss, the tube length, the fluid's density and dynamic viscosity, the gravitational acceleration, the relative roughness and either the dynamic diameter or the linear velocity or the volumetric flow. For those cases, this package provides functions hDeps2fRe, hveps2fRe and hQeps2fRe, respectively. A slightly more elaborate situation arises when roughness is given instead of relative roughness along with the linear velocity or the volumetric flow. For those cases, this package provides functions hvthk2fRe and hQthk2fRe, respectively. All function in this package offer the option of plotting the solution on a schematic Moody diagram.
+This package provides a set of functions designed to solve problems of internal fluid flow. All functions are based on the Poiseuille condition for laminar flow, the Colebrook-White equation for turbulent flow, and the Darcy-Weisbach equation for head loss. The simplest problems on internal flow consist in computing either the Reynolds number or the Darcy friction factor given the other and the relative roughness. For those cases, this package provides functions epsRe2fD and epsfD2Re, respectively. More elaborated problems consist in computing both the Reynolds number and the Darcy friction factor given the head loss, the tube length, the fluid's density and dynamic viscosity, the gravitational acceleration, the relative roughness and either the dynamic diameter or the flow speed or the volumetric flow. For those cases, this package provides functions hDeps2fRe, hveps2fRe and hQeps2fRe, respectively. A slightly more elaborate situation arises when roughness is given instead of relative roughness along with the flow speed or the volumetric flow. For those cases, this package provides functions hvthk2fRe and hQthk2fRe, respectively. All function in this package offer the option of plotting the solution on a schematic Moody diagram.
 
 Internal Fluid Flow Toolbox provides the following functions:
 
@@ -160,7 +160,7 @@ or
 
 ### hDeps2fDRe
 
-hDeps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L*, relative roughness *&epsilon;* and hydraulic diameter *D*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing speed flow *v* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+hDeps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L*, relative roughness *&epsilon;* and hydraulic diameter *D*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing flow speed *v* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 Re^2 f={2gh\rho^2D^3 \over {\mu^2 L}}
@@ -190,7 +190,7 @@ the pipe's hydraulic diameter *D*=10 (cm), length *L*=2500 (cm) and relative rou
 
 ### hveps2fDRe
 
-hveps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the speed flow *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+hveps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the flow speed *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {f \over Re}={2gh\mu \over {v^3\rho L}}
@@ -210,7 +210,7 @@ the gravitational acceleration *g*=981 (cm/s/s),
 
 the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.98 (g/cu.cm),
 
-the speed flow *v*=110 (cm/s), and
+the flow speed *v*=110 (cm/s), and
 
 the pipe's length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
@@ -254,7 +254,7 @@ the pipe's length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
 ### hvthk2fDRe
 
-hvthk2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the speed flow *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+hvthk2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the flow speed *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {f \over Re}={2gh\mu \over {v^3\rho L}}
@@ -274,7 +274,7 @@ the gravitational acceleration *g*=981 (cm/s/s),
 
 the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.98 (g/cu.cm),
 
-the speed flow *v*=110 (cm/s), and
+the flow speed *v*=110 (cm/s), and
 
 the pipe's length *L*=2500 (cm) and roughness *k*=0.025 (cm):
 
