@@ -36,8 +36,8 @@ function [fD]=epsRe2fD(Re,varargin)
     // the Darcy friction factor and
     // the relative roughness for for laminar regime and,
     // when possible, also for turbulent regime.
-    // By default, relative roughness is eps=2e-3. 
-    // If eps>5e-2, execution is aborted. 
+    // By default, tube is assumed to be smooth, eps=0. 
+    // If eps>5e-2, eps is reset to 5e-2. 
     // Computation is based on the Colebrooke-White equation 
     // for turbulent flow and the Poiseuille condition 
     // for laminar flow. 
@@ -64,7 +64,8 @@ function [fD]=epsRe2fD(Re,varargin)
     // ..// the Reynolds number Re=2.5e4:
     // ..//
     // ..// This call computes fD
-    // ..// for the default eps=2e-3:
+    // ..// for Re=2.5e4 and
+    // ..// the default smooth condition, eps=0:
     // fD=epsRe2fD(2.5e4)
     //
     // See also
@@ -79,12 +80,16 @@ function [fD]=epsRe2fD(Re,varargin)
     //  Alexandre Umpierre
 
     if argn(2)==1
-        eps=2e-3
+        eps=0
+        warning("Relative roughness assined to eps=0")
     else
         eps=varargin(1)
-        if eps>5e-2 abort end
+        if eps>5e-2
+            eps=5e-2
+            warning("Relative roughness reassined to eps=5e-2.")
+        end
     end
-    if Re<2.5e3
+    if Re<2.3e3
         fD=64/Re
     else
         function y=foo(fD)
@@ -93,24 +98,34 @@ function [fD]=epsRe2fD(Re,varargin)
         endfunction
         fD=root(foo,1d-2,1e-1,1d-4)
     end
-    if (argn(2)==3 && varargin(2))
+    if argn(2)==3 && varargin(2)
         if winsid()==[] scf(0)
         elseif scf(max(winsid())+1) end
-        laminar()
-        turb(eps)
-        turb(eps*5)
-        turb(eps*10)
-        turb(eps/5)
-        turb(eps/10)
-        xgrid(33,1,7)
-        rough()
-        smooth()
+        if eps==0 turb(1e-5,"k")
+        elseif eps*3<5e-2 turb(eps*3,"k")
+        else turb(eps/2,"k") end
+        if eps==0 turb(1e-4,"k")
+        elseif eps*10<5e-2 turb(eps*10,"k")
+        else turb(eps/7,"k") end
+        if eps==0 turb(1e-3,"k")
+        else turb(eps/3,"k") end
+        if eps==0 turb(1e-2,"k")
+        else turb(eps/10,"k") end
+        if max(Re)>2.3e3 t="r"
+        else t="k" end
+        if Re<2.3e3
+            laminar("r")
+            turb(eps,"k")
+        else
+            laminar("k")
+            turb(eps,"r")
+        end
+        rough("b")
+        if ~eps==0 smooth("b") end
         loglog(Re,fD,"rd")
-//        xlabel("$Re={ {\rho v D} \over\displaystyle \mu }$",..
-//               "fontsize",4)
+        loglog([Re Re],[1e-2 1e-1],"--r")
+        xgrid(33,1,7)
         xlabel("$Re$","fontsize",4)
-//        ylabel("$f={h \over\displaystyle {v^2 \over\displaystyle 2g}{L \over\displaystyle D}}$",..
-//               "fontsize",4)
         ylabel("$f$","fontsize",4)
         gca().data_bounds=[1d2 1d8 1d-2 1d-1]
         gca().grid=[1,1]
@@ -119,52 +134,52 @@ function [fD]=epsRe2fD(Re,varargin)
     end
 endfunction
 
-function laminar()
+function laminar(t)
     Re=[5e2 4e3]
     f=64 ./ Re
-    loglog(Re,f,"k")
+    loglog(Re,f,t)
 endfunction
 
-function turb(eps)
-    N=50
+function turb(eps,t)
+    N=51
     for i=1:N
-        w=log10(2d3)+i*(log10(1d8)-log10(2d3))/N
+        w=log10(2d3)+(i-1)*(log10(1d8)-log10(2d3))/(N-1)
         Re(i)=10^w
         function y=foo(fD)
             y=1/sqrt(fD)+2*log10(eps/3.7..
              +2.51/Re(i)/sqrt(fD))
         endfunction
-        f(i)=root(foo,6e-3,1e-1,1e-4)
+        f(i)=root(foo,6e-4,1e-1,1e-4)
     end
-    loglog(Re,f,"k")
+    loglog(Re,f,t)
 endfunction
 
-function smooth()
-    N=50
+function smooth(t)
+    N=51
     for i=1:N
-        w=log10(2d3)+i*(log10(1d7)-log10(2d3))/N
+        w=log10(2d3)+(i-1)*(log10(1d7)-log10(2d3))/(N-1)
         Re(i)=10^w
         function y=foo(fD)
             y=1/sqrt(fD)+2*log10(2.51/Re(i)/sqrt(fD))
         endfunction
         f(i)=root(foo,6e-3,1e-1,1e-4)
     end
-    loglog(Re,f,"--b")
+    loglog(Re,f,t)
 end
 
-function rough()
+function rough(t)
     eps=[]
     f=[]
     Re=[]
-    N=30
+    N=31
     for i=1:N
-        w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N
+        w=log10(4e-5)+(i-1)*(log10(5e-2)-log10(4e-5))/(N-1)
         eps=[eps;10^w]
         f=[f;1.01*(2*log10(3.7/eps($)))^-2]
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end
-    loglog(Re,f,"--b")
+    loglog(Re,f,t)
 end
 
 function x2=root(f,x1,x2,tol)
