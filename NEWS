@@ -7,7 +7,7 @@ inflowlib v0.1.0 (2022-08-20)
 * Adoption of semantic versioning (https://semver.org)
 * Laminar/turbulent transition reset from 2.5e3 to 2.3e3
 * Minor corrections on help comments
-* Major changes on code to solve bug on the transitional region
+* Major changes on code to solve bug on the transitional range
 
 inflowlib v0.0.7 (2022-08-03)
 =============================
