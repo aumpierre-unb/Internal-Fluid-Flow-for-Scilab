@@ -2,6 +2,13 @@ TODO
 ====
 * Adoption of semantic versioning (https://semver.org)
 
+inflowlib v0.1.0 (2022-08-203)
+=============================
+* Adoption of semantic versioning (https://semver.org)
+* Laminar/turbulent transition reset from 2.5e3 to 2.3e3
+* Minor corrections on help comments
+* Major changes on code to solve bug on the transitional region
+
 inflowlib v0.0.7 (2022-08-03)
 =============================
 * Spell of "Colebrooke" fixed to "Colebrook"
