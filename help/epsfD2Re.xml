@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from epsfD2Re.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="epsfD2Re" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>epsfD2Re</refname>
+    <refpurpose>Computes the Reynolds number given the Darcy friction factor and the relative roughness</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+   [Re]=epsfD2Re(fD[,eps[,s]])
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+        <varlistentry>
+            <term>fD:</term>
+            <listitem><para> Darcy friction factor</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>eps:</term>
+            <listitem><para> optional, relative roughness (default is eps=2e-3)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>s:</term>
+            <listitem><para> optional, boolean for display plot (default is s=%f)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Re:</term>
+            <listitem><para> Reynolds number</para></listitem>
+        </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+epsfD2Re computes the Reynolds number, given
+the Darcy friction factor and
+the relative roughness for for laminar regime and,
+when possible, also for turbulent regime.
+By default, tube is assumed to be smooth, eps=0.
+If eps>5e-2, eps is reset to 5e-2.
+Computation is based on the Colebrooke-White equation
+for turbulent flow and the Poiseuille condition
+for laminar flow.
+Inputs are to be given in a consistent system of units.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+..// e.g. Compute the Reynolds number Re given
+..// the Darcy friction factor fD=0.033 and
+..// the relative roughness eps=0.00044.
+..// In this case,
+..// both laminar and turbulent solutions are acceptable:
+..//
+..// This call computes Re
+..// for fD=0.033 and eps=0.0044:
+Re=epsfD2Re(0.033,0.00044,%f)
+..// Alternatively:
+fD=0.033;..
+eps=0.0044;..
+Re=epsfD2Re(fD,eps)
+..// This call computes Re
+..// for fD=0.033 and eps=0.0044
+..// and plots a representation of the solution
+..// on a schematic Moody diagram:
+Re=epsfD2Re(0.033,0.0044,%t)
+..// e.g. Compute the Reynolds number Re given
+..// the Darcy friction factor fD=0.055 and
+..// the relative roughness eps=0.00044.
+..// In this case, due to higher friction,
+..// only the laminar solution is acceptable:
+..//
+..// This call computes Re
+..// for fD=0.055 and eps=0.00044
+..// and plots a representation of the solution
+..// on a schematic Moody diagram:
+Re=epsfD2Re(0.055,0.00044,%t)
+..// e.g. Compute the Reynolds number Re given
+..// the Darcy friction factor fD=0.00044 and
+..// the relative roughness eps=0.0022.
+..// In this case, due to lower friction,
+..// only the turbulent solution is acceptable:
+..//
+..// This call computes Re
+..// for fD=0.022 and eps=0.00044
+..// and plots a representation of the solution
+..// on a schematic Moody diagram:
+Re=epsfD2Re(0.022,0.00044,%t)
+..// This call computes Re
+..// for fD=0.022 and
+..// the default smooth condition, eps=0:
+Re=epsfD2Re(0.022)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection role="see also">
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="epsRe2fD">epsRe2fD</link></member>
+   <member><link linkend="hDeps2fDRe">hDeps2fDRe</link></member>
+   <member><link linkend="hveps2fDRe">hveps2fDRe</link></member>
+   <member><link linkend="hvthk2fDRe">hvthk2fDRe</link></member>
+   <member><link linkend="hQeps2fDRe">hQeps2fDRe</link></member>
+   <member><link linkend="hQthk2fDRe">hQthk2fDRe</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Alexandre Umpierre</member>
+   </simplelist>
+</refsection>
+</refentry>

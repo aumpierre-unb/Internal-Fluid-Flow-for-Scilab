@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY ac80445ec5b0046ded6debaa6def49c7f SYSTEM "file:///E:/programacao-sync/scilab/inflowlib/help/epsRe2fD.xml">
+<!ENTITY aff2c59b6b826fdfff7d68dcb19d367af SYSTEM "file:///E:/programacao-sync/scilab/inflowlib/help/epsfD2Re.xml">
+<!ENTITY a2a10d2219f38208a78507c55b38f332c SYSTEM "file:///E:/programacao-sync/scilab/inflowlib/help/hDeps2fDRe.xml">
+<!ENTITY a1585424d93fa7c89dc6559e3890ae944 SYSTEM "file:///E:/programacao-sync/scilab/inflowlib/help/hQeps2fDRe.xml">
+<!ENTITY ab875e5c8d4ba682d4aa10f4ae437a28a SYSTEM "file:///E:/programacao-sync/scilab/inflowlib/help/hQthk2fDRe.xml">
+<!ENTITY a58254fa7da28ca5ab8a9e109c86a062d SYSTEM "file:///E:/programacao-sync/scilab/inflowlib/help/hveps2fDRe.xml">
+<!ENTITY ae2f53c030efd7b14fe373834062138e6 SYSTEM "file:///E:/programacao-sync/scilab/inflowlib/help/hvthk2fDRe.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='internal_fluid_flow_manual'>
+    <title>Internal Fluid Flow</title>
+  </info>
+
+<part xml:id='section_8bfecf9836e3fd00fd91909d3b01db8f'>
+<title>Internal Fluid Flow</title>
+&ac80445ec5b0046ded6debaa6def49c7f;
+&aff2c59b6b826fdfff7d68dcb19d367af;
+&a2a10d2219f38208a78507c55b38f332c;
+&a1585424d93fa7c89dc6559e3890ae944;
+&ab875e5c8d4ba682d4aa10f4ae437a28a;
+&a58254fa7da28ca5ab8a9e109c86a062d;
+&ae2f53c030efd7b14fe373834062138e6;
+</part>
+</book>

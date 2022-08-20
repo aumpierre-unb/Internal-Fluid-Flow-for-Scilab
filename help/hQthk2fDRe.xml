@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from hQthk2fDRe.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="hQthk2fDRe" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>hQthk2fDRe</refname>
+    <refpurpose>Solution for internal fluid flow based on volumetric flow rate and pipe's roughness</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+   [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+        <varlistentry>
+            <term>h:</term>
+            <listitem><para> head loss</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>g:</term>
+            <listitem><para> gravitational acceleration</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>mu:</term>
+            <listitem><para> fluid's dynamic viscosity</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>rho:</term>
+            <listitem><para> fluid's density</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Q:</term>
+            <listitem><para> volumetric flow rate</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>L:</term>
+            <listitem><para> pipe's length</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>thk:</term>
+            <listitem><para> pipe's roughness</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>s:</term>
+            <listitem><para> optional, boolean for display plot (default is s=%f)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Re:</term>
+            <listitem><para> Reynolds number</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>fD:</term>
+            <listitem><para> Darcy friction factor</para></listitem>
+        </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+hQthk2fDRe computes the Reynolds number and
+the Darcy friction factor for a internal fluid flow, given
+the head loss h,
+the gravitational acceleration g,
+the fluid's dynamic viscosity mu and density rho, and
+the volumetric flow rate Q, and
+the pipe's length L and roughness thk.
+Inputs are to be given in a consistent system of units.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+..// e.g. Compute the Reynolds number Re and
+..// the Darcy friction factor fD given
+..// the head loss h=40 cm,
+..// the gravitational acceleration g=981 cm/s/s,
+..// the fluid's the dynamic viscosity mu=0.0089 g/cm/s and
+..// density rho=0.98 g/cc,
+..// the volumetric flow rate Q=8666 cc/s and
+..// the pipe's length L=2500 cm and
+..// roughness thk=0.025 cm:
+..//
+..// This call computes Re e fD:
+[Re,fD]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%f)
+..// Alternatively:
+h=40;.. //head loss (cm)
+g=981;.. //gravitational acceleration (cm/s/s)
+mu=0.0089;.. //fluid's dynamic viscosity (g/cm/s)
+rho=0.98;.. //fluid's density (g/cc)
+Q=8666;.. //volumetric flow rate (cc/s)
+L=2500;.. //pipe's length (cm)
+thk=0.025;.. //pipe's roughness (cm)
+[Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk)
+..// This call computes Re e fD
+..// and plots a representation of the solution
+..// on a schematic Moody diagram:
+[Re,fD]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%t)
+..// e.g. Compute the Reynolds number Re and
+..// the Darcy friction factor fD given
+..// the head loss h=15 cm,
+..// the gravitational acceleration g=981 cm/s/s,
+..// the fluid's the dynamic viscosity mu=0.0089 g/cm/s and
+..// density rho=0.98 g/cc,
+..// volumetric flow rate Q=20 cc/s and
+..// the pipe's length L=2500 cm and
+..// roughness thk=0.0025 cm:
+..//
+..// This call computes Re e fD
+..// and plots a representation of the solution
+..// on a schematic Moody diagram:
+[Re,fD]=hQthk2fDRe(15,981,0.0089,0.98,20,2500,0.0025,%t)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection role="see also">
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="epsfD2Re">epsfD2Re</link></member>
+   <member><link linkend="epsRe2fD">epsRe2fD</link></member>
+   <member><link linkend="hDeps2fDRe">hDeps2fDRe</link></member>
+   <member><link linkend="hveps2fDRe">hveps2fDRe</link></member>
+   <member><link linkend="hvthk2fDRe">hvthk2fDRe</link></member>
+   <member><link linkend="hQeps2fDRe">hQeps2fDRe</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Alexandre Umpierre</member>
+   </simplelist>
+</refsection>
+</refentry>

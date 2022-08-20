@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from epsRe2fD.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="epsRe2fD" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>epsRe2fD</refname>
+    <refpurpose>Computes the Darcy friction factor given the Reynolds number and the relative roughness</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+   [fD]=epsRe2fD(Re[,eps[,s]])
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+        <varlistentry>
+            <term>Re:</term>
+            <listitem><para> Reynolds number</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>eps:</term>
+            <listitem><para> optional, relative roughness (default is eps=2e-3)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>s:</term>
+            <listitem><para> optional, boolean for display plot (default is s=%f)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>fD:</term>
+            <listitem><para> Darcy friction factor</para></listitem>
+        </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+epsRe2fD computes the Reynolds number, given
+the Darcy friction factor and
+the relative roughness for for laminar regime and,
+when possible, also for turbulent regime.
+By default, tube is assumed to be smooth, eps=0.
+If eps>5e-2, eps is reset to 5e-2.
+Computation is based on the Colebrooke-White equation
+for turbulent flow and the Poiseuille condition
+for laminar flow.
+Inputs are to be given in a consistent system of units.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+..// e.g. Compute the Darcy friction factor fD given
+..// the Reynolds number Re=2.5e4 and
+..// the relative roughness eps=0.0044:
+..//
+..// This call computes fD
+..// for Re=2.5e4 and eps=0.0044:
+fD=epsRe2fD(2.5e4,0.0044,%f)
+..// Alternatively:
+Re=2.5e4;..
+eps=0.0044;..
+fD=epsRe2fD(Re,eps)
+..// This call computes fD
+..// for Re=2.5e4 and eps=0.0044
+..// and plots a representation of the solution
+..// on a schematic Moody diagram:
+fD=epsRe2fD(2.5e4,0.0044,%t)
+..// e.g. Compute the Darcy friction factor fD given
+..// the Reynolds number Re=2.5e4:
+..//
+..// This call computes fD
+..// for Re=2.5e4 and
+..// the default smooth condition, eps=0:
+fD=epsRe2fD(2.5e4)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection role="see also">
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="epsfD2Re">epsfD2Re</link></member>
+   <member><link linkend="hDeps2fDRe">hDeps2fDRe</link></member>
+   <member><link linkend="hveps2fDRe">hveps2fDRe</link></member>
+   <member><link linkend="hvthk2fDRe">hvthk2fDRe</link></member>
+   <member><link linkend="hQeps2fDRe">hQeps2fDRe</link></member>
+   <member><link linkend="hQthk2fDRe">hQthk2fDRe</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Alexandre Umpierre</member>
+   </simplelist>
+</refsection>
+</refentry>
