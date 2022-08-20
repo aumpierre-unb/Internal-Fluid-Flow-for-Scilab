@@ -36,8 +36,8 @@ function [Re]=epsfD2Re(fD,varargin)
     // the Darcy friction factor and
     // the relative roughness for for laminar regime and,
     // when possible, also for turbulent regime.
-    // By default, relative roughness is eps=2e-3. 
-    // If eps>5e-2, execution is aborted. 
+    // By default, tube is assumed to be smooth, eps=0. 
+    // If eps>5e-2, eps is reset to 5e-2. 
     // Computation is based on the Colebrooke-White equation 
     // for turbulent flow and the Poiseuille condition 
     // for laminar flow. 
@@ -53,42 +53,6 @@ function [Re]=epsfD2Re(fD,varargin)
     // ..// This call computes Re
     // ..// for fD=0.033 and eps=0.0044:
     // Re=epsfD2Re(0.033,0.00044,%f)
-    // ..// e.g. Compute the Reynolds number Re given
-    // ..// the Darcy friction factor fD=0.055 and
-    // ..// the relative roughness eps=0.00044.
-    // ..// In this case, due to higher friction,
-    // ..// only the laminar solution is acceptable:
-    // ..//
-    // ..// This call computes Re
-    // ..// for fD=0.055 and eps=0.00044:
-    // Re=epsfD2Re(0.055,0.00044,%f)
-    // ..// e.g. Compute the Reynolds number Re given
-    // ..// the Darcy friction factor fD=0.00044 and
-    // ..// the relative roughness eps=0.0022.
-    // ..// In this case, due to lower friction,
-    // ..// only the turbulent solution is acceptable:
-    // ..//
-    // ..// This call computes Re
-    // ..// for fD=0.022 and eps=0.00044:
-    // Re=epsfD2Re(0.022,0.00044,%f)
-    // ..// e.g. Compute the Reynolds number Re given
-    // ..// the Darcy friction factor fD=0.033 and
-    // ..// the relative roughness eps=0.044.
-    // ..// In this case, due to higher roughness,
-    // ..// only the laminar solution is acceptable:
-    // ..//
-    // ..// This call computes Re
-    // ..// for fD=0.033 and eps=0.044:
-    // Re=epsfD2Re(0.033,0.044,%f)
-    // ..// e.g. Compute the Reynolds number Re given
-    // ..// the Darcy friction factor fD=0.033 and
-    // ..// the relative roughness eps=0.0044.
-    // ..// In this case,
-    // ..// both laminar and turbulent solutions are acceptable:
-    // ..//
-    // ..// This call computes Re
-    // ..// for fD=0.033 and eps=0.0044:
-    // Re=epsfD2Re(0.033,0.0044,%f)
     // ..// Alternatively:
     // fD=0.033;..
     // eps=0.0044;..
@@ -99,15 +63,31 @@ function [Re]=epsfD2Re(fD,varargin)
     // ..// on a schematic Moody diagram:
     // Re=epsfD2Re(0.033,0.0044,%t)
     // ..// e.g. Compute the Reynolds number Re given
-    // ..// the Darcy friction factor fD=0.033.
-    // ..// When not assigned, relative roughness is
-    // ..// the default eps=2e-3.
-    // ..// In this case, 
-    // ..// both laminar and turbulent solutions are acceptable:
+    // ..// the Darcy friction factor fD=0.055 and
+    // ..// the relative roughness eps=0.00044.
+    // ..// In this case, due to higher friction,
+    // ..// only the laminar solution is acceptable:
     // ..//
     // ..// This call computes Re
-    // ..// for fD=0.033 and the default eps=2e-3:
-    // Re=epsfD2Re(0.033)
+    // ..// for fD=0.055 and eps=0.00044
+    // ..// and plots a representation of the solution
+    // ..// on a schematic Moody diagram:
+    // Re=epsfD2Re(0.055,0.00044,%t)
+    // ..// e.g. Compute the Reynolds number Re given
+    // ..// the Darcy friction factor fD=0.00044 and
+    // ..// the relative roughness eps=0.0022.
+    // ..// In this case, due to lower friction,
+    // ..// only the turbulent solution is acceptable:
+    // ..//
+    // ..// This call computes Re
+    // ..// for fD=0.022 and eps=0.00044
+    // ..// and plots a representation of the solution
+    // ..// on a schematic Moody diagram:
+    // Re=epsfD2Re(0.022,0.00044,%t)
+    // ..// This call computes Re
+    // ..// for fD=0.022 and
+    // ..// the default smooth condition, eps=0:
+    // Re=epsfD2Re(0.022)
     //
     // See also
     //  epsRe2fD
@@ -121,14 +101,18 @@ function [Re]=epsfD2Re(fD,varargin)
     //  Alexandre Umpierre
 
     if argn(2)==1
-        eps=2e-3
+        eps=0
+        warning("Relative roughness assined to eps=0")
     else
         eps=varargin(1)
-        if eps>5e-2 abort end
+        if eps>5e-2
+            eps=5e-2
+            warning("Relative roughness reassined to eps=5e-2.")
+        end
     end
     Re=[]
     f=[]
-    if 64/fD<2.5e3
+    if 64/fD<2.3e3
         Re=[Re;64/fD]
         f=[f;fD]
     end
@@ -138,29 +122,38 @@ function [Re]=epsfD2Re(fD,varargin)
              +2.51/Re/sqrt(fD))
         endfunction
         re=root(foo,1e3,1e8,1e-4)
-        if re>2.5e3
+        if re>2.3e3
             Re=[Re;re]
             f=[f;fD]
         end
     end
+    if isempty(f)
+        printf("No solution found.\n")
+        abort
+    end
     if ~isempty(f) && argn(2)==3 && varargin(2)
         if winsid()==[] scf(0)
         elseif scf(max(winsid())+1) end
-        laminar()
-        turb(eps)
-        turb(eps*3)
-        turb(eps*10)
-        turb(eps/3)
-        turb(eps/10)
-        rough()
-        smooth()
-        xgrid(33,1,7)
+        if min(Re)<2.3e3 laminar("r")
+        else laminar("k") end
+        if max(Re)>2.3e3 turb(eps,"r")
+        else turb(eps,"k") end
+        if eps==0 turb(1e-5,"k")
+        elseif eps*3<5e-2 turb(eps*3,"k")
+        else turb(eps/2,"k") end
+        if eps==0 turb(1e-4,"k")
+        elseif eps*10<5e-2 turb(eps*10,"k")
+        else turb(eps/7,"k") end
+        if eps==0 turb(1e-3,"k")
+        else turb(eps/3,"k") end
+        if eps==0 turb(1e-2,"k")
+        else turb(eps/10,"k") end
+        rough("b")
+        if ~eps==0 smooth("b") end
         loglog(Re,f,"rd")
-//        xlabel("$Re={ {\rho v D} \over\displaystyle \mu }$",..
-//               "fontsize",4)
+        loglog([1d2 1d8],[fD fD],"--r")
+        xgrid(33,1,7)
         xlabel("$Re$","fontsize",4)
-//        ylabel("$f={h \over\displaystyle {v^2 \over\displaystyle 2g}{L \over\displaystyle D}}$",..
-//               "fontsize",4)
         ylabel("$f$","fontsize",4)
         gca().data_bounds=[1d2 1d8 1d-2 1d-1]
         gca().grid=[1,1]
@@ -169,56 +162,52 @@ function [Re]=epsfD2Re(fD,varargin)
     end
 endfunction
 
-function laminar()
+function laminar(t)
     Re=[5e2 4e3]
     f=64 ./ Re
-    loglog(Re,f,"k")
+    loglog(Re,f,t)
 endfunction
 
-function turb(eps)
-    N=50
+function turb(eps,t)
+    N=51
     for i=1:N
-        w=log10(2d3)+i*(log10(1d8)-log10(2d3))/N
+        w=log10(2d3)+(i-1)*(log10(1d8)-log10(2d3))/(N-1)
         Re(i)=10^w
-        function y=foo(fD)//Colebrooke-White equation
-            y=1/sqrt(fD)+2*log10(eps/3.7+..
+        function y=foo(fD)
+            y=1/sqrt(fD)+2*log10(eps/3.7..
              +2.51/Re(i)/sqrt(fD))
         endfunction
-        function y=foobar(fD)//Tkachenko-Mileikovskyi equation
-            y=fD+..
-             -1/(0.8284*log10(eps/4.913+10.31/Re(i)))^2
-        endfunction
-        f(i)=root(foo,6e-3,1e-1,1e-4)
+        f(i)=root(foo,6e-4,1e-1,1e-4)
     end
-    loglog(Re,f,"k")
+    loglog(Re,f,t)
 endfunction
 
-function smooth()
-    N=50
+function smooth(t)
+    N=51
     for i=1:N
-        w=log10(2d3)+i*(log10(1d7)-log10(2d3))/N
+        w=log10(2d3)+(i-1)*(log10(1d7)-log10(2d3))/(N-1)
         Re(i)=10^w
         function y=foo(fD)
             y=1/sqrt(fD)+2*log10(2.51/Re(i)/sqrt(fD))
         endfunction
         f(i)=root(foo,6e-3,1e-1,1e-4)
     end
-    loglog(Re,f,"--b")
+    loglog(Re,f,t)
 end
 
-function rough()
+function rough(t)
     eps=[]
     f=[]
     Re=[]
-    N=30
+    N=31
     for i=1:N
-        w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N
+        w=log10(4e-5)+(i-1)*(log10(5e-2)-log10(4e-5))/(N-1)
         eps=[eps;10^w]
         f=[f;1.01*(2*log10(3.7/eps($)))^-2]
         z=epsfD2Re(f($),eps($))
         Re=[Re;z($)]
     end
-    loglog(Re,f,"--b")
+    loglog(Re,f,t)
 end
 
 function x2=root(f,x1,x2,tol)
