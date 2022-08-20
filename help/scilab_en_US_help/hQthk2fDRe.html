@@ -1,0 +1,148 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>hQthk2fDRe</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="hQeps2fDRe.html">&lt;&lt; hQeps2fDRe</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8bfecf9836e3fd00fd91909d3b01db8f.html">Internal Fluid Flow</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="hveps2fDRe.html">hveps2fDRe &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path" dir="ltr"><a href="index.html">Internal Fluid Flow</a> &gt;&gt; <a href="section_8bfecf9836e3fd00fd91909d3b01db8f.html">Internal Fluid Flow</a> &gt; hQthk2fDRe</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">hQthk2fDRe</h1>
+    <p class="refpurpose">Solution for internal fluid flow based on volumetric flow rate and pipe&#0039;s roughness</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Syntax</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">Re</span><span class="default">,</span><span class="default">fD</span><span class="default">]=</span><span class="functionid">hQthk2fDRe</span><span class="default">(</span><span class="default">h</span><span class="default">,</span><span class="default">g</span><span class="default">,</span><span class="default">mu</span><span class="default">,</span><span class="default">rho</span><span class="default">,</span><span class="default">Q</span><span class="default">,</span><span class="default">L</span><span class="default">,</span><span class="default">thk</span><span class="default">[,</span><span class="default">s</span><span class="default">])</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">h:</span>
+            <dd><p class="para">head loss</p></dd></dt>
+        <dt><span class="term">g:</span>
+            <dd><p class="para">gravitational acceleration</p></dd></dt>
+        <dt><span class="term">mu:</span>
+            <dd><p class="para">fluid&#0039;s dynamic viscosity</p></dd></dt>
+        <dt><span class="term">rho:</span>
+            <dd><p class="para">fluid&#0039;s density</p></dd></dt>
+        <dt><span class="term">Q:</span>
+            <dd><p class="para">volumetric flow rate</p></dd></dt>
+        <dt><span class="term">L:</span>
+            <dd><p class="para">pipe&#0039;s length</p></dd></dt>
+        <dt><span class="term">thk:</span>
+            <dd><p class="para">pipe&#0039;s roughness</p></dd></dt>
+        <dt><span class="term">s:</span>
+            <dd><p class="para">optional, boolean for display plot (default is s=%f)</p></dd></dt>
+        <dt><span class="term">Re:</span>
+            <dd><p class="para">Reynolds number</p></dd></dt>
+        <dt><span class="term">fD:</span>
+            <dd><p class="para">Darcy friction factor</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">hQthk2fDRe computes the Reynolds number and
+the Darcy friction factor for a internal fluid flow, given
+the head loss h,
+the gravitational acceleration g,
+the fluid&#0039;s dynamic viscosity mu and density rho, and
+the volumetric flow rate Q, and
+the pipe&#0039;s length L and roughness thk.
+Inputs are to be given in a consistent system of units.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabspecial">..</span><span class="scilabcomment">// e.g. Compute the Reynolds number Re and</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the Darcy friction factor fD given</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the head loss h=40 cm,</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the gravitational acceleration g=981 cm/s/s,</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the fluid</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s the dynamic viscosity mu=0.0089 g/cm/s and</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// density rho=0.98 g/cc,</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the volumetric flow rate Q=8666 cc/s and</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the pipe</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s length L=2500 cm and</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// roughness thk=0.025 cm:</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">//</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// This call computes Re e fD:</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Re</span><span class="scilabdefault">,</span><span class="scilabid">fD</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">hQthk2fDRe</span><span class="scilabopenclose">(</span><span class="scilabnumber">40</span><span class="scilabdefault">,</span><span class="scilabnumber">981</span><span class="scilabdefault">,</span><span class="scilabnumber">0.0089</span><span class="scilabdefault">,</span><span class="scilabnumber">0.98</span><span class="scilabdefault">,</span><span class="scilabnumber">8666</span><span class="scilabdefault">,</span><span class="scilabnumber">2500</span><span class="scilabdefault">,</span><span class="scilabnumber">0.025</span><span class="scilabdefault">,</span><span class="scilabconstants">%f</span><span class="scilabopenclose">)</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// Alternatively:</span>
+<span class="scilabid">h</span><span class="scilaboperator">=</span><span class="scilabnumber">40</span><span class="scilabdefault">;</span><span class="scilabspecial">..</span> <span class="scilabcomment">//head loss (cm)</span>
+<span class="scilabid">g</span><span class="scilaboperator">=</span><span class="scilabnumber">981</span><span class="scilabdefault">;</span><span class="scilabspecial">..</span> <span class="scilabcomment">//gravitational acceleration (cm/s/s)</span>
+<span class="scilabid">mu</span><span class="scilaboperator">=</span><span class="scilabnumber">0.0089</span><span class="scilabdefault">;</span><span class="scilabspecial">..</span> <span class="scilabcomment">//fluid</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s dynamic viscosity (g/cm/s)</span>
+<span class="scilabid">rho</span><span class="scilaboperator">=</span><span class="scilabnumber">0.98</span><span class="scilabdefault">;</span><span class="scilabspecial">..</span> <span class="scilabcomment">//fluid</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s density (g/cc)</span>
+<span class="scilabid">Q</span><span class="scilaboperator">=</span><span class="scilabnumber">8666</span><span class="scilabdefault">;</span><span class="scilabspecial">..</span> <span class="scilabcomment">//volumetric flow rate (cc/s)</span>
+<span class="scilabid">L</span><span class="scilaboperator">=</span><span class="scilabnumber">2500</span><span class="scilabdefault">;</span><span class="scilabspecial">..</span> <span class="scilabcomment">//pipe</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s length (cm)</span>
+<span class="scilabid">thk</span><span class="scilaboperator">=</span><span class="scilabnumber">0.025</span><span class="scilabdefault">;</span><span class="scilabspecial">..</span> <span class="scilabcomment">//pipe</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s roughness (cm)</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Re</span><span class="scilabdefault">,</span><span class="scilabid">fD</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">hQthk2fDRe</span><span class="scilabopenclose">(</span><span class="scilabid">h</span><span class="scilabdefault">,</span><span class="scilabid">g</span><span class="scilabdefault">,</span><span class="scilabid">mu</span><span class="scilabdefault">,</span><span class="scilabid">rho</span><span class="scilabdefault">,</span><span class="scilabid">Q</span><span class="scilabdefault">,</span><span class="scilabid">L</span><span class="scilabdefault">,</span><span class="scilabid">thk</span><span class="scilabopenclose">)</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// This call computes Re e fD</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// and plots a representation of the solution</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// on a schematic Moody diagram:</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Re</span><span class="scilabdefault">,</span><span class="scilabid">fD</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">hQthk2fDRe</span><span class="scilabopenclose">(</span><span class="scilabnumber">40</span><span class="scilabdefault">,</span><span class="scilabnumber">981</span><span class="scilabdefault">,</span><span class="scilabnumber">0.0089</span><span class="scilabdefault">,</span><span class="scilabnumber">0.98</span><span class="scilabdefault">,</span><span class="scilabnumber">8666</span><span class="scilabdefault">,</span><span class="scilabnumber">2500</span><span class="scilabdefault">,</span><span class="scilabnumber">0.025</span><span class="scilabdefault">,</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// e.g. Compute the Reynolds number Re and</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the Darcy friction factor fD given</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the head loss h=15 cm,</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the gravitational acceleration g=981 cm/s/s,</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the fluid</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s the dynamic viscosity mu=0.0089 g/cm/s and</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// density rho=0.98 g/cc,</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// volumetric flow rate Q=20 cc/s and</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// the pipe</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s length L=2500 cm and</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// roughness thk=0.0025 cm:</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">//</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// This call computes Re e fD</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// and plots a representation of the solution</span>
+<span class="scilabspecial">..</span><span class="scilabcomment">// on a schematic Moody diagram:</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Re</span><span class="scilabdefault">,</span><span class="scilabid">fD</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">hQthk2fDRe</span><span class="scilabopenclose">(</span><span class="scilabnumber">15</span><span class="scilabdefault">,</span><span class="scilabnumber">981</span><span class="scilabdefault">,</span><span class="scilabnumber">0.0089</span><span class="scilabdefault">,</span><span class="scilabnumber">0.98</span><span class="scilabdefault">,</span><span class="scilabnumber">20</span><span class="scilabdefault">,</span><span class="scilabnumber">2500</span><span class="scilabdefault">,</span><span class="scilabnumber">0.0025</span><span class="scilabdefault">,</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="epsfD2Re.html" class="link">epsfD2Re</a> &#8212; Computes the Reynolds number given the Darcy friction factor and the relative roughness</li>
+   <li class="member"><a href="epsRe2fD.html" class="link">epsRe2fD</a> &#8212; Computes the Darcy friction factor given the Reynolds number and the relative roughness</li>
+   <li class="member"><a href="hDeps2fDRe.html" class="link">hDeps2fDRe</a> &#8212; Solution for internal fluid flow based on pipe&#0039;s hydraulic diameter and relative roughness</li>
+   <li class="member"><a href="hveps2fDRe.html" class="link">hveps2fDRe</a> &#8212; Solution for internal fluid flow based on flow speed and pipe&#0039;s relative roughness</li>
+   <li class="member"><a href="hvthk2fDRe.html" class="link">hvthk2fDRe</a> &#8212; Solution for internal fluid flow based on flow speed and pipe&#0039;s roughness</li>
+   <li class="member"><a href="hQeps2fDRe.html" class="link">hQeps2fDRe</a> &#8212; Solution for internal fluid flow based on volumetric flow rate and pipe&#0039;s relative roughness</li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Alexandre Umpierre</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="hQeps2fDRe.html">&lt;&lt; hQeps2fDRe</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8bfecf9836e3fd00fd91909d3b01db8f.html">Internal Fluid Flow</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="hveps2fDRe.html">hveps2fDRe &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>
