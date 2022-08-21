@@ -2,3 +2,16 @@ Cite as
 Alexandre Umpierre. (2022).
 aumpierre-unb/Internal-Fluid-Flow-for-Scilab: Internal Fluid Flow Toolbox 0.0.7 (0.0.7).
 Zenodo. https://doi.org/10.5281/zenodo.6964664
+
+BibTeX Export:
+@software{alexandre_umpierre_2022_7013177,
+  author       = {Alexandre Umpierre},
+  title        = {{aumpierre-unb/Internal-Fluid-Flow-for-Scilab: 
+                   Internal Fluid Flow Toolbox 0.1.0}},
+  month        = aug,
+  year         = 2022,
+  publisher    = {Zenodo},
+  version      = {v0.1.0},
+  doi          = {10.5281/zenodo.7013177},
+  url          = {https://doi.org/10.5281/zenodo.7013177}
+}
