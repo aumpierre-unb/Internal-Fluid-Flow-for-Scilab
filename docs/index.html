@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<script
+    type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Internal Fluid Flow</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            text-align: left;
+            color: rgb(218, 218, 218);
+            background-color: rgb(41, 41, 41);
+            width: 760px;
+            margin: auto;
+            border: 2px solid rgb(218, 218, 218);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 30px;
+            padding-left: 30px;;
+            box-sizing: border-box
+        }
+        a {
+            color: rgb(208, 215, 82);
+        }
+    </style>
+</head>
+
+<body style="background-color:platinum">
+    <h1>Internal Fluid Flow</h1>
+    <p>
+        This is a very short introduction to an incompressible and inviscid fluid steady internal flow. 
+        Our focus here is a small set of equations that described the phenomenon and are 
+        required to solve problems on internal fluid flow. Fluid mechanics is a pretty extensive topic 
+        in fluid dynamics and there are a lot of important and interesting observations related to 
+        the topic that are not taken into account in this text, because they have no direct impact 
+        the computation performed by the functions in this toolbox.
+    </p>
+    <h2>The Bernoulli Equation</h2>
+    <p>
+        The Bernoulli equation is an expression of the mechanical energy balance 
+        for a very particular situation:
+        <ul>
+            <li>internal steady flow of an</li>
+            <li>incompressible inviscid fluid, where</li>
+            <li>friction effects and tube fittings can be neglected.</li>
+        </ul>
+        For such a case, the mechanical energy is conserved, 
+        and for any two points 1 and 2 we have
+    </p>
+    \begin{equation}
+    { {\rho v_2^2} \over\displaystyle 2 } + \rho g z_2 + p_2=
+    { {\rho v_1^2} \over\displaystyle 2 } + \rho g z_1 + p_1
+    \end{equation}
+    <p>or</p>
+    \begin{equation}
+    { v_2^2 \over\displaystyle 2g } + z_2 + { p_2 \over\displaystyle {\rho g} }=
+    { v_1^2 \over\displaystyle 2g } + z_1 + { p_1 \over\displaystyle {\rho g} }
+    \end{equation}
+    <p>where</p>
+    <ul>
+        <li><i>&rho;</i> is the fluid's density,</li>
+        <li><i>v</i> is the flow speed,</li>
+        <li><i>g</i> is the gravitational acceleration,</li>
+        <li><i>z</i> is the elevation, and</li>
+        <li><i>p</i> is the static pressure.</li>
+        <!-- <li>\( \displaystyle \rho v^2 \over \displaystyle 2 \) is the dynamic pressure,</li>
+        <li>\( \displaystyle \rho gz + p \) is the piezometric pressure,</li>
+        <li>\( \displaystyle v^2 \over \displaystyle 2g \) is the dynamic head, and</li>
+        <li>\( \displaystyle z + { p \over \displaystyle {\rho g} } \) is the piezometric head.</li> -->
+    </ul>
+    <h2>Head Loss</h2>
+    <p>
+        The flow of non ideal viscous fluids is accompanied of energy dispersion which can be measuread as a pressure drop 
+        or, equivalently, as a head loss <i>h</i>, by the Darcy-Weisbach equation,
+    </p>
+    \begin{equation}
+    h=f { v^2 \over\displaystyle 2g } { L \over\displaystyle D}
+    \end{equation}
+    <p>
+        where <i>f</i> is the Darcy friction factor, <i>L</i> is the pipe's length and <i>D</i> is the pipe's hydraulic diameter,
+    </p>
+    \begin{equation}
+    D={4A \over P}
+    \end{equation}
+    <p>where <i>A</i> is the cross-sectional area of the flow and <i>P</i> is the wet perimeter of the cross-section. 
+        <i>f</i> is described as a function of the Reynolds number, 
+    </p>
+    \begin{equation}
+    Re={ \rho vg \over\displaystyle \mu }
+    \end{equation}
+    <p>and the pipe's relative roughness,</p>
+    \begin{equation}
+    \varepsilon={ k \over\displaystyle D }
+    \end{equation}
+    <p>where</p>
+    <ul>
+        <li><i>&mu;</i> is the fluid's dynamic viscosity and</li>
+        <li><i>k</i> is the pipe's[ internal surface] roughness.</li>
+    </ul>
+    <p>
+        The Reynolds number <i>Re</i>, the Darcy friction factor <i>f</i>, 
+        and the relative roughness <i>&epsilon;</i> completely describe the internal flow of incompressible viscous fluids, 
+        for both laminar and turbulent regimes. Usually, <i>f</i> is given as a function of <i>Re</i> and <i>&epsilon;</i>. 
+        The phenomenological relation of <i>f</i>, <i>Re</i> and <i>&epsilon;</i> is represented by the Moody diagram (Figure 1). 
+        Moody diagram is conventionally presented in log-log coordinates.
+    </p>
+    <figure>
+        <center><img src="moody.png" alt="a schematic Moody diagram" style="width:60%"></center>
+        <center><figcaption>Figure 1 - A schematic Moody diagram.</figcaption></center>
+    </figure>
+    <p>
+        The simplest problems on internal fluid flow consist on computing one of them given the two other. 
+        More complex situations arise when only one or none of those variables is known. 
+        Instead, dimensional variables involved are given. 
+        However not always, in most cases iterative computation is required.
+    </p>
+    <h2>Laminar Flow and Turbulent Flow</h2>
+    <p>
+        At low velocity, the flow of a fluid looks like the displacement of one layer of fluid over another. 
+        There are no apparent movement transfer perpendicular to the flow direction. That is why this is called laminar flow. 
+        As the flow speed increases, turbulence arises in the fluid, destroying the laminar structure. 
+        As the flow speed increases even more, turbulence increases as well and become the main feature of the flow.
+        And that is why this is called turbulent flow. The interval that separates laminar flow and the turbulent flow is 
+        the transitional flow.
+    </p>
+    <p>
+        The interaction of the fluid with the surface in contact is completely different in laminar flow and in turbulent flow, 
+        directly affecting the friction of the fluid with the surface and the head loss in internal fluid flow.
+    </p>
+    <p>
+        For laminar flow, the Darcy friction factor is given by the Poiseuille condition,
+    </p>
+    \begin{equation}
+    f={ 64 \over\displaystyle Re }
+    \end{equation}
+    <p>
+        For turbulent flow, the Darcy friction factor is given implicitly by the Colebrook-White equation,
+    </p>
+    \begin{equation}
+    { 1 \over\displaystyle \sqrt{f} }=2 \mathrm{log} {1 \over\displaystyle { 3.7 \over\displaystyle \varepsilon } + { 2.51 \over\displaystyle {Re \sqrt{f}} }}
+    \end{equation}
+    <p>
+        The transition from one to the other regime (usually driven by increasing or decreasing the flow speed) 
+        is a complex phenomenon that takes place at different <i>Re</i> ranges, depending on how exactly the process is conducted. 
+        As rule of thumb, the laminar/turbulent transition is assumed to take place between <i>Re</i>=2000 and <i>Re</i>=2300, 
+        even though laminar flow up to <i>Re</i>=4000 is well described.
+    </p>
+    <p>
+        The computation of <i>f</i> and/or <i>Re</i> demands a well defined transition range.
+        A closer look to those limits is required in situations where both laminar and turbulent solutions are possible 
+        or where both solutions seem to be out the transitional range.
+    </p>
+    <p>
+        When the hydraulic diameter is given alongside the head loss, 
+        the pipe's length and [relative ]roughness and the fluid's properties, <i>f</i> is proportional 
+        to <i>Re</i><sup>-2</sup>, and the the solution on the Moody diagram must lay on a line with inclination -2. 
+        If the laminar range ends at the same point where the turbulent range starts, 
+        a particular problem where both the laminar and the turbulent solutions seem to be unacceptable.
+        Figure 2 illustrates that situation.
+    </p>
+    <figure>
+        <center><img src="diameter [1].png" alt="A vulnerable built of the Moody diagram for given hydraulic diameter" style="width:60%"></center>
+        <center><figcaption>Figure 2 - A vulnerable built of the Moody diagram for given hydraulic diameter.</figcaption></center>
+    </figure>
+    <p>
+        Such situation can be prevented by extending the limits of laminar and/or turbulent ranges. 
+        Figure 3 show a Moody diagram with the laminar range extended to <i>Re</i>=4000, 
+        making possible a solution in the laminar range with <i>Re</i>=2715. 
+        If the volumetric rate flow the given variable, the same problem might arise, 
+        however less pronounced, because in this case <i>f</i> is proportional  to <i>Re</i><sup>-5</sup>.
+    </p>
+    <figure>
+        <center><img src="diameter [2].png" alt="A repaired built of the Moody diagram for given hydraulic diameter" style="width:60%"></center>
+        <center><figcaption>Figure 3 - A repaired built of the Moody diagram for given hydraulic diameter.</figcaption></center>
+    </figure>
+    <p>
+        If the flow speed is the given variable, a different problem might arise. 
+        In this case, under favorable conditions, both a laminar and a turbulent solutions are possible. 
+        It is not possible however to unequivocally compute <i>f</i> and <i>Re</i>. 
+        Figure 4 illustrates this situation.
+    </p>
+    <figure>
+        <center><img src="flowspeed.png" alt="Moody diagram with two solutions for given flow speed" style="width:60%"></center>
+        <center><figcaption>Figure 4 - Moody diagram with two solutions for given flow speed.</figcaption></center>
+    </figure>
+    <p>
+        The most interesting problems on internal fluid flow involve the calculation of both the Reynolds number and the 
+        Darcy friction factor in cases where only <i>D</i> or <i>v</i> or the volumetric rate flow <i>Q</i>is known.
+    </p>
+    <p>
+        This toolbox set the transition between laminar and turbulent flow at <i>Re</i>=2300. 
+        If both a laminar solution with <i>Re</i> &lt 2300 and a turbulent solution with <i>Re</i> &gt 2300 
+        are not found, then flow is assumed to be laminar, and solution is computed according to the 
+        Poiseuille condition, <i>f</i> = 64/<i>Re</i>.
+    </p>
+
+
+    <h2>Functions in Internal Fluid Flow Toolbox</h2>
+    <p>Internal Fluid Flow Toolbox provides the following functions:</p>
+    <ul>
+        <li>epsRe2fD</li>
+        <li>epsfD2Re</li>
+        <li>hDeps2fDRe</li>
+        <li>hveps2fDRe</li>
+        <li>hQeps2fDRe</li>
+        <li>hvthk2fDRe</li>
+        <li>hQthk2fDRe</li>
+    </ul>
+    <p>
+        This section gives a short description of each function. 
+        A more detailed description of their syntaxes can be found in the Scilab Help, once the module is installed.
+    </p>
+    <h3><i>epsRe2fD</i></h3>
+    <p>
+        <i>epsRe2fD</i> computes the Darcy friction factor <i>f</i> given the relative roughness <i>&epsilon;</i> and the Reynolds number <i>Re</i>. 
+        If given <i>Re</i> &lt; 3000, then flow is assumed to be laminar and <i>f</i> is computed using of the Poiseuille condition. 
+        Otherwise, flow is assumed to be turbulent and <i>f</i> is computed using the Colebrook-White equation.
+    </p>
+    <h3><i>epsfD2Re</i></h3>
+    <p>
+        <i>epsfD2Re</i> computes the Reynolds number <i>Re</i> given the relative roughness <i>&epsilon;</i> and the Darcy friction factor <i>f</i>. 
+        Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, 
+        or none for lower friction and rough pipes. If the Poiseuille condition produces 
+        <i>Re</i> &lt; 3000, laminar solution is accepted. If given <i>f</i> is possible for turbulent flow,
+    </p>
+    \begin{equation}
+    { 1 \over\displaystyle \sqrt{f} } &lt; 2 \mathrm{log} {1 \over\displaystyle {3.7 \over\displaystyle \varepsilon} }
+    \end{equation}
+    <p>
+        (which is Colebrook-White equation for for elevated <i>Re</i>) the turbulent solution is accepted. 
+        If both solutions are accepted, espfD2Re returns both answers. 
+        If neither laminar or turbulent solutions are accepted, espfD2Re returns an empty matrix. 
+        If given <i>&epsilon;</i> &gt; 0.05, execution is aborted.
+    </p>
+    <h3><i>hDeps2fDRe</i></h3>
+    <p>
+        <i>hDeps2fDRe</i> computes both the Darcy friction factor <i>f</i> and the Reynolds number <i>Re</i> given the head loss <i>h</i>, 
+        the pipe's length <i>L</i>, relative roughness <i>&epsilon;</i> and hydraulic diameter <i>D</i>, the gravitational acceleration <i>g</i>, 
+        and the fluid's density <i>&rho;</i> and dynamic viscosity <i>&mu;</i>. Replacing flow speed <i>v</i> in the Darcy-Weisbach equation 
+        by the Reynolds number <i>Re</i>,
+    </p>
+    \begin{equation}
+    Re^2 f={ 2gh&rho;^2D^3 \over\displaystyle {&mu;^2 L} }
+    \end{equation}
+    <p>
+        Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. 
+        Solution is computed iteratively, however an analytic solution is possible in this case.
+    </p>
+    <h3><i>hveps2fDRe</i></h3>
+    <p>
+        <i>hveps2fDRe</i> computes both the Darcy friction factor <i>f</i> and the Reynolds number <i>Re</i> given the head loss <i>h</i>, 
+        the pipe's length <i>L</i> and relative roughness <i>&epsilon;</i>, the flow speed <i>v</i>, the gravitational acceleration <i>g</i>, 
+        and the fluid's density <i>&rho;</i> and dynamic viscosity <i>&mu;</i>. Replacing hydraulic diameter <i>D</i> in the Darcy-Weisbach equation 
+        by the Reynolds number <i>Re</i>,
+    </p>
+    \begin{equation}
+    { f \over\displaystyle Re }={ 2gh&mu; \over\displaystyle {v^3&rho;L} }
+    \end{equation}
+    <p>
+        Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. 
+        Solution is computed iteratively.
+    </p>
+    <h3><i>hQeps2fDRe</i></h3>
+    <p>
+        <i>hQeps2fDRe</i> computes both the Darcy friction factor <i>f</i> and the Reynolds number <i>Re</i> given the head loss <i>h</i>, 
+        the pipe's length <i>L</i> and relative roughness <i>&epsilon;</i>, the volumetric flow rate <i>Q</i>, the gravitational acceleration <i>g</i>, 
+        and the fluid's density <i>&rho;</i> and dynamic viscosity <i>&mu;</i>. Replacing hydraulic diameter <i>D</i> in the Darcy-Weisbach equation 
+        by the Reynolds number <i>Re</i>,
+    </p>
+    \begin{equation}
+    { Re^5 f }={ 2ghQ^3 \over\displaystyle { {\left[ {\pi \over\displaystyle 4} \right]}^3 {\left[ {&mu; \over\displaystyle &rho;} \right]}^5 L} }
+    \end{equation}
+    <p>
+        Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. 
+        Solution is computed iteratively.
+    </p>
+    <h3><i>hvthk2fDRe</i></h3>
+    <p>
+        <i>hvthk2fDRe</i> computes both the Darcy friction factor <i>f</i> and the Reynolds number <i>Re</i> given the head loss <i>h</i>, 
+        the pipe's length <i>L</i> and roughness <i>k</i>, the flow speed <i>v</i>, the gravitational acceleration <i>g</i>, 
+        and the fluid's density <i>&rho;</i> and dynamic viscosity <i>&mu;</i>. Replacing hydraulic diameter <i>D</i> in the Darcy-Weisbach equation 
+        by the Reynolds number <i>Re</i>,
+    </p>
+    \begin{equation}
+    { f \over\displaystyle Re }={ 2gh&mu; \over\displaystyle {v^3&rho;L} }
+    \end{equation}
+    <p>
+        Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. 
+        Solution is computed iteratively.
+    </p>
+    <h3><i>hQthk2fDRe</i></h3>
+    <p>
+        <i>hQthk2fDRe</i> computes both the Darcy friction factor <i>f</i> and the Reynolds number <i>Re</i> given the head loss <i>h</i>, 
+        the pipe's length <i>L</i> and roughness <i>k</i>, the volumetric flow rate <i>Q</i>, the gravitational acceleration <i>g</i>, 
+        and the fluid's density <i>&rho;</i> and dynamic viscosity <i>&mu;</i>. Replacing hydraulic diameter <i>D</i> in the Darcy-Weisbach equation 
+        by the Reynolds number <i>Re</i>,
+    </p>
+    \begin{equation}
+    { Re^5 f }={ 2ghQ^3 \over\displaystyle { {\left[ {\pi \over\displaystyle 4} \right]}^3 {\left[ {&mu; \over\displaystyle &rho;} \right]}^5 L} }
+    \end{equation}
+    <p>
+        Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. 
+        Solution is computed iteratively.
+    </p>
+    <footer>
+        <p>Copyright &copy 2022 Alexandre Umpierre</p>
+        <p>email: <a href="mailto:aumpierre@gmail.com">aumpierre@gmail.com</a>
+    </footer>
+
+</body>
+
+</html>
