@@ -100,26 +100,29 @@ function [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk,varargin)
     //  Alexandre Umpierre
 
     P=2*g*h*Q^3/(%pi/4)^3/(mu/rho)^5/L
-    r=%t
+    islam=%t
     Re=(P/64)^(1/4)
     fD=64/Re
     D=rho*Q/Re/mu/(%pi/4)
     eps=thk/D
     if Re>2.3e3
-        r=%f
+        islam=%f
         Re=1e4
         fD=P/Re^5
         D=rho*Q/Re/mu/(%pi/4)
         eps=thk/D
+        if eps>5e-2 eps=5e-2 end
         fD=epsRe2fD(Re,eps)
         while abs(fD-P/Re^5)/fD>5e-3
             if fD-P/Re^5<0 Re=Re*1.02
             else
                 Re=Re*0.98
                 if Re<2.3e3
+                    islam=%t
                     Re=(P/64)^(1/4)
                     fD=64/Re
-                    r=%t
+                    D=rho*Q/Re/mu/(%pi/4)
+                    eps=thk/D
                     warning("Solution found in extended laminar range.")
                     break
                 end
@@ -133,16 +136,23 @@ function [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk,varargin)
     if (argn(2)==8 && varargin(1))
         if winsid()==[] scf(0)
         elseif scf(max(winsid())+1) end
-        if r laminar("r")
-        else laminar("k") end
-        if r turb(eps,"k")
-        else turb(eps,"r") end
-        if eps*3<5e-2 turb(eps*3,"k")
-        else turb(eps/2,"k") end
-        if eps*10<5e-2 turb(eps*10,"k")
-        else turb(eps/7,"k") end
-        turb(eps/3,"k")
-        turb(eps/10,"k")
+        if islam
+            laminar("r")
+            turb(eps,"k")
+        else
+            laminar("k")
+            turb(eps,"r")
+        end
+        if eps<1e-4, turb(1e-5,'k')
+        else turb(eps/3,'k') end
+        if eps<1e-4, turb(1e-4,'k')
+        else turb(eps/10,'k') end
+        if eps<1e-4, turb(1e-3,'k')
+        elseif eps*3>5e-2, turb(5e-2,'k')
+        else turb(eps*3,'k') end
+        if eps<1e-4, turb(5e-3,'k')
+        elseif eps*10>5e-2, turb(eps/6,'k')
+        else turb(eps*10,'k') end
         rough("b")
         smooth("b")
         loglog(Re,fD,"rd")

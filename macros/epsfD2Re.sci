@@ -138,16 +138,16 @@ function [Re]=epsfD2Re(fD,varargin)
         else laminar("k") end
         if max(Re)>2.3e3 turb(eps,"r")
         else turb(eps,"k") end
-        if eps==0 turb(1e-5,"k")
-        elseif eps*3<5e-2 turb(eps*3,"k")
-        else turb(eps/2,"k") end
-        if eps==0 turb(1e-4,"k")
-        elseif eps*10<5e-2 turb(eps*10,"k")
-        else turb(eps/7,"k") end
-        if eps==0 turb(1e-3,"k")
-        else turb(eps/3,"k") end
-        if eps==0 turb(1e-2,"k")
-        else turb(eps/10,"k") end
+        if eps<1e-4, turb(1e-5,'k')
+        else turb(eps/3,'k') end
+        if eps<1e-4, turb(1e-4,'k')
+        else turb(eps/10,'k') end
+        if eps<1e-4, turb(1e-3,'k')
+        elseif eps*3>5e-2, turb(5e-2,'k')
+        else turb(eps*3,'k') end
+        if eps<1e-4, turb(5e-3,'k')
+        elseif eps*10>5e-2, turb(eps/6,'k')
+        else turb(eps*10,'k') end
         rough("b")
         if ~eps==0 smooth("b") end
         loglog(Re,f,"rd")

@@ -114,31 +114,33 @@ function [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk,varargin)
     //  Alexandre Umpierre
 
     M=2*g*mu*h/v^3/rho/L
-    r=%t
+    isturb=%t
     Re=1e4
     fD=M*Re
     D=Re*mu/v/rho
     eps=thk/D
+    if eps>5e-2 eps=5e-2 end
     fD=epsRe2fD(Re,eps)
     while abs(fD-Re*M)/fD>5e-3
         if fD-Re*M>0 Re=Re*1.02
         else
             Re=Re*0.98
             if Re<2.3e3
+                isturb=%f
                 Re=sqrt(64/M)
-                fD=epsRe2fD(Re,eps)
+                fD=64/Re
                 D=Re*mu/v/rho
                 eps=thk/D
-                r=%f
                 break
             end
         end
         fD=M*Re
         D=Re*mu/v/rho
         eps=thk/D
+        if eps>5e-2 eps=5e-2 end
         fD=epsRe2fD(Re,eps)
     end
-    if r && sqrt(64/M)<2.3e3
+    if isturb && sqrt(64/M)<2.3e3
         Re=[sqrt(64/M);Re]
         fD=[64/sqrt(64/M);fD]
     end
@@ -152,12 +154,16 @@ function [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk,varargin)
         else laminar("k") end
         if max(Re)>2.3e3 turb(eps,"r")
         else turb(eps,"k") end
-        if eps*3<5e-2 turb(eps*3,"k")
-        else turb(eps/2,"k") end
-        if eps*10<5e-2 turb(eps*10,"k")
-        else turb(eps/7,"k") end
-        turb(eps/3,"k")
-        turb(eps/10,"k")
+        if eps<1e-4, turb(1e-5,'k')
+        else turb(eps/3,'k') end
+        if eps<1e-4, turb(1e-4,'k')
+        else turb(eps/10,'k') end
+        if eps<1e-4, turb(1e-3,'k')
+        elseif eps*3>5e-2, turb(5e-2,'k')
+        else turb(eps*3,'k') end
+        if eps<1e-4, turb(5e-3,'k')
+        elseif eps*10>5e-2, turb(eps/6,'k')
+        else turb(eps*10,'k') end
         rough("b")
         smooth("b")
         loglog(Re,fD,"rd")
