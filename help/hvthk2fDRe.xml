@@ -24,7 +24,7 @@
 <refsynopsisdiv>
    <title>Syntax</title>
    <synopsis>
-   [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,s])
+   [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,fig])
    
    </synopsis>
 </refsynopsisdiv>
@@ -61,8 +61,8 @@
             <listitem><para> pipe's roughness</para></listitem>
         </varlistentry>
         <varlistentry>
-            <term>s:</term>
-            <listitem><para> optional, boolean for display plot (default is s=%f)</para></listitem>
+            <term>fig:</term>
+            <listitem><para> optional, boolean for display plot (default is fig=%f)</para></listitem>
         </varlistentry>
         <varlistentry>
             <term>Re:</term>

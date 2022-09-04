@@ -23,7 +23,7 @@ function [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps,varargin)
     // Solution for internal fluid flow based on volumetric flow rate and pipe's relative roughness
     //
     // Syntax
-    // [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,s])
+    // [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,fig])
     //
     // Parameters
     // h: head loss
@@ -33,7 +33,7 @@ function [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps,varargin)
     // Q: volumetric flow rate
     // L: pipe's length
     // eps: pipe's relative roughness
-    // s: optional, boolean for display plot (default is s=%f)
+    // fig: optional, boolean for display plot (default is fig=%f)
     // Re: Reynolds number
     // fD: Darcy friction factor
     //

@@ -23,7 +23,7 @@ function [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk,varargin)
     // Solution for internal fluid flow based on volumetric flow rate and pipe's roughness
     //
     // Syntax
-    // [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])
+    // [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,fig])
     //
     // Parameters
     // h: head loss
@@ -33,7 +33,7 @@ function [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk,varargin)
     // Q: volumetric flow rate
     // L: pipe's length
     // thk: pipe's roughness
-    // s: optional, boolean for display plot (default is s=%f)
+    // fig: optional, boolean for display plot (default is fig=%f)
     // Re: Reynolds number
     // fD: Darcy friction factor
     //

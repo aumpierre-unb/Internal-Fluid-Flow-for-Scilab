@@ -24,7 +24,7 @@
 <refsynopsisdiv>
    <title>Syntax</title>
    <synopsis>
-   [fD]=epsRe2fD(Re[,eps[,s]])
+   [fD]=epsRe2fD(Re[,eps[,fig]])
    
    </synopsis>
 </refsynopsisdiv>
@@ -41,8 +41,8 @@
             <listitem><para> optional, relative roughness (default is eps=2e-3)</para></listitem>
         </varlistentry>
         <varlistentry>
-            <term>s:</term>
-            <listitem><para> optional, boolean for display plot (default is s=%f)</para></listitem>
+            <term>fig:</term>
+            <listitem><para> optional, boolean for display plot (default is fig=%f)</para></listitem>
         </varlistentry>
         <varlistentry>
             <term>fD:</term>

@@ -23,12 +23,12 @@ function [fD]=epsRe2fD(Re,varargin)
     // Computes the Darcy friction factor given the Reynolds number and the relative roughness
     //
     // Syntax
-    // [fD]=epsRe2fD(Re[,eps[,s]])
+    // [fD]=epsRe2fD(Re[,eps[,fig]])
     //
     // Parameters
     // Re: Reynolds number
     // eps: optional, relative roughness (default is eps=2e-3)
-    // s: optional, boolean for display plot (default is s=%f)
+    // fig: optional, boolean for display plot (default is fig=%f)
     // fD: Darcy friction factor
     //
     // Description

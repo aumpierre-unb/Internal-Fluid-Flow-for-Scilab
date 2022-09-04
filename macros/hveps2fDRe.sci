@@ -23,7 +23,7 @@ function [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,varargin)
     // Solution for internal fluid flow based on flow speed and pipe's relative roughness
     //
     // Syntax
-    // [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,[,s])
+    // [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,[,fig])
     //
     // Parameters
     // h: head loss
@@ -33,7 +33,7 @@ function [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,varargin)
     // v: flow speed
     // L: pipe's length
     // eps: pipe's relative roughness
-    // s: optional, boolean for display plot (default is s=%f)
+    // fig: optional, boolean for display plot (default is fig=%f)
     // Re: Reynolds number
     // fD: Darcy friction factor
     //

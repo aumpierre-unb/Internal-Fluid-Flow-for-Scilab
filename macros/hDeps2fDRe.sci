@@ -23,7 +23,7 @@ function [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps,varargin)
     // Solution for internal fluid flow based on pipe's hydraulic diameter and relative roughness
     //
     // Syntax
-    // [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,s])
+    // [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,fig])
     //
     // Parameters
     // h: head loss
@@ -33,7 +33,7 @@ function [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps,varargin)
     // D: pipe's hydraulic diameter
     // L: pipe's length
     // eps: pipe's relative roughness
-    // s: optional, boolean for display plot (default is s=%f)
+    // fig: optional, boolean for display plot (default is fig=%f)
     // Re: Reynolds number
     // fD: Darcy friction factor
     //
