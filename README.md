@@ -5,17 +5,20 @@
 
 ### Install and load Internal Fluid Flow Toolbox for Scilab:
 
-1. Download ``v0.1.2.zip`` file from the current release page.
+1\. Download ``v0.1.2.zip`` file from the current release page.
 
-2. Set Scilab current directory to the download folder.
+2\. Set Scilab current directory to the download folder.
 
-3. To install the toolbox, type:
+3\. To install the toolbox, type:
 
 ``--> atomsInstall('v0.1.2.zip')``
 
-4. To load the toolbox, type:
+4\. To load the toolbox, type:
 
 ``--> atomsLoad('inflowlib')``
+
+<br/>
+<hr/>
 
 This is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal Fluid Flow Toolbox for Scilab.
 
