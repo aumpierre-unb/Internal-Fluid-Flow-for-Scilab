@@ -17,7 +17,6 @@
 
 ``--> atomsLoad('inflowlib')``
 
-<br/>
 <hr/>
 
 This is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal Fluid Flow Toolbox for Scilab.
