@@ -2,8 +2,9 @@
 
 [![DOI](https://zenodo.org/badge/509430202.svg)](https://zenodo.org/badge/latestdoi/509430202)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Internal-Fluid-Flow-for-Scilab)
 
-### Install and load Internal Fluid Flow Toolbox for Scilab:
+## Install and load Internal Fluid Flow Toolbox for Scilab:
 
 1\. Download ``v0.1.2.zip`` file from the current release page.
 
@@ -11,11 +12,15 @@
 
 3\. To install the toolbox, type:
 
-``--> atomsInstall('v0.1.2.zip')``
+```dotnetcli
+atomsInstall('v0.1.2.zip')
+```
 
 4\. To load the toolbox, type:
 
-``--> atomsLoad('inflowlib')``
+```dotnetcli
+atomsLoad('inflowlib')
+```
 
 ---
 
@@ -126,23 +131,33 @@ epsRe2fD computes the Darcy friction factor *f* given the relative roughness *&e
 
 **Syntax:**
 
-``[f]=epsRe2fD(Re,[eps[,s]])``
+```dotnetcli
+[f]=epsRe2fD(Re,[eps[,s]])
+```
 
 *e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5x10<sup>4</sup> and the relative roughness *&epsilon;*=0.0044:
 
-``--> f=epsRe2fD(2.5e4,0.0044,%f)``
+```dotnetcli
+f=epsRe2fD(2.5e4,0.0044,%f)
+```
 
 or
 
-``--> Re=2.5e4,eps=0.0044,f=epsRe2fD(Re,eps)``
+```dotnetcli
+Re=2.5e4,eps=0.0044,f=epsRe2fD(Re,eps)
+```
 
 *e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5x10<sup>4</sup> and the relative roughness *&epsilon;*=0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
-``--> f=epsRe2fD(2.5e4,0.0044,%t)``
+```dotnetcli
+f=epsRe2fD(2.5e4,0.0044,%t)
+```
 
 *e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=2.5x10<sup>4</sup>:
 
-``--> f=epsRe2fD(2.5e4)``
+```dotnetcli
+f=epsRe2fD(2.5e4)
+```
 
 ### epsfD2Re
 
@@ -156,23 +171,33 @@ $$
 
 **Syntax:**
 
-``[Re]=epsfD2Re(f[,eps[,s]])``
+```dotnetcli
+[Re]=epsfD2Re(f[,eps[,s]])
+```
 
 *e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=0.033 and the relative roughness *&epsilon;*=0.0044:
 
-``--> Re=epsfD2Re(0.033,0.0044,%f)``
+```dotnetcli
+Re=epsfD2Re(0.033,0.0044,%f)
+```
 
 or
 
-``--> f=0.033,eps=0.0044,Re=epsfD2Re(f,eps)``
+```dotnetcli
+f=0.033,eps=0.0044,Re=epsfD2Re(f,eps)
+```
 
 *e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=0.033 and the relative roughness *&epsilon;*=0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
-``--> Re=epsfD2Re(0.033,0.0044,%t)``
+```dotnetcli
+Re=epsfD2Re(0.033,0.0044,%t)
+```
 
 *e.g.* Compute the Reynolds number factor *f* given the Darcy friction *f*=0.033:
 
-``--> Re=epsfD2Re(0.033)``
+```dotnetcli
+Re=epsfD2Re(0.033)
+```
 
 ### hDeps2fDRe
 
@@ -186,7 +211,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``--> [Re,f]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,s])``
+```dotnetcli
+[Re,f]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,s])
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -198,11 +225,15 @@ the fluid's the dynamic viscosity *&mu;*=0.0089 (g/cm/s) and density *&rho;*=0.9
 
 the pipe's hydraulic diameter *D*=10 (cm), length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
-``--> [Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%f)``
+```dotnetcli
+[Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%f)
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,f]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%t)``
+```dotnetcli
+[Re,f]=hDeps2fDRe(40,981,0.0089,0.98,10,2500,0.0025,%t)
+```
 
 ### hveps2fDRe
 
@@ -216,7 +247,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``--> [Re,f]=hveps2fDRe(h,g,mu,rho,v,L,eps[,s])``
+```dotnetcli
+[Re,f]=hveps2fDRe(h,g,mu,rho,v,L,eps[,s])
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -230,11 +263,15 @@ the flow speed *v*=110 (cm/s), and
 
 the pipe's length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
-``--> [Re,f]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%f)``
+```dotnetcli
+[Re,f]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%f)
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,f]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%t)``
+```dotnetcli
+[Re,f]=hveps2fDRe(40,981,0.0089,0.98,110,2500,0.0025,%t)
+```
 
 ### hQeps2fDRe
 
@@ -248,7 +285,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``--> [Re,f]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,s])``
+```dotnetcli
+[Re,f]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,s])
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -262,11 +301,15 @@ the volumetric flow rate *Q*=8666 (cu. cm/s), and
 
 the pipe's length *L*=2500 (cm) and relative roughness *&epsilon;*=0.0025:
 
-``--> [Re,f]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%f)``
+```dotnetcli
+[Re,f]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%f)
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,f]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%t)``
+```dotnetcli
+[Re,f]=hQeps2fDRe(40,981,0.0089,0.98,8666,2500,0.0025,%t)
+```
 
 ### hvthk2fDRe
 
@@ -280,7 +323,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``--> [Re,f]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,s])``
+```dotnetcli
+[Re,f]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,s])
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -294,11 +339,15 @@ the flow speed *v*=110 (cm/s), and
 
 the pipe's length *L*=2500 (cm) and roughness *k*=0.025 (cm):
 
-``--> [Re,f]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%f)``
+```dotnetcli
+[Re,f]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%f)
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,f]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%t)``
+```dotnetcli
+[Re,f]=hvthk2fDRe(40,981,0.0089,0.98,110,2500,0.025,%t)
+```
 
 ### hQthk2fDRe
 
@@ -312,7 +361,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``--> [Re,f]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])``
+```dotnetcli
+[Re,f]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
@@ -326,11 +377,15 @@ the volumetric flow rate *Q*=8666 (cu. cm/s), and
 
 the pipe's length *L*=2500 (cm) and roughness *k*=0.025 (cm):
 
-``--> [Re,f]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%f)``
+```dotnetcli
+[Re,f]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%f)
+```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-``--> [Re,f]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%t)``
+```dotnetcli
+[Re,f]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%t)
+```
 
 Copyright &copy; 2022 Alexandre Umpierre
 
