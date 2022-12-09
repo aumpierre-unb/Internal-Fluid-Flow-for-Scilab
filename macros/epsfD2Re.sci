@@ -133,7 +133,7 @@ function [Re]=epsfD2Re(fD,varargin)
     end
     if ~isempty(f) && argn(2)==3 && varargin(2)
         if winsid()==[] scf(0)
-        elseif scf(max(winsid())+1) end
+        else scf(max(winsid())+1) end
         if min(Re)<2.3e3 laminar("r")
         else laminar("k") end
         if max(Re)>2.3e3 turb(eps,"r")

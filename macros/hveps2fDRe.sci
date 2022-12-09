@@ -139,7 +139,7 @@ function [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,varargin)
     end
     if (argn(2)==8 && varargin(1))
         if winsid()==[] scf(0)
-        elseif scf(max(winsid())+1) end
+        else scf(max(winsid())+1) end
         if min(Re)<2.3e3 laminar("r")
         else laminar("k") end
         if max(Re)>2.3e3 turb(eps,"r")

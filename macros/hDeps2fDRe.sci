@@ -123,7 +123,7 @@ function [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps,varargin)
     end
     if (argn(2)==8 && varargin(1))
         if winsid()==[] scf(0)
-        elseif scf(max(winsid())+1) end
+        else scf(max(winsid())+1) end
         if islam
             laminar("r")
             turb(eps,"k")
