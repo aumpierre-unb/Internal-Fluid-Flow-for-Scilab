@@ -27,7 +27,8 @@ Date: 2022-09-04
 Description: This package provides a set of functions
  designed to solve problems of internal fluid flow
  on Scilab under GNU GPLv3.
- All functions are based on the Poiseuille condition for laminar flow,
+ All functions are based on
+ the Poiseuille condition for laminar flow,
  the Colebrooke-White equation for turbulent flow, and
  the Darcy-Weisbach equation for head loss.
  Basic functions allow to compute either
