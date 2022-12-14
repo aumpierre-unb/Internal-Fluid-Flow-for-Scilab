@@ -13,7 +13,17 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
-path=get_absolute_file_path();
-tbx_build_macros("inflowlib",path);
-
-
+function smoothline(t)
+    f=[]
+    Re=[]
+    N=30
+    for n=1:N
+        w=log10(2d3)+(n-1)*(log10(1d7)-log10(2d3))/(N-1)
+        Re=[Re;10^w]
+        function y=foo(fD)
+            y=1/fD^.5+2*log10(2.51/10^w/fD^.5)
+        endfunction
+        f=[f;root(foo,6e-3,1e-1,1e-4)]
+    end
+    loglog(Re,f,t)
+end

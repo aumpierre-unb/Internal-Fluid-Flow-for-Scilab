@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>epsRe2fD</refname>
-    <refpurpose>Computes the Darcy friction factor given the Reynolds number and the relative roughness</refpurpose>
+    <refpurpose>epsRe2fD computes the Darcy friction factor given</refpurpose>
   </refnamediv>
 
 
@@ -54,8 +54,8 @@
 <refsection>
    <title>Description</title>
    <para>
-epsRe2fD computes the Reynolds number, given
-the Darcy friction factor and
+epsRe2fD computes the Darcy friction factor given
+the Reynolds number and
 the relative roughness for for laminar regime and,
 when possible, also for turbulent regime.
 By default, tube is assumed to be smooth, eps=0.
@@ -72,28 +72,28 @@ Inputs are to be given in a consistent system of units.
 <refsection>
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
-..// e.g. Compute the Darcy friction factor fD given
-..// the Reynolds number Re=2.5e4 and
-..// the relative roughness eps=0.0044:
-..//
-..// This call computes fD
-..// for Re=2.5e4 and eps=0.0044:
-fD=epsRe2fD(2.5e4,0.0044,%f)
-..// Alternatively:
+// Compute the Darcy friction factor fD given
+// the Reynolds number Re=2.5e4 and
+// the relative roughness eps=4.4e-3:
+//
+// This call computes fD
+// for Re=2.5e4 and eps=4.4e-3:
+fD=epsRe2fD(2.5e4,4.4e-3,%f)
+// Alternatively:
 Re=2.5e4;..
-eps=0.0044;..
+eps=4.4e-3;..
 fD=epsRe2fD(Re,eps)
-..// This call computes fD
-..// for Re=2.5e4 and eps=0.0044
-..// and plots a representation of the solution
-..// on a schematic Moody diagram:
-fD=epsRe2fD(2.5e4,0.0044,%t)
-..// e.g. Compute the Darcy friction factor fD given
-..// the Reynolds number Re=2.5e4:
-..//
-..// This call computes fD
-..// for Re=2.5e4 and
-..// the default smooth condition, eps=0:
+// This call computes fD
+// for Re=2.5e4 and eps=4.4e-3
+// and plots a representation of the solution
+// on a schematic Moody diagram:
+fD=epsRe2fD(2.5e4,4.4e-3,%t)
+// Compute the Darcy friction factor fD given
+// the Reynolds number Re=2.5e4:
+//
+// This call computes fD
+// for Re=2.5e4 and
+// the default smooth condition, eps=0:
 fD=epsRe2fD(2.5e4)
 
    ]]></programlisting>

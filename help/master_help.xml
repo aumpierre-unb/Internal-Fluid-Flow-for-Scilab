@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
 <!--Begin Entities-->
-<!ENTITY aec82fdb30033a5817f8089b64e11b088 SYSTEM "file:///D:/UnB/programacao/scilab/inflowlib/help/epsRe2fD.xml">
-<!ENTITY a860be86d2e2c221340eeacc7e797fbe1 SYSTEM "file:///D:/UnB/programacao/scilab/inflowlib/help/epsfD2Re.xml">
-<!ENTITY a33b56b1ed421efc8c8aa15efade4152f SYSTEM "file:///D:/UnB/programacao/scilab/inflowlib/help/hDeps2fDRe.xml">
-<!ENTITY ad7ea9bd1d1c9fc774adc28f752e26b6c SYSTEM "file:///D:/UnB/programacao/scilab/inflowlib/help/hQeps2fDRe.xml">
-<!ENTITY a38f04710b149a80965e670e6b6fc6575 SYSTEM "file:///D:/UnB/programacao/scilab/inflowlib/help/hQthk2fDRe.xml">
-<!ENTITY a6cb3b8bc2465c4a46490b10241b40b98 SYSTEM "file:///D:/UnB/programacao/scilab/inflowlib/help/hveps2fDRe.xml">
-<!ENTITY a33d406922dbe6facc91bf56936813a6c SYSTEM "file:///D:/UnB/programacao/scilab/inflowlib/help/hvthk2fDRe.xml">
+<!ENTITY aeba662da9b399fdf7c3564f0e23946d3 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/epsRe2fD.xml">
+<!ENTITY a3d862995766384ff72277a43ab69eabe SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/epsfD2Re.xml">
+<!ENTITY a17ed38e2bc3e8fc5f9e7c19566ab2d38 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/hDeps2fDRe.xml">
+<!ENTITY afb7dc8f146e308bc32031ca439c07265 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/hQeps2fDRe.xml">
+<!ENTITY a0ce02eb5cdb5e619626b2b8fdaadcde8 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/hQthk2fDRe.xml">
+<!ENTITY afd17f68472cf179b86756c8a5d119f2a SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/hveps2fDRe.xml">
+<!ENTITY a09d7a8c260809e4ff079cd44433c0552 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/hvthk2fDRe.xml">
+<!ENTITY a1e2097d92d09679dd2cda99e65d95e67 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/laminar.xml">
+<!ENTITY afce44679d320cd76c66056677f20ba72 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/root.xml">
+<!ENTITY a608fba594198b8a217e9bca315b9e317 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/rough.xml">
+<!ENTITY a433bccf3252a5b548b5b17d4e54c86d7 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/smoothline.xml">
+<!ENTITY a7c6a0e051ac3bb6d119e3157aa4d8925 SYSTEM "file:///D:/UnB/programacao/github/Internal-Fluid-Flow-for-Scilab/help/turbulent.xml">
 <!--End Entities-->
 ]>
 <book version="5.0-subset Scilab" xml:lang="en_US"
@@ -22,14 +27,19 @@
     <title>Internal Fluid Flow</title>
   </info>
 
-<part xml:id='section_1a5d32a5774a02b036ca9077794f67ce'>
+<part xml:id='section_301c2b4788a30678b7db3de5c5ba0851'>
 <title>Internal Fluid Flow</title>
-&aec82fdb30033a5817f8089b64e11b088;
-&a860be86d2e2c221340eeacc7e797fbe1;
-&a33b56b1ed421efc8c8aa15efade4152f;
-&ad7ea9bd1d1c9fc774adc28f752e26b6c;
-&a38f04710b149a80965e670e6b6fc6575;
-&a6cb3b8bc2465c4a46490b10241b40b98;
-&a33d406922dbe6facc91bf56936813a6c;
+&aeba662da9b399fdf7c3564f0e23946d3;
+&a3d862995766384ff72277a43ab69eabe;
+&a17ed38e2bc3e8fc5f9e7c19566ab2d38;
+&afb7dc8f146e308bc32031ca439c07265;
+&a0ce02eb5cdb5e619626b2b8fdaadcde8;
+&afd17f68472cf179b86756c8a5d119f2a;
+&a09d7a8c260809e4ff079cd44433c0552;
+&a1e2097d92d09679dd2cda99e65d95e67;
+&afce44679d320cd76c66056677f20ba72;
+&a608fba594198b8a217e9bca315b9e317;
+&a433bccf3252a5b548b5b17d4e54c86d7;
+&a7c6a0e051ac3bb6d119e3157aa4d8925;
 </part>
 </book>

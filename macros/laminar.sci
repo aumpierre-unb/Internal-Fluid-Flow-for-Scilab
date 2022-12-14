@@ -13,7 +13,8 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
-path=get_absolute_file_path();
-tbx_build_macros("inflowlib",path);
-
-
+function laminar(t)
+    Re=[5e2 4e3]
+    f=64 ./ Re
+    loglog(Re,f,t)
+endfunction

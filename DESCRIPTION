@@ -4,7 +4,7 @@ Title: Internal Fluid Flow Toolbox for Scilab
 
 Summary: A toolbox for internal fluid flow
 
-Version: 0.1.2
+Version: 0.2.0
 
 Author: Alexandre Umpierre
 
@@ -22,14 +22,14 @@ ScilabVersion: >= 6.0
 
 Depends: 
 
-Date: 2022-09-04
+Date: 2022-12-14
 
 Description: This package provides a set of functions
  designed to solve problems of internal fluid flow
  on Scilab under GNU GPLv3.
  All functions are based on
  the Poiseuille condition for laminar flow,
- the Colebrooke-White equation for turbulent flow, and
+ the Colebrook-White equation for turbulent flow, and
  the Darcy-Weisbach equation for head loss.
  Basic functions allow to compute either
  the Reynolds number or the Darcy friction factor,

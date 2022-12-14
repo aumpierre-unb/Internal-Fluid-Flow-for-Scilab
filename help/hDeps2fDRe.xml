@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>hDeps2fDRe</refname>
-    <refpurpose>Solution for internal fluid flow based on pipe's hydraulic diameter and relative roughness</refpurpose>
+    <refpurpose>hDeps2fDRe computes</refpurpose>
   </refnamediv>
 
 
@@ -78,8 +78,9 @@
 <refsection>
    <title>Description</title>
    <para>
-hDeps2fDRe computes the Reynolds number and
-the Darcy friction factor for a internal fluid flow, given
+hDeps2fDRe computes
+the Reynolds number and
+the Darcy friction factor for a internal fluid flow given
 the head loss h,
 the gravitational acceleration g,
 the fluid's dynamic viscosity mu and density rho, and
@@ -93,45 +94,45 @@ Inputs are to be given in a consistent system of units.
 <refsection>
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
-..// e.g. Compute the Reynolds number Re and
-..// the Darcy friction factor fD given
-..// the head loss h=40 cm,
-..// the gravitational acceleration g=981 cm/s/s,
-..// the fluid's the dynamic viscosity mu=0.0089 g/cm/s and
-..// density rho=0.98 g/cc, and
-..// the pipe's hydraulic diameter D=7 cm,
-..// length L=2500 cm and
-..// relative roughness eps=0.0025:
-..//
-..// This call computes Re e fD:
-[Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,7,2500,0.0025,%f)
-..// Alternatively:
+// Compute the Reynolds number Re and
+// the Darcy friction factor fD given
+// the head loss h=40 cm,
+// the gravitational acceleration g=981 cm/s/s,
+// the fluid's the dynamic viscosity mu=8.9e-3 g/cm/s and
+// density rho=0.98 g/cc, and
+// the pipe's hydraulic diameter D=7 cm,
+// length L=2.5e3 cm and
+// relative roughness eps=2.5e-3:
+//
+// This call computes Re e fD:
+[Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,7,2.5e3,2.5e-3,%f)
+// Alternatively:
 h=40;.. //head loss (cm)
 g=981;.. //gravitational acceleration (cm/s/s)
-mu=0.0089;.. //fluid's dynamic viscosity (g/cm/s)
+mu=8.9e-3;.. //fluid's dynamic viscosity (g/cm/s)
 rho=0.98;.. //fluid's density (g/cc)
 D=7;.. //pipe's hydraulic diameter (cm)
-L=2500;.. //pipe's length (cm)
-eps=0.0025;.. //pipe's relative roughness
+L=2.5e3;.. //pipe's length (cm)
+eps=2.5e-3;.. //pipe's relative roughness
 [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps)
-..// This call computes Re e fD
-..// and plots a representation of the solution
-..// on a schematic Moody diagram:
-[Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,7,2500,0.0025,%t)
-..// e.g. Compute the Reynolds number Re and
-..// the Darcy friction factor fD given
-..// the head loss h=40 cm,
-..// the gravitational acceleration g=981 cm/s/s,
-..// the fluid's the dynamic viscosity mu=0.0089 g/cm/s and
-..// density rho=0.98 g/cc, and
-..// the pipe's hydraulic diameter D=0.7 cm,
-..// length L=2500 cm and
-..// relative roughness eps=0.0025:
-..//
-..// This call computes Re e fD
-..// and plots a representation of the solution
-..// on a schematic Moody diagram:
-[Re,fD]=hDeps2fDRe(40,981,0.0089,0.98,0.7,2500,0.0025,%t)
+// This call computes Re e fD
+// and plots a representation of the solution
+// on a schematic Moody diagram:
+[Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,7,2.5e3,2.5e-3,%t)
+// Compute the Reynolds number Re and
+// the Darcy friction factor fD given
+// the head loss h=40 cm,
+// the gravitational acceleration g=981 cm/s/s,
+// the fluid's the dynamic viscosity mu=8.9e-3 g/cm/s and
+// density rho=0.98 g/cc, and
+// the pipe's hydraulic diameter D=0.7 cm,
+// length L=2.5e3 cm and
+// relative roughness eps=2.5e-3:
+//
+// This call computes Re e fD
+// and plots a representation of the solution
+// on a schematic Moody diagram:
+[Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,0.7,2.5e3,2.5e-3,%t)
 
    ]]></programlisting>
 </refsection>

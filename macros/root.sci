@@ -13,7 +13,10 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
-path=get_absolute_file_path();
-tbx_build_macros("inflowlib",path);
-
-
+function x2=root(f,x1,x2,tol)
+    while abs(f(x2))>tol
+        x=(x1+x2)/2
+        if f(x)*f(x1)>0 x1=x
+        else x2=x end
+    end
+end

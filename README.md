@@ -128,7 +128,7 @@ epsRe2fD computes the Darcy friction factor *f* given the relative roughness *&e
 [f]=epsRe2fD(Re,[eps[,s]])
 ```
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 4.4e-3:
 
 ```dotnetcli
 f=epsRe2fD(2.5e4,4.4e-3,%f)
@@ -140,7 +140,7 @@ or
 Re=2.5e4,eps=4.4e-3,f=epsRe2fD(Re,eps)
 ```
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 4.4e-3 and plot a representation of the solution on a schematic Moody diagram:
 
 ```dotnetcli
 f=epsRe2fD(2.5e4,4.4e-3,%t)
@@ -168,7 +168,7 @@ $$
 [Re]=epsfD2Re(f[,eps[,s]])
 ```
 
-*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=0.033 and the relative roughness *&epsilon;* = 0.0044:
+*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=3.3e-2 and the relative roughness *&epsilon;* = 4.4e-3:
 
 ```dotnetcli
 Re=epsfD2Re(3.3e-2,4.4e-3,%f)
@@ -180,13 +180,13 @@ or
 f=3.3e-2,eps=4.4e-3,Re=epsfD2Re(f,eps)
 ```
 
-*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 3.3e-2 and the relative roughness *&epsilon;* = 4.4e-3 and plot a representation of the solution on a schematic Moody diagram:
 
 ```dotnetcli
 Re=epsfD2Re(3.3e-2,4.4e-3,%t)
 ```
 
-*e.g.* Compute the Reynolds number factor *f* given the Darcy friction *f*=0.033:
+*e.g.* Compute the Reynolds number factor *f* given the Darcy friction *f*=3.3e-2:
 
 ```dotnetcli
 Re=epsfD2Re(3.3e-2)
@@ -216,7 +216,7 @@ the gravitational acceleration *h* = 9.81 m/s/s,
 
 the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg/L, and
 
-the pipe's hydraulic diameter *D*=10 (cm), length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
+the pipe's hydraulic diameter *D*=10 (cm), length *L* = 25 m and relative roughness *&epsilon;* = 2.5e-3:
 
 ```dotnetcli
 [Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,10,2.5e3,2.5e-3,%f)
@@ -254,7 +254,7 @@ the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg
 
 the flow speed *v* = 1.1 m/s, and
 
-the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
+the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 2.5e-3:
 
 ```dotnetcli
 [Re,f]=hveps2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-3,%f)
@@ -292,7 +292,7 @@ the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg
 
 the volumetric flow rate *Q* = 8.6 L/s, and
 
-the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
+the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 2.5e-3:
 
 ```dotnetcli
 [Re,f]=hQeps2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-3,%f)
@@ -333,13 +333,13 @@ the flow speed *v* = 1.1 m/s, and
 the pipe's length *L* = 25 m and roughness *k* = 0.25 mm:
 
 ```dotnetcli
-[Re,f]=hvthk2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,0.025,%f)
+[Re,f]=hvthk2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-2,%f)
 ```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
 ```dotnetcli
-[Re,f]=hvthk2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,0.025,%t)
+[Re,f]=hvthk2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-2,%t)
 ```
 
 ### hQthk2fDRe
@@ -371,13 +371,13 @@ the volumetric flow rate *Q* = 8.6 L/s, and
 the pipe's length *L* = 25 m and roughness *k* = 0.25 mm:
 
 ```dotnetcli
-[Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,0.025,%f)
+[Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-2,%f)
 ```
 
 *e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
 ```dotnetcli
-[Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,0.025,%t)
+[Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-2,%t)
 ```
 
 Copyright &copy; 2022 Alexandre Umpierre

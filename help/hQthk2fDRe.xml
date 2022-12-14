@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>hQthk2fDRe</refname>
-    <refpurpose>Solution for internal fluid flow based on volumetric flow rate and pipe's roughness</refpurpose>
+    <refpurpose>hQthk2fDRe computes</refpurpose>
   </refnamediv>
 
 
@@ -78,8 +78,9 @@
 <refsection>
    <title>Description</title>
    <para>
-hQthk2fDRe computes the Reynolds number and
-the Darcy friction factor for a internal fluid flow, given
+hQthk2fDRe computes
+the Reynolds number and
+the Darcy friction factor for a internal fluid flow given
 the head loss h,
 the gravitational acceleration g,
 the fluid's dynamic viscosity mu and density rho, and
@@ -94,45 +95,45 @@ Inputs are to be given in a consistent system of units.
 <refsection>
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
-..// e.g. Compute the Reynolds number Re and
-..// the Darcy friction factor fD given
-..// the head loss h=40 cm,
-..// the gravitational acceleration g=981 cm/s/s,
-..// the fluid's the dynamic viscosity mu=0.0089 g/cm/s and
-..// density rho=0.98 g/cc,
-..// the volumetric flow rate Q=8666 cc/s and
-..// the pipe's length L=2500 cm and
-..// roughness thk=0.025 cm:
-..//
-..// This call computes Re e fD:
-[Re,fD]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%f)
-..// Alternatively:
+// Compute the Reynolds number Re and
+// the Darcy friction factor fD given
+// the head loss h=40 cm,
+// the gravitational acceleration g=981 cm/s/s,
+// the fluid's the dynamic viscosity mu=8.9e-3 g/cm/s and
+// density rho=0.98 g/cc,
+// the volumetric flow rate Q=8.7e3 cc/s and
+// the pipe's length L=2.5e3 cm and
+// roughness thk=2.5e-2 cm:
+//
+// This call computes Re e fD:
+[Re,fD]=hQthk2fDRe(40,981,8.9e-3,0.98,8.7e3,2.5e3,2.5e-2,%f)
+// Alternatively:
 h=40;.. //head loss (cm)
 g=981;.. //gravitational acceleration (cm/s/s)
-mu=0.0089;.. //fluid's dynamic viscosity (g/cm/s)
+mu=8.9e-3;.. //fluid's dynamic viscosity (g/cm/s)
 rho=0.98;.. //fluid's density (g/cc)
-Q=8666;.. //volumetric flow rate (cc/s)
-L=2500;.. //pipe's length (cm)
-thk=0.025;.. //pipe's roughness (cm)
+Q=8.7e3;.. //volumetric flow rate (cc/s)
+L=2.5e3;.. //pipe's length (cm)
+thk=2.5e-2;.. //pipe's roughness (cm)
 [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk)
-..// This call computes Re e fD
-..// and plots a representation of the solution
-..// on a schematic Moody diagram:
-[Re,fD]=hQthk2fDRe(40,981,0.0089,0.98,8666,2500,0.025,%t)
-..// e.g. Compute the Reynolds number Re and
-..// the Darcy friction factor fD given
-..// the head loss h=15 cm,
-..// the gravitational acceleration g=981 cm/s/s,
-..// the fluid's the dynamic viscosity mu=0.0089 g/cm/s and
-..// density rho=0.98 g/cc,
-..// volumetric flow rate Q=20 cc/s and
-..// the pipe's length L=2500 cm and
-..// roughness thk=0.0025 cm:
-..//
-..// This call computes Re e fD
-..// and plots a representation of the solution
-..// on a schematic Moody diagram:
-[Re,fD]=hQthk2fDRe(15,981,0.0089,0.98,20,2500,0.0025,%t)
+// This call computes Re e fD
+// and plots a representation of the solution
+// on a schematic Moody diagram:
+[Re,fD]=hQthk2fDRe(40,981,8.9e-3,0.98,8.7e3,2.5e3,2.5e-2,%t)
+// Compute the Reynolds number Re and
+// the Darcy friction factor fD given
+// the head loss h=15 cm,
+// the gravitational acceleration g=981 cm/s/s,
+// the fluid's the dynamic viscosity mu=8.9e-3 g/cm/s and
+// density rho=0.98 g/cc,
+// volumetric flow rate Q=20 cc/s and
+// the pipe's length L=2.5e3 cm and
+// roughness thk=2.5e-2 cm:
+//
+// This call computes Re e fD
+// and plots a representation of the solution
+// on a schematic Moody diagram:
+[Re,fD]=hQthk2fDRe(15,981,8.9e-3,0.98,20,2.5e3,2.5e-2,%t)
 
    ]]></programlisting>
 </refsection>

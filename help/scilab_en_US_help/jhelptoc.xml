@@ -2,7 +2,7 @@
 <!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN" "http://java.sun.com/products/javahelp/toc_1_0.dtd">
 <toc version="1.0">
 <tocitem target="index" text="Internal Fluid Flow">
-<tocitem target="section_1a5d32a5774a02b036ca9077794f67ce" text="Internal Fluid Flow">
+<tocitem target="section_301c2b4788a30678b7db3de5c5ba0851" text="Internal Fluid Flow">
 <tocitem target="epsRe2fD" text="epsRe2fD"/>
 <tocitem target="epsfD2Re" text="epsfD2Re"/>
 <tocitem target="hDeps2fDRe" text="hDeps2fDRe"/>
@@ -10,6 +10,11 @@
 <tocitem target="hQthk2fDRe" text="hQthk2fDRe"/>
 <tocitem target="hveps2fDRe" text="hveps2fDRe"/>
 <tocitem target="hvthk2fDRe" text="hvthk2fDRe"/>
+<tocitem target="laminar" text="laminar"/>
+<tocitem target="root" text="root"/>
+<tocitem target="rough" text="rough"/>
+<tocitem target="smoothline" text="smoothline"/>
+<tocitem target="turbulent" text="turbulent"/>
 </tocitem>
 </tocitem>
 </toc>

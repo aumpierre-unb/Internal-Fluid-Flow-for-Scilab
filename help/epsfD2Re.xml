@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>epsfD2Re</refname>
-    <refpurpose>Computes the Reynolds number given the Darcy friction factor and the relative roughness</refpurpose>
+    <refpurpose>epsfD2Re computes the Reynolds number given</refpurpose>
   </refnamediv>
 
 
@@ -54,7 +54,7 @@
 <refsection>
    <title>Description</title>
    <para>
-epsfD2Re computes the Reynolds number, given
+epsfD2Re computes the Reynolds number given
 the Darcy friction factor and
 the relative roughness for for laminar regime and,
 when possible, also for turbulent regime.
@@ -72,50 +72,50 @@ Inputs are to be given in a consistent system of units.
 <refsection>
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
-..// e.g. Compute the Reynolds number Re given
-..// the Darcy friction factor fD=0.033 and
-..// the relative roughness eps=0.00044.
-..// In this case,
-..// both laminar and turbulent solutions are acceptable:
-..//
-..// This call computes Re
-..// for fD=0.033 and eps=0.0044:
-Re=epsfD2Re(0.033,0.00044,%f)
-..// Alternatively:
-fD=0.033;..
-eps=0.0044;..
+// Compute the Reynolds number Re given
+// the Darcy friction factor fD=3.3e-2 and
+// the relative roughness eps=4.4e-4.
+// In this case,
+// both laminar and turbulent solutions are acceptable:
+//
+// This call computes Re
+// for fD=3.3e-2 and eps=4.4e-3:
+Re=epsfD2Re(3.3e-2,4.4e-4,%f)
+// Alternatively:
+fD=3.3e-2;..
+eps=4.4e-3;..
 Re=epsfD2Re(fD,eps)
-..// This call computes Re
-..// for fD=0.033 and eps=0.0044
-..// and plots a representation of the solution
-..// on a schematic Moody diagram:
-Re=epsfD2Re(0.033,0.0044,%t)
-..// e.g. Compute the Reynolds number Re given
-..// the Darcy friction factor fD=0.055 and
-..// the relative roughness eps=0.00044.
-..// In this case, due to higher friction,
-..// only the laminar solution is acceptable:
-..//
-..// This call computes Re
-..// for fD=0.055 and eps=0.00044
-..// and plots a representation of the solution
-..// on a schematic Moody diagram:
-Re=epsfD2Re(0.055,0.00044,%t)
-..// e.g. Compute the Reynolds number Re given
-..// the Darcy friction factor fD=0.00044 and
-..// the relative roughness eps=0.0022.
-..// In this case, due to lower friction,
-..// only the turbulent solution is acceptable:
-..//
-..// This call computes Re
-..// for fD=0.022 and eps=0.00044
-..// and plots a representation of the solution
-..// on a schematic Moody diagram:
-Re=epsfD2Re(0.022,0.00044,%t)
-..// This call computes Re
-..// for fD=0.022 and
-..// the default smooth condition, eps=0:
-Re=epsfD2Re(0.022)
+// This call computes Re
+// for fD=3.3e-2 and eps=4.4e-3
+// and plots a representation of the solution
+// on a schematic Moody diagram:
+Re=epsfD2Re(3.3e-2,4.4e-3,%t)
+// Compute the Reynolds number Re given
+// the Darcy friction factor fD=5.5e-2 and
+// the relative roughness eps=4.4e-4.
+// In this case, due to higher friction,
+// only the laminar solution is acceptable:
+//
+// This call computes Re
+// for fD=5.5e-2 and eps=4.4e-4
+// and plots a representation of the solution
+// on a schematic Moody diagram:
+Re=epsfD2Re(5.5e-2,4.4e-4,%t)
+// Compute the Reynolds number Re given
+// the Darcy friction factor fD=4.4e-4 and
+// the relative roughness eps=2.2e-3.
+// In this case, due to lower friction,
+// only the turbulent solution is acceptable:
+//
+// This call computes Re
+// for fD=2.2e-2 and eps=4.4e-4
+// and plots a representation of the solution
+// on a schematic Moody diagram:
+Re=epsfD2Re(2.2e-2,4.4e-4,%t)
+// This call computes Re
+// for fD=2.2e-2 and
+// the default smooth condition, eps=0:
+Re=epsfD2Re(2.2e-2)
 
    ]]></programlisting>
 </refsection>

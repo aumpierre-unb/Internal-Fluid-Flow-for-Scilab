@@ -2,7 +2,7 @@
 <!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
 <map version="1.0">
 <mapID target="index" url="index.html"/>
-<mapID target="section_1a5d32a5774a02b036ca9077794f67ce" url="section_1a5d32a5774a02b036ca9077794f67ce.html"/>
+<mapID target="section_301c2b4788a30678b7db3de5c5ba0851" url="section_301c2b4788a30678b7db3de5c5ba0851.html"/>
 <mapID target="epsRe2fD" url="epsRe2fD.html"/>
 <mapID target="epsfD2Re" url="epsfD2Re.html"/>
 <mapID target="hDeps2fDRe" url="hDeps2fDRe.html"/>
@@ -10,4 +10,9 @@
 <mapID target="hQthk2fDRe" url="hQthk2fDRe.html"/>
 <mapID target="hveps2fDRe" url="hveps2fDRe.html"/>
 <mapID target="hvthk2fDRe" url="hvthk2fDRe.html"/>
+<mapID target="laminar" url="laminar.html"/>
+<mapID target="root" url="root.html"/>
+<mapID target="rough" url="rough.html"/>
+<mapID target="smoothline" url="smoothline.html"/>
+<mapID target="turbulent" url="turbulent.html"/>
 </map>
