@@ -35,11 +35,11 @@ function publishpics(K,eps)
     for i=1:length(x)
         turbulent(x(i),"k")
     end
-    loglog(Re,fD,"rd")
+    //loglog(Re,fD,"rd")
     rough("-.b")
     smoothline("-.b")
-    laminar_2("r")
-    loglog([(K/1e-2)^.5 (K/1e-1)^.5],[1d-2 1d-1],"--r")
+    laminar_2("k")
+    //loglog([(K/1e-2)^.5 (K/1e-1)^.5],[1d-2 1d-1],"--r")
     xgrid(33,1,7)
     xlabel("$Re$","fontsize",4)
     ylabel("$f$","fontsize",4)
@@ -50,7 +50,7 @@ function publishpics(K,eps)
 endfunction
 
 function laminar_2(t)
-    Re=[5e2 4e3]
+    Re=[5e2 2.3e3]
     f=64 ./ Re
     loglog(Re,f,t)
 endfunction
