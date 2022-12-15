@@ -88,7 +88,11 @@ where
 - *&mu;* is the fluid's dynamic viscosity and
 - *k* is the pipe's[ internal surface] roughness.
 
-The Reynolds number *Re*, the Darcy friction factor *f*, and the relative roughness *&epsilon;* completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, *f* is given as a function of *Re* and *&epsilon;*.
+The Reynolds number *Re*, the Darcy friction factor *f*, and the relative roughness *&epsilon;* completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, *f* is given as a function of *Re* and *&epsilon;*. The phenomenological relation of <i>f</i>, <i>Re</i> and <i>&epsilon;</i> is represented by the Moody diagram (Figure 1).
+
+![Illustrative graphical output](
+        https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/blob/main/docs/
+        Graphic window number 0.png "Example of graphical output")
 
 The simplest problems on internal fluid flow consist on computing one of them given the two other. More complex situations arise when only one or none of those variables is known. Instead, dimensional variables involved are given. However not always, in most cases iterative computation is required.
 
