@@ -88,9 +88,7 @@ where
 - *&mu;* is the fluid's dynamic viscosity and
 - *k* is the pipe's[ internal surface] roughness.
 
-The Reynolds number *Re*, the Darcy friction factor *f*, and the relative roughness *&epsilon;* completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, *f* is given as a function of *Re* and *&epsilon;*. The phenomenological relation of <i>f</i>, <i>Re</i> and <i>&epsilon;</i> is represented by the Moody diagram (Figure 1).
-
-![Graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/blob/main/docs/untitled0.jpg "Example of graphical output")
+The Reynolds number *Re*, the Darcy friction factor *f*, and the relative roughness *&epsilon;* completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, *f* is given as a function of *Re* and *&epsilon;*.
 
 The simplest problems on internal fluid flow consist on computing one of them given the two other. More complex situations arise when only one or none of those variables is known. Instead, dimensional variables involved are given. However not always, in most cases iterative computation is required.
 
@@ -130,7 +128,7 @@ epsRe2fD computes the Darcy friction factor *f* given the relative roughness *&e
 [f]=epsRe2fD(Re,[eps[,s]])
 ```
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 4.4e-3:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044:
 
 ```dotnetcli
 f=epsRe2fD(2.5e4,4.4e-3,%f)
@@ -142,7 +140,7 @@ or
 Re=2.5e4,eps=4.4e-3,f=epsRe2fD(Re,eps)
 ```
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 4.4e-3 and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
 ```dotnetcli
 f=epsRe2fD(2.5e4,4.4e-3,%t)
@@ -170,7 +168,7 @@ $$
 [Re]=epsfD2Re(f[,eps[,s]])
 ```
 
-*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f*=3.3e-2 and the relative roughness *&epsilon;* = 4.4e-3:
+*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044:
 
 ```dotnetcli
 Re=epsfD2Re(3.3e-2,4.4e-3,%f)
@@ -182,13 +180,13 @@ or
 f=3.3e-2,eps=4.4e-3,Re=epsfD2Re(f,eps)
 ```
 
-*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 3.3e-2 and the relative roughness *&epsilon;* = 4.4e-3 and plot a representation of the solution on a schematic Moody diagram:
+*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
 ```dotnetcli
 Re=epsfD2Re(3.3e-2,4.4e-3,%t)
 ```
 
-*e.g.* Compute the Reynolds number factor *f* given the Darcy friction *f*=3.3e-2:
+*e.g.* Compute the Reynolds number factor *f* given the Darcy friction *f* = 0.033:
 
 ```dotnetcli
 Re=epsfD2Re(3.3e-2)
@@ -218,7 +216,7 @@ the gravitational acceleration *h* = 9.81 m/s/s,
 
 the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg/L, and
 
-the pipe's hydraulic diameter *D*=10 (cm), length *L* = 25 m and relative roughness *&epsilon;* = 2.5e-3:
+the pipe's hydraulic diameter *D*=10 (cm), length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
 ```dotnetcli
 [Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,10,2.5e3,2.5e-3,%f)
@@ -256,7 +254,7 @@ the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg
 
 the flow speed *v* = 1.1 m/s, and
 
-the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 2.5e-3:
+the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
 ```dotnetcli
 [Re,f]=hveps2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-3,%f)
@@ -294,7 +292,7 @@ the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg
 
 the volumetric flow rate *Q* = 8.6 L/s, and
 
-the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 2.5e-3:
+the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
 ```dotnetcli
 [Re,f]=hQeps2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-3,%f)
