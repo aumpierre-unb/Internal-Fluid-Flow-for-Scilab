@@ -90,19 +90,19 @@ where
 
 The Reynolds number *Re*, the Darcy friction factor *f*, and the relative roughness *&epsilon;* completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, *f* is given as a function of *Re* and *&epsilon;*. The phenomenological relation of <i>f</i>, <i>Re</i> and <i>&epsilon;</i> is represented by the Moody diagram (Figure 1).
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/docs/untitled0.png "Example of graphical output")
+![Graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/blob/main/docs/untitled0.png "Example of graphical output")
 
 The simplest problems on internal fluid flow consist on computing one of them given the two other. More complex situations arise when only one or none of those variables is known. Instead, dimensional variables involved are given. However not always, in most cases iterative computation is required.
 
 ### Laminar Flow and Turbulent Flow
 
-For laminar flow, *Re* < 2,500 (typically), the Darcy friction factor is given by the Poiseuille condition,
+For laminar flow, *Re* < 2,300 (typically), the Darcy friction factor is given by the Poiseuille condition,
 
 $$
 f={64 \over Re}
 $$
 
-For turbulent flow, *Re* > 2.5e3 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
+For turbulent flow, *Re* > 2,300 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
 
 $$
 {1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7} + {2.51 \over {Re \sqrt{f}}}}
