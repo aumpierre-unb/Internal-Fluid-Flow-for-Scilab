@@ -109,7 +109,7 @@
         Moody diagram is conventionally presented in log-log coordinates.
     </p>
     <figure>
-        <center><img src="untitled0.png" alt="a schematic Moody diagram" style="width:100%"></center>
+        <center><img src="untitled0.png" alt="a schematic Moody diagram" style="width:80%"></center>
         <center><figcaption>Figure 1 - A schematic Moody diagram.</figcaption></center>
     </figure>
     <p>
@@ -146,8 +146,8 @@
     <p>
         The transition from one to the other regime (usually driven by increasing or decreasing the flow speed) 
         is a complex phenomenon that takes place at different <i>Re</i> ranges, depending on how exactly the process is conducted. 
-        As rule of thumb, the laminar/turbulent transition is assumed to take place between <i>Re</i>=2000 and <i>Re</i>=2300, 
-        even though laminar flow up to <i>Re</i>=4000 is well described.
+        As rule of thumb, the laminar/turbulent transition is assumed to take place between <i>Re</i> = 2,000 and <i>Re</i> = 2,300, 
+        even though laminar flow up to <i>Re</i> = 4,000 is well described.
     </p>
     <p>
         The computation of <i>f</i> and/or <i>Re</i> demands a well defined transition range.
@@ -163,17 +163,17 @@
         Figure 2 illustrates that situation.
     </p>
     <figure>
-        <center><img src="untitled1.png" alt="A vulnerable built of the Moody diagram for given hydraulic diameter" style="width:100%"></center>
+        <center><img src="untitled1.png" alt="A vulnerable built of the Moody diagram for given hydraulic diameter" style="width:80%"></center>
         <center><figcaption>Figure 2 - A vulnerable built of the Moody diagram for given hydraulic diameter.</figcaption></center>
     </figure>
     <p>
         Such situation can be prevented by extending the limits of laminar regime. 
-        Figure 3 show a Moody diagram with the laminar range extended to <i>Re</i>=4,000. 
+        Figure 3 show a Moody diagram with the laminar range extended to <i>Re</i> = 4,000. 
         If the volumetric rate flow the given variable, the same problem might arise, 
         however less pronounced, because in this case <i>f</i> is proportional  to <i>Re</i><sup>-5</sup>.
     </p>
     <figure>
-        <center><img src="untitled2.png" alt="A repaired built of the Moody diagram for given hydraulic diameter" style="width:100%"></center>
+        <center><img src="untitled2.png" alt="A repaired built of the Moody diagram for given hydraulic diameter" style="width:80%"></center>
         <center><figcaption>Figure 3 - A repaired built of the Moody diagram for given hydraulic diameter.</figcaption></center>
     </figure>
     <p>
@@ -183,7 +183,7 @@
         Figure 4 illustrates this situation.
     </p>
     <figure>
-        <center><img src="untitled3.png" alt="Moody diagram with two solutions for given flow speed" style="width:100%"></center>
+        <center><img src="untitled3.png" alt="Moody diagram with two solutions for given flow speed" style="width:80%"></center>
         <center><figcaption>Figure 4 - Moody diagram with two solutions for given flow speed.</figcaption></center>
     </figure>
     <p>
@@ -191,7 +191,7 @@
         Darcy friction factor in cases where only <i>D</i> or <i>v</i> or the volumetric rate flow <i>Q</i>is known.
     </p>
     <p>
-        This toolbox set the transition between laminar and turbulent flow at <i>Re</i>=2,300. 
+        This toolbox set the transition between laminar and turbulent flow at <i>Re</i> = 2,300. 
         If both a laminar solution with <i>Re</i> &lt 2,300 and a turbulent solution with <i>Re</i> &gt 2,300 
         are not found, then flow is assumed to be laminar, and solution is computed according to the 
         Poiseuille condition, <i>f</i> = 64/<i>Re</i>.
@@ -233,8 +233,8 @@
     \end{equation}
     <p>
         (which is Colebrook-White equation for for elevated <i>Re</i>) the turbulent solution is accepted. 
-        If both solutions are accepted, espfD2Re returns both answers. 
-        If neither laminar or turbulent solutions are accepted, espfD2Re returns an empty matrix. 
+        If both solutions are accepted, <i>epsfD2Re</i> returns both answers. 
+        If neither laminar or turbulent solutions are accepted, <i>epsfD2Re</i> returns an empty matrix. 
         If given <i>&epsilon;</i> &gt; 0.05, execution is aborted.
     </p>
     <h3><i>hDeps2fDRe</i></h3>
