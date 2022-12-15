@@ -74,7 +74,7 @@
     </ul>
     <h2>Head Loss</h2>
     <p>
-        The flow of non ideal viscous fluids is accompanied of energy dispersion which can be measuread as a pressure drop 
+        The flow of non ideal viscous fluids is accompanied of energy dispersion which can be measured as a pressure drop 
         or, equivalently, as a head loss <i>h</i>, by the Darcy-Weisbach equation,
     </p>
     \begin{equation}
@@ -167,9 +167,8 @@
         <center><figcaption>Figure 2 - A vulnerable built of the Moody diagram for given hydraulic diameter.</figcaption></center>
     </figure>
     <p>
-        Such situation can be prevented by extending the limits of laminar and/or turbulent ranges. 
-        Figure 3 show a Moody diagram with the laminar range extended to <i>Re</i>=4000, 
-        making possible a solution in the laminar range with <i>Re</i>=2715. 
+        Such situation can be prevented by extending the limits of laminar regime. 
+        Figure 3 show a Moody diagram with the laminar range extended to <i>Re</i>=4,000. 
         If the volumetric rate flow the given variable, the same problem might arise, 
         however less pronounced, because in this case <i>f</i> is proportional  to <i>Re</i><sup>-5</sup>.
     </p>
@@ -192,8 +191,8 @@
         Darcy friction factor in cases where only <i>D</i> or <i>v</i> or the volumetric rate flow <i>Q</i>is known.
     </p>
     <p>
-        This toolbox set the transition between laminar and turbulent flow at <i>Re</i>=2300. 
-        If both a laminar solution with <i>Re</i> &lt 2300 and a turbulent solution with <i>Re</i> &gt 2300 
+        This toolbox set the transition between laminar and turbulent flow at <i>Re</i>=2,300. 
+        If both a laminar solution with <i>Re</i> &lt 2,300 and a turbulent solution with <i>Re</i> &gt 2,300 
         are not found, then flow is assumed to be laminar, and solution is computed according to the 
         Poiseuille condition, <i>f</i> = 64/<i>Re</i>.
     </p>
@@ -216,16 +215,18 @@
     </p>
     <h3><i>epsRe2fD</i></h3>
     <p>
-        <i>epsRe2fD</i> computes the Darcy friction factor <i>f</i> given the relative roughness <i>&epsilon;</i> and the Reynolds number <i>Re</i>. 
-        If given <i>Re</i> &lt; 3000, then flow is assumed to be laminar and <i>f</i> is computed using of the Poiseuille condition. 
-        Otherwise, flow is assumed to be turbulent and <i>f</i> is computed using the Colebrook-White equation.
+        <i>epsRe2fD</i> computes the Darcy friction factor <i>f</i> given the relative roughness <i>&epsilon;</i> 
+        and the Reynolds number <i>Re</i>. 
+        If given <i>Re</i> &lt; 2,300, then flow is assumed to be laminar and <i>f</i> is computed by the Poiseuille condition. 
+        Otherwise, flow is assumed to be turbulent and <i>f</i> is computed using Colebrook-White equation.
     </p>
     <h3><i>epsfD2Re</i></h3>
     <p>
         <i>epsfD2Re</i> computes the Reynolds number <i>Re</i> given the relative roughness <i>&epsilon;</i> and the Darcy friction factor <i>f</i>. 
         Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, 
-        or none for lower friction and rough pipes. If the Poiseuille condition produces 
-        <i>Re</i> &lt; 3000, laminar solution is accepted. If given <i>f</i> is possible for turbulent flow,
+        or none for lower friction and rough pipes.
+        If the Poiseuille condition produces <i>Re</i> &lt; 2,300, laminar solution is accepted.
+        If Colebrook-White equation produces <i>Re</i> &gt; 2,300 for given <i>f</i> and <i>&epsilon;</i>, turbulent solution is accepted.
     </p>
     \begin{equation}
     { 1 \over\displaystyle \sqrt{f} } &lt; 2 \mathrm{log} {1 \over\displaystyle {3.7 \over\displaystyle \varepsilon} }

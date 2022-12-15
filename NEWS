@@ -1,10 +1,9 @@
 TODO
 ====
 
-inflowlib 0.2.0 (2022-12-14)
+inflowlib 0.2.0 (2022-12-15)
 =============================
-* Upgraded structure for functions
-* Upgraded algorithms for functions
+* Upgraded functions structure and algorithms
 
 inflowlib 0.1.2 (2022-09-04)
 =============================

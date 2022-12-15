@@ -14,89 +14,6 @@
 // It is also available at www.gnu.org/licenses/.
 
 function publishpics(K,eps)
-    // hDeps2fDRe computes
-    // the Reynolds number and
-    // the Darcy friction factor based on
-    // the pipe's hydraulic diameter and
-    // the pipe's relative roughness
-    //
-    // Syntax
-    // [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,fig])
-    //
-    // Parameters
-    // h: head loss
-    // g: gravitational acceleration
-    // mu: fluid's dynamic viscosity
-    // rho: fluid's density
-    // D: pipe's hydraulic diameter
-    // L: pipe's length
-    // eps: pipe's relative roughness
-    // fig: optional, boolean for display plot (default is fig=%f)
-    // Re: Reynolds number
-    // fD: Darcy friction factor
-    //
-    // Description
-    // hDeps2fDRe computes
-    // the Reynolds number and
-    // the Darcy friction factor for a internal fluid flow given 
-    // the head loss h, 
-    // the gravitational acceleration g, 
-    // the fluid's dynamic viscosity mu and density rho, and 
-    // the pipe's hydraulic diameter D, length L and relative roughness eps.
-    // Inputs are to be given in a consistent system of units.
-    //
-    // Examples
-    // // Compute the Reynolds number Re and
-    // // the Darcy friction factor fD given
-    // // the head loss h=40 cm,
-    // // the gravitational acceleration g=981 cm/s/s,
-    // // the fluid's the dynamic viscosity mu=8.9e-3 g/cm/s and
-    // // density rho=0.98 g/cc, and
-    // // the pipe's hydraulic diameter D=7 cm,
-    // // length L=2.5e3 cm and
-    // // relative roughness eps=2.5e-3:
-    // //
-    // // This call computes Re e fD:
-    // [Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,7,2.5e3,2.5e-3,%f)
-    // // Alternatively:
-    // h=40;.. //head loss (cm)
-    // g=981;.. //gravitational acceleration (cm/s/s)
-    // mu=8.9e-3;.. //fluid's dynamic viscosity (g/cm/s)
-    // rho=0.98;.. //fluid's density (g/cc)
-    // D=7;.. //pipe's hydraulic diameter (cm)
-    // L=2.5e3;.. //pipe's length (cm)
-    // eps=2.5e-3;.. //pipe's relative roughness
-    // [Re,fD]=hDeps2fDRe(h,g,mu,rho,D,L,eps)
-    // // This call computes Re e fD
-    // // and plots a representation of the solution
-    // // on a schematic Moody diagram:
-    // [Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,7,2.5e3,2.5e-3,%t)
-    // // Compute the Reynolds number Re and
-    // // the Darcy friction factor fD given
-    // // the head loss h=40 cm,
-    // // the gravitational acceleration g=981 cm/s/s,
-    // // the fluid's the dynamic viscosity mu=8.9e-3 g/cm/s and
-    // // density rho=0.98 g/cc, and
-    // // the pipe's hydraulic diameter D=0.7 cm,
-    // // length L=2.5e3 cm and
-    // // relative roughness eps=2.5e-3:
-    // //
-    // // This call computes Re e fD
-    // // and plots a representation of the solution
-    // // on a schematic Moody diagram:
-    // [Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,0.7,2.5e3,2.5e-3,%t)
-    //
-    // See also
-    //  epsfD2Re
-    //  epsRe2fD
-    //  hveps2fDRe
-    //  hvthk2fDRe
-    //  hQeps2fDRe
-    //  hQthk2fDRe
-    //
-    // Authors
-    //  Alexandre Umpierre
-
     function y=foo(fD)
         y=1/fD^.5+2*log10(eps/3.7+2.51/(K/fD)^.5/fD^.5)
     endfunction
@@ -118,9 +35,10 @@ function publishpics(K,eps)
     for i=1:length(x)
         turbulent(x(i),"k")
     end
+    loglog(Re,fD,"rd")
     rough("-.b")
     smoothline("-.b")
-    laminar_2("k")
+    laminar_2("r")
     loglog([(K/1e-2)^.5 (K/1e-1)^.5],[1d-2 1d-1],"--r")
     xgrid(33,1,7)
     xlabel("$Re$","fontsize",4)
@@ -132,7 +50,7 @@ function publishpics(K,eps)
 endfunction
 
 function laminar_2(t)
-    Re=[5e2 2.3e3]
+    Re=[5e2 4e3]
     f=64 ./ Re
     loglog(Re,f,t)
 endfunction
