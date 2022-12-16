@@ -4,7 +4,7 @@ Title: Internal Fluid Flow Toolbox for Scilab
 
 Summary: A toolbox for internal fluid flow
 
-Version: 0.2.0
+Version: 0.2.1
 
 Author: Alexandre Umpierre
 
@@ -14,7 +14,7 @@ Category: Physics
 
 Entity: 
 
-WebSite: https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab
+WebSite: https://aumpierre-unb.github.io/Internal-Fluid-Flow-for-Scilab
 
 License: GPL 3.0
 

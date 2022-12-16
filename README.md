@@ -6,14 +6,14 @@
 
 ## Install and load Internal Fluid Flow Toolbox for Scilab
 
-1\. Download ```v0.2.0.zip``` file from [Releases](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/releases).
+1\. Download ```v0.2.1.zip``` file from [Releases](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/releases).
 
 2\. Set Scilab current directory to the download folder.
 
 3\. To install and load the toolbox, type:
 
 ```dotnetcli
-atomsInstall('v0.2.0.zip'),..
+atomsInstall('v0.2.1.zip'),..
 atomsLoad('inflowlib')
 ```
 
