@@ -6,7 +6,7 @@
 
 ## Install and load Internal Fluid Flow Toolbox for Scilab
 
-1\. Download ```v0.2.0.zip``` file from the current release page.
+1\. Download ```v0.2.0.zip``` file from [Releases](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/releases).
 
 2\. Set Scilab current directory to the download folder.
 
