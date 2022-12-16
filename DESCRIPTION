@@ -22,7 +22,7 @@ ScilabVersion: >= 6.0
 
 Depends: 
 
-Date: 2022-12-15
+Release Date: 2022-12-15
 
 Description: This package provides a set of functions
  designed to solve problems of internal fluid flow
@@ -38,4 +38,5 @@ Description: This package provides a set of functions
  both the Reynolds number and the Darcy friction factor
  given the head loss and other variables
  that describe the fluid flow.
+ https://doi.org/10.5281/zenodo.6927994
  Enjoy!

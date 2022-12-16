@@ -17,6 +17,16 @@ atomsInstall('v0.2.1.zip'),..
 atomsLoad('inflowlib')
 ```
 
+## Citation of Internal Fluid Flow Toolbox for Scilab
+
+You can cite all versions (both released and pre-released), by using
+[DOI 105281/zenodo.6927994](https://doi.org/10.5281/zenodo.6927994).
+
+This DOI represents all versions, and will always resolve to the latest one.
+
+To cite the last released version, please check
+https://zenodo.org/account/settings/github/repository/aumpierre-unb/Internal-Fluid-Flow-for-Scilab.
+
 ---
 
 The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal Fluid Flow Toolbox for Scilab.
