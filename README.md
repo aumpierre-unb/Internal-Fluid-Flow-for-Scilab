@@ -13,7 +13,7 @@
 3\. To install and load the toolbox, type:
 
 ```dotnetcli
-atomsInstall('v0.1.2.zip'),..
+atomsInstall('v0.2.0.zip'),..
 atomsLoad('inflowlib')
 ```
 
