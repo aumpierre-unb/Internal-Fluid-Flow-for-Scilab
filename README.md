@@ -113,7 +113,7 @@ $$
 For turbulent flow, *Re* > 2,300 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
 
 $$
-{1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7} + {2.51 \over {Re \sqrt{f}}}}
+{1 \over \sqrt{f}}=2\ \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7} + {2.51 \over {Re \sqrt{f}}}}
 $$
 
 ## The Internal Fluid Flow Toolbox for Scilab
@@ -167,7 +167,7 @@ f=epsRe2fD(2.5e4)
 espfD2Re computes the Reynolds number *Re* given the relative roughness *&epsilon;* and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces *Re* < 2,500, laminar solution is accepted. If given *f* is possible for turbulent flow,
 
 $$
-{1 \over \sqrt{f}}<2 \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7}}
+{1 \over \sqrt{f}}<2\ \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7}}
 $$
 
 (which is Colebrook-White equation for for elevated *Re*) the turbulent solution is accepted. If both solutions are accepted, espfD2Re returns both answers. If neither laminar or turbulent solutions are accepted, espfD2Re returns an empty matrix. If given *&epsilon;* > 0.05, execution is aborted.
