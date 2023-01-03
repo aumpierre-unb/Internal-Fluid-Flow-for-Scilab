@@ -122,16 +122,22 @@ function [Re,fD]=hvthk2fDRe(h,g,mu,rho,v,L,thk,varargin)
     endfunction
     f_=root(foo,1d-2,1e-1,1d-4)
     Re_=f_/M
+    turb=%f
     if Re_>2.3e3
         Re=[Re;Re_]
         fD=[fD;f_]
         D=Re_*mu/rho/v
         eps=thk/D
+        turb=%t
     end
     Re_=(64/M)^.5
     if Re_<2.3e3
         Re=[Re;Re_]
         fD=[fD;64/Re_]
+    end
+    if ~turb
+        D = Re_ * mu / rho / v
+        eps = thk / D
     end
     if argn(2)==8 && varargin(1)
         if winsid()==[]
