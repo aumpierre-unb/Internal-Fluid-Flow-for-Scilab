@@ -390,6 +390,6 @@ the pipe's length *L* = 25 m and roughness *k* = 0.25 mm:
 [Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-2,%t)
 ```
 
-Copyright &copy; 2022 Alexandre Umpierre
+Copyright &copy; 2022 2023 Alexandre Umpierre
 
 email: aumpierre@gmail.com
