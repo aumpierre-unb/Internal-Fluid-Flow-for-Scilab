@@ -1,4 +1,4 @@
-//  Copyright (C) 2022 2023 Alexandre Umpierre
+// Copyright (C) 2022 2023 Alexandre Umpierre
 // This file is part of internal-fluid-flow Toolbox.
 // internal-fluid-flow Toolbox is free software:
 // you can redistribute it and/or modify it under the terms
@@ -160,7 +160,8 @@ function [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,varargin)
                "fontsize",4)
         ylabel("$f={{2 g h \mu} \over\displaystyle {\rho v^3 L}} Re$",..
                "fontsize",4)
-        gca().data_bounds=[1d2 1d8 1d-2 1d-1]
+        gca().tight_limits=["on","on"];
+        gca().data_bounds=[1d2 1d8 6e-3 1d-1]
         gca().grid=[1,1]
         gca().grid_style=[9,9]
         gcf().figure_size=[600,600]

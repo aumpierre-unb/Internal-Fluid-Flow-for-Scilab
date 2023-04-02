@@ -1,4 +1,4 @@
-//  Copyright (C) 2022 2023 Alexandre Umpierre
+// Copyright (C) 2022 2023 Alexandre Umpierre
 // This file is part of internal-fluid-flow Toolbox.
 // internal-fluid-flow Toolbox is free software:
 // you can redistribute it and/or modify it under the terms
@@ -142,7 +142,8 @@ function [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk,varargin)
                "fontsize",4)
         ylabel("$f={\left[4 \over\displaystyle \pi \right]^3}{{2 g h \rho^5 Q^3} \over\displaystyle {\mu^5 L}} Re^{-5}$",..
                "fontsize",4)
-        gca().data_bounds=[1d2 1d8 1d-2 1d-1]
+        gca().tight_limits=["on","on"];
+        gca().data_bounds=[1d2 1d8 6e-3 1d-1]
         gca().grid=[1,1]
         gca().grid_style=[9,9]
         gcf().figure_size=[600,600]

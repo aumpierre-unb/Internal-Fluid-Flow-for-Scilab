@@ -1,4 +1,4 @@
-//  Copyright (C) 2022 2023 Alexandre Umpierre
+// Copyright (C) 2022 2023 Alexandre Umpierre
 // This file is part of internal-fluid-flow Toolbox.
 // internal-fluid-flow Toolbox is free software:
 // you can redistribute it and/or modify it under the terms
