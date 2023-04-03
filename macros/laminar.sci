@@ -14,6 +14,9 @@
 // It is also available at www.gnu.org/licenses/.
 
 function laminar(t)
+    // laminar is an internal function of
+    // the internal-fluid-flow toolbox for Scilab.
+
     Re=[5e2 4e3]
     f=64 ./ Re
     loglog(Re,f,t)

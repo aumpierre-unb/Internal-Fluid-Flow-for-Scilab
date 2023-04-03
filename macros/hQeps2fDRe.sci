@@ -38,13 +38,15 @@ function [Re,fD]=hQeps2fDRe(h,g,mu,rho,Q,L,eps,varargin)
     // Description
     // hQeps2fDRe computes
     // the Reynolds number and 
-    // the Darcy friction factor for a internal fluid flow given 
-    // the head loss h, 
-    // the gravitational acceleration g, 
-    // the fluid's dynamic viscosity mu and density rho, and 
+    // the Darcy friction factor for a internal fluid flow given
+    // the head loss h,
+    // the gravitational acceleration g,
+    // the fluid's dynamic viscosity mu and density rho, and
     // the volumetric flow rate Q, and
     // the pipe's length L and relative roughness eps.
     // Inputs are to be given in a consistent system of units.
+    // hQeps2fDRe is a main function of
+    // the internal-fluid-flow toolbox for Scilab.
     //
     // Examples
     // // Compute the Reynolds number Re and

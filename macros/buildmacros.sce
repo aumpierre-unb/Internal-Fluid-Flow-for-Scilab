@@ -13,6 +13,9 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// buildmacros is part of
+// the internal-fluid-flow toolbox for Scilab.
+
 path=get_absolute_file_path();
 tbx_build_macros("inflowlib",path);
 

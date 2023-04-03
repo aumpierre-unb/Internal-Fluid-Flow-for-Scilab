@@ -14,6 +14,9 @@
 // It is also available at www.gnu.org/licenses/.
 
 function rough(t)
+    // rough is an internal function of
+    // the internal-fluid-flow toolbox for Scilab.
+
     f=[]
     Re=[]
     N=20

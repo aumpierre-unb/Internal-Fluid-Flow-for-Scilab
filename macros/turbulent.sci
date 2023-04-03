@@ -14,6 +14,9 @@
 // It is also available at www.gnu.org/licenses/.
 
 function turbulent(eps,t)
+    // turbulent is an internal function of
+    // the internal-fluid-flow toolbox for Scilab.
+
     N=30
     for n=1:N
         w=log10(2d3)+(n-1)*(log10(1d8)-log10(2d3))/(N-1)

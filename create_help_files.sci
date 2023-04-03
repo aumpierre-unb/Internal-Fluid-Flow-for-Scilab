@@ -1,20 +1,29 @@
-//Criar os arquivos .xml das funções em path+'help_xmls'
+// Copyright (C) 2022 2023 Alexandre Umpierre
+// This file is part of psyhrometrics Toolbox.
+// psyhrometrics Toolbox is free software:
+// you can redistribute it and/or modify it under the terms
+// of the GNU General Public License (GPL) version 3
+// as published by the Free Software Foundation.
+// internal-fluid-flow Toolbox is distributed in the hope
+// that it will be useful, but WITHOUT ANY WARRANTY
+// without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// See the GNU General Public License for more details.
+// You should have received a copy of the
+// GNU General Public License along with this program.
+// It is also available at www.gnu.org/licenses/.
+
+// create_help_files is part of
+// the internal-fluid-flow toolbox for Scilab.
+
 path=get_absolute_file_path()
-//disp(path)
 chdir(path+'macros')
 mkdir(path+'help')
 help_from_sci(path+'macros',path+'help')
 
-//Cria visualização do help em path+'help'
 chdir(path)
 mkdir('help')
 chdir(path+'help')
 xmltojar(path+'help','Internal Fluid Flow','en_US')
 
-//Cria arquivo path+'jar\scilab_en_US_help.jar'
-//chdir(path)
-//mkdir('jar')
-//jcreatejar(path+'jar\scilab_en_US_help.jar',..
-//           path+'help')
-
-add_help_chapter("Internal Fluid Flow",path)//+'jar')
+add_help_chapter("Internal Fluid Flow",path)

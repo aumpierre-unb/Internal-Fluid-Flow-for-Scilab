@@ -14,6 +14,9 @@
 // It is also available at www.gnu.org/licenses/.
 
 function x2=root(f,x1,x2,tol)
+    // root is an internal function of
+    // the internal-fluid-flow toolbox for Scilab.
+
     while abs(f(x2))>tol
         x=(x1+x2)/2
         if f(x)*f(x1)>0 x1=x

@@ -32,12 +32,14 @@ function [fD]=epsRe2fD(Re,varargin)
     // the Reynolds number and
     // the relative roughness for for laminar regime and,
     // when possible, also for turbulent regime.
-    // By default, tube is assumed to be smooth, eps=0. 
-    // If eps>5e-2, eps is reset to 5e-2. 
-    // Computation is based on the Colebrooke-White equation 
-    // for turbulent flow and the Poiseuille condition 
-    // for laminar flow. 
+    // By default, tube is assumed to be smooth, eps=0.
+    // If eps>5e-2, eps is reset to 5e-2.
+    // Computation is based on the Colebrooke-White equation
+    // for turbulent flow and the Poiseuille condition
+    // for laminar flow.
     // Inputs are to be given in a consistent system of units.
+    // epsRe2fD is a main function of
+    // the internal-fluid-flow toolbox for Scilab.
     //
     // Examples
     // // Compute the Darcy friction factor fD given
