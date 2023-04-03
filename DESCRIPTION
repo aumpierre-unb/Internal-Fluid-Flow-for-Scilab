@@ -4,7 +4,7 @@ Title: Internal Fluid Flow Toolbox for Scilab
 
 Summary: A toolbox for internal fluid flow
 
-Version: 0.2.2-alpha
+Version: 0.2.2
 
 Author: Alexandre Umpierre
 
@@ -24,7 +24,8 @@ Depends:
 
 Date: 2023-04-03
 
-Description: This package provides a set of functions
+Description: This package provides
+ a set of functions
  designed to solve problems of internal fluid flow
  on Scilab under GNU GPLv3.
  All functions are based on
