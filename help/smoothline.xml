@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>smoothline</refname>
-    <refpurpose>f=[]</refpurpose>
+    <refpurpose>smoothline is an internal function of</refpurpose>
   </refnamediv>
 
 </refentry>

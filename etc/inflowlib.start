@@ -13,12 +13,12 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// inflowlib.start is part of
+// the internal-fluid-flow toolbox for Scilab.
+
 path=get_absolute_file_path();
 path=strncpy(path,length(path)-length("etc\"));
 genlib("inflowlib",path+"macros");
-
-//chdir(path+'macros');
-//help_from_sci(path+'macros',path+'help');
 
 chdir(path);
 mkdir("jar");

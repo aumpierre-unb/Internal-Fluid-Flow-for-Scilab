@@ -1,10 +1,10 @@
-# Internal Fluid Flow
+# `internal-fluid-flow`
 
 [![DOI](https://zenodo.org/badge/509430202.svg)](https://zenodo.org/badge/latestdoi/509430202)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Internal-Fluid-Flow-for-Scilab)
 
-## Install and load Internal Fluid Flow Toolbox for Scilab
+## Install and load `internal-fluid-flow` Toolbox for Scilab
 
 1\. Download ```v0.2.1.zip``` file from [Releases](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/releases).
 
@@ -12,12 +12,12 @@
 
 3\. To install and load the toolbox, type:
 
-```dotnetcli
+```powershell-interactive
 atomsInstall('v0.2.1.zip'),..
 atomsLoad('inflowlib')
 ```
 
-## Citation of Internal Fluid Flow Toolbox for Scilab
+## Citation of `internal-fluid-flow` Toolbox for Scilab
 
 You can cite all versions (both released and pre-released), by using
 [DOI 105281/zenodo.6927994](https://doi.org/10.5281/zenodo.6927994).
@@ -29,11 +29,11 @@ https://zenodo.org/account/settings/github/repository/aumpierre-unb/Internal-Flu
 
 ---
 
-The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal Fluid Flow Toolbox for Scilab.
+The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the `internal-fluid-flow` Toolbox for Scilab.
 
 Internal flow is a pretty extensive topic in fluid mechanics and there are a lot of important and interesting observations related to it that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this toolbox. Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow.
 
-This text is divided in two main sections: The Theory and The Internal Fluid Flow Toolbox for Scilab.
+This text is divided in two main sections: The Theory and The `internal-fluid-flow` Toolbox for Scilab.
 
 ## The Theory
 
@@ -116,55 +116,61 @@ $$
 {1 \over \sqrt{f}}=2\ \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7} + {2.51 \over {Re \sqrt{f}}}}
 $$
 
-## The Internal Fluid Flow Toolbox for Scilab
+## The `internal-fluid-flow` Toolbox for Scilab
 
-Internal Fluid Flow provides the following functions:
+`internal-fluid-flow` provides the following functions:
 
-- epsRe2fD
-- epsfD2Re
-- hDeps2fDRe
-- hveps2fDRe
-- hQeps2fDRe
-- hvthk2fDRe
-- hQthk2fDRe
+- `epsRe2fD`
+- `epsfD2Re`
+- `hDeps2fDRe`
+- `hveps2fDRe`
+- `hQeps2fDRe`
+- `hvthk2fDRe`
+- `hQthk2fDRe`
 
-### epsRe2fD
+### `epsRe2fD`
 
-epsRe2fD computes the Darcy friction factor *f* given the relative roughness *&epsilon;* and the Reynolds number *Re*. If given *Re* < 2,500, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrook-White equation.
+`epsRe2fD` computes the Darcy friction factor *f* given the relative roughness *&epsilon;* and the Reynolds number *Re*. If given *Re* < 2,500, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrook-White equation.
 
 **Syntax:**
 
-```dotnetcli
+```powershell-interactive
 [f]=epsRe2fD(Re,[eps[,s]])
 ```
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044:
+**Example:**
 
-```dotnetcli
+Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044:
+
+```powershell-interactive
 f=epsRe2fD(2.5e4,4.4e-3,%f)
 ```
 
 or
 
-```dotnetcli
+```powershell-interactive
 Re=2.5e4,eps=4.4e-3,f=epsRe2fD(Re,eps)
 ```
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
+**Example:**
 
-```dotnetcli
+Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
+
+```powershell-interactive
 f=epsRe2fD(2.5e4,4.4e-3,%t)
 ```
 
-*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000:
+**Example:**
 
-```dotnetcli
+Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000:
+
+```powershell-interactive
 f=epsRe2fD(2.5e4)
 ```
 
-### epsfD2Re
+### `epsfD2Re`
 
-espfD2Re computes the Reynolds number *Re* given the relative roughness *&epsilon;* and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces *Re* < 2,500, laminar solution is accepted. If given *f* is possible for turbulent flow,
+`espfD2Re` computes the Reynolds number *Re* given the relative roughness *&epsilon;* and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces *Re* < 2,500, laminar solution is accepted. If given *f* is possible for turbulent flow,
 
 $$
 {1 \over \sqrt{f}}<2\ \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7}}
@@ -174,37 +180,43 @@ $$
 
 **Syntax:**
 
-```dotnetcli
+```powershell-interactive
 [Re]=epsfD2Re(f[,eps[,s]])
 ```
 
-*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044:
+**Example:**
 
-```dotnetcli
+Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044:
+
+```powershell-interactive
 Re=epsfD2Re(3.3e-2,4.4e-3,%f)
 ```
 
 or
 
-```dotnetcli
+```powershell-interactive
 f=3.3e-2,eps=4.4e-3,Re=epsfD2Re(f,eps)
 ```
 
-*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
+**Example:**
 
-```dotnetcli
+Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
+
+```powershell-interactive
 Re=epsfD2Re(3.3e-2,4.4e-3,%t)
 ```
 
-*e.g.* Compute the Reynolds number factor *f* given the Darcy friction *f* = 0.033:
+**Example:**
 
-```dotnetcli
+Compute the Reynolds number factor *f* given the Darcy friction *f* = 0.033:
+
+```powershell-interactive
 Re=epsfD2Re(3.3e-2)
 ```
 
-### hDeps2fDRe
+### `hDeps2fDRe`
 
-hDeps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L*, relative roughness *&epsilon;* and hydraulic diameter *D*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing flow speed *v* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+`hDeps2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L*, relative roughness *&epsilon;* and hydraulic diameter *D*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing flow speed *v* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 Re^2 f={2gh\rho^2D^3 \over {\mu^2 L}}
@@ -214,11 +226,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,s])
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
+**Example:**
+
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
 the head loss *h* = 0.40 m,
 
@@ -228,19 +242,21 @@ the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg
 
 the pipe's hydraulic diameter *D*=10 (cm), length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
-```dotnetcli
+```powershell-interactive
 [Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,10,2.5e3,2.5e-3,%f)
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+**Example:**
 
-```dotnetcli
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+
+```powershell-interactive
 [Re,f]=hDeps2fDRe(40,981,8.9e-3,0.98,10,2.5e3,2.5e-3,%t)
 ```
 
-### hveps2fDRe
+### `hveps2fDRe`
 
-hveps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the flow speed *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+`hveps2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the flow speed *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {f \over Re}={2gh\mu \over {v^3\rho L}}
@@ -250,11 +266,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hveps2fDRe(h,g,mu,rho,v,L,eps[,s])
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
+**Example:**
+
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
 the head loss *h* = 0.40 m,
 
@@ -266,19 +284,21 @@ the flow speed *v* = 1.1 m/s, and
 
 the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hveps2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-3,%f)
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+**Example:**
 
-```dotnetcli
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+
+```powershell-interactive
 [Re,f]=hveps2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-3,%t)
 ```
 
-### hQeps2fDRe
+### `hQeps2fDRe`
 
-hQeps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+`hQeps2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {Re^5 f}={2ghQ^3 \over\displaystyle {{\left[ {\pi \over 4} \right]}^3 {\left[ {\mu \over \rho} \right]}^5 L}}
@@ -288,11 +308,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,s])
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
+**Example:**
+
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
 the head loss *h* = 0.40 m,
 
@@ -304,19 +326,21 @@ the volumetric flow rate *Q* = 8.6 L/s, and
 
 the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hQeps2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-3,%f)
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+**Example:**
 
-```dotnetcli
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+
+```powershell-interactive
 [Re,f]=hQeps2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-3,%t)
 ```
 
-### hvthk2fDRe
+### `hvthk2fDRe`
 
-hvthk2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the flow speed *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+`hvthk2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the flow speed *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {f \over Re}={2gh\mu \over {v^3\rho L}}
@@ -326,11 +350,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,s])
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
+**Example:**
+
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
 the head loss *h* = 0.40 m,
 
@@ -342,19 +368,21 @@ the flow speed *v* = 1.1 m/s, and
 
 the pipe's length *L* = 25 m and roughness *k* = 0.25 mm:
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hvthk2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-2,%f)
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+**Example:**
 
-```dotnetcli
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+
+```powershell-interactive
 [Re,f]=hvthk2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-2,%t)
 ```
 
-### hQthk2fDRe
+### `hQthk2fDRe`
 
-hQthk2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+`hQthk2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
 {Re^5 f}={2ghQ^3 \over\displaystyle {{\left[ {\pi \over 4} \right]}^3 {\left[ {\mu \over \rho} \right]}^5 L}}
@@ -364,11 +392,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
+**Example:**
+
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
 the head loss *h* = 0.40 m,
 
@@ -380,13 +410,15 @@ the volumetric flow rate *Q* = 8.6 L/s, and
 
 the pipe's length *L* = 25 m and roughness *k* = 0.25 mm:
 
-```dotnetcli
+```powershell-interactive
 [Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-2,%f)
 ```
 
-*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+**Example:**
 
-```dotnetcli
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+
+```powershell-interactive
 [Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-2,%t)
 ```
 

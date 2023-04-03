@@ -87,6 +87,8 @@ the fluid's dynamic viscosity mu and density rho, and
 the volumetric flow rate Q, and
 the pipe's length L and relative roughness eps.
 Inputs are to be given in a consistent system of units.
+hQeps2fDRe is a main function of
+the internal-fluid-flow toolbox for Scilab.
    </para>
    <para>
 </para>

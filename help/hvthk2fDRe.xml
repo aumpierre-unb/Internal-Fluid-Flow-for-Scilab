@@ -87,6 +87,8 @@ the fluid's dynamic viscosity mu and density rho, and
 the flow speed v, and
 the pipe's length L and roughness thk.
 Inputs are to be given in a consistent system of units.
+hvthk2fDRe is a main function of
+the internal-fluid-flow toolbox for Scilab.
    </para>
    <para>
 </para>

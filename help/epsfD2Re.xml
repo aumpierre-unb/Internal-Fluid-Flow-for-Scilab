@@ -64,6 +64,8 @@ Computation is based on the Colebrooke-White equation
 for turbulent flow and the Poiseuille condition
 for laminar flow.
 Inputs are to be given in a consistent system of units.
+epsfD2Re is a main function of
+the internal-fluid-flow toolbox for Scilab.
    </para>
    <para>
 </para>

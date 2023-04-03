@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>root</refname>
-    <refpurpose>while abs(f(x2))>tol</refpurpose>
+    <refpurpose>root is an internal function of</refpurpose>
   </refnamediv>
 
 </refentry>
