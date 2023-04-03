@@ -14,9 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [fD]=epsRe2fD(Re,varargin)
-    // epsRe2fD computes the Darcy friction factor given
-    // the Reynolds number and
-    // the pipe's relative roughness
+    // epsRe2fD computes the Darcy friction factor given the Reynolds number and the pipe's relative roughness
     //
     // Syntax
     // [fD]=epsRe2fD(Re[,eps[,fig]])

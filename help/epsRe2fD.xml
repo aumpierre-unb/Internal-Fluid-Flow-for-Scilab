@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>epsRe2fD</refname>
-    <refpurpose>epsRe2fD computes the Darcy friction factor given</refpurpose>
+    <refpurpose>epsRe2fD computes the Darcy friction factor given the Reynolds number and the pipe's relative roughness</refpurpose>
   </refnamediv>
 
 

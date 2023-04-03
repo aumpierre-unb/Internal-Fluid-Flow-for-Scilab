@@ -22,7 +22,6 @@ mkdir(path+'help')
 help_from_sci(path+'macros',path+'help')
 
 chdir(path)
-mkdir('help')
 chdir(path+'help')
 xmltojar(path+'help','Internal Fluid Flow','en_US')
 

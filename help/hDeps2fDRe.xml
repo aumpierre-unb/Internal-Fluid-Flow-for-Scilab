@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>hDeps2fDRe</refname>
-    <refpurpose>hDeps2fDRe computes</refpurpose>
+    <refpurpose>hDeps2fDRe computes the Reynolds number and the Darcy friction factor based on the pipe's hydraulic diameter and the pipe's relative roughness</refpurpose>
   </refnamediv>
 
 

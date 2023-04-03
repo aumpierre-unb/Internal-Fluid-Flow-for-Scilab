@@ -14,11 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,varargin)
-    // hveps2fDRe computes
-    // the Reynolds number and
-    // the Darcy friction factor based on
-    // the flow speed and
-    // the pipe's relative roughness
+    // hveps2fDRe computes the Reynolds number and the Darcy friction factor based on the flow speed and the pipe's relative roughness
     //
     // Syntax
     // [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,[,fig])

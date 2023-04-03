@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>hQthk2fDRe</refname>
-    <refpurpose>hQthk2fDRe computes</refpurpose>
+    <refpurpose>hQthk2fDRe computes the Reynolds number and the Darcy friction factor based on the volumetric flow rate and the pipe's roughness</refpurpose>
   </refnamediv>
 
 

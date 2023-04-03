@@ -14,11 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk,varargin)
-    // hQthk2fDRe computes
-    // the Reynolds number and
-    // the Darcy friction factor based on
-    // the volumetric flow rate and
-    // the pipe's roughness
+    // hQthk2fDRe computes the Reynolds number and the Darcy friction factor based on the volumetric flow rate and the pipe's roughness
     //
     // Syntax
     // [Re,fD]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,fig])
