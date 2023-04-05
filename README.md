@@ -422,6 +422,10 @@ Compute the Reynolds number *Re* and the Darcy friction factor *f* given the sam
 [Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-2,%t)
 ```
 
+### See Also
+
+[Psychrometrics-for-Scilab](https://github.com/aumpierre-unb/Psychrometrics-for-Scilab).
+
 Copyright &copy; 2022 2023 Alexandre Umpierre
 
 email: aumpierre@gmail.com
