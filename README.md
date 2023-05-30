@@ -6,14 +6,14 @@
 
 ## Install and load `internal-fluid-flow` Toolbox for Scilab
 
-1\. Download ```v0.2.1.zip``` file from [Releases](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/releases).
+1\. Download ```v0.2.2.zip``` file from [Releases](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/releases).
 
 2\. Set Scilab current directory to the download folder.
 
 3\. To install and load the toolbox, type:
 
 ```powershell-interactive
-atomsInstall('v0.2.1.zip'),..
+atomsInstall('v0.2.2.zip'),..
 atomsLoad('inflowlib')
 ```
 
