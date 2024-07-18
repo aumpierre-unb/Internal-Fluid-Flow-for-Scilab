@@ -47,6 +47,11 @@ The Bernoulli equation is an expression of the mechanical energy balance for a v
 
 For such a case, the mechanical energy is conserved, and for any two points 1 and 2 we have
 
+`$$
+{\rho v_2^2 \over 2} + \rho g z_2 + p_2 =
+{\rho v_1^2 \over 2} + \rho g z_1 + p_1
+$$`
+
 $$
 {\rho v_2^2 \over 2} + \rho g z_2 + p_2 =
 {\rho v_1^2 \over 2} + \rho g z_1 + p_1
