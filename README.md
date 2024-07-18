@@ -301,7 +301,7 @@ Compute the Reynolds number *Re* and the Darcy friction factor *f* given the sam
 `hQeps2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
 $$
-Re^5 f=\frac{2ghQ^3}{{ \left( {\pi \over 4} \right) }}
+Re^5 f={{2ghQ^3} \over { \left( {\pi \over 4} \right) }}
 $$
 
 $$
