@@ -236,7 +236,7 @@ Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
 the head loss *h* = 0.40 m,
 
-the gravitational acceleration *h* = 9.81 m/s/s,
+the gravitational acceleration *g* = 9.81 m/s/s,
 
 the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg/L, and
 
