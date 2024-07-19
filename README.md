@@ -52,6 +52,11 @@ $$
 {\rho v_1^2 \over 2} + \rho g z_1 + p_1
 $$
 
+\begin{equation}
+{\rho v_2^2 \over 2} + \rho g z_2 + p_2 =
+{\rho v_1^2 \over 2} + \rho g z_1 + p_1
+\end{equation}
+
 or
 
 $$
